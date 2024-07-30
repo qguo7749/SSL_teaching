@@ -1,3 +1,12 @@
+
+const style = document.createElement('style');
+  style.innerHTML = `
+    .highlighted {
+      border: 2px solid red;
+    }
+  `;
+  document.head.appendChild(style);
+
 // Initialize jsPsych
 const jsPsych = initJsPsych();
 
@@ -5,12 +14,12 @@ const jsPsych = initJsPsych();
 const timeline = [];
 
 // Define the images
-let img1 = "<img src='assets/blue.jpg' height='150'>";
-let img2 = "<img src='assets/cyan.jpg' height='150'>";
-let img3 = "<img src='assets/green.jpg' height='150'>";
-let img4 = "<img src='assets/magenta.jpg' height='150'>";
-let img5 = "<img src='assets/red.jpg' height='150'>";
-let img6 = "<img src='assets/yellow.jpg' height='150'>";
+let img1 = "<img src='assets/C1.jpg' height='150'>";
+let img2 = "<img src='assets/C2.jpg' height='150'>";
+let img3 = "<img src='assets/C3.jpg' height='150'>";
+let img4 = "<img src='assets/C4.jpg' height='150'>";
+let img5 = "<img src='assets/C5.jpg' height='150'>";
+let img6 = "<img src='assets/C6.jpg' height='150'>";
 
 let displayOrder = [img1, img2, img3, img4, img5, img6];
 const trueOrderArray = [[img1, 0], [img2, 1], [img3, 2], [img4, 3], [img5, 4], [img6, 5]];
@@ -36,7 +45,7 @@ function removeSelection(imglist) {
   let result = imglist.map(x => x);
   for (let i = 0; i < imglist.length; i++) {
     if (imglist[i].includes(" id='selected'")) {
-      result[i] = result[i].replace(" id='selected'", "");
+      result[i] = result[i].replace(" id='selected'", "").replace("highlighted", "");
     }
   }
   return result;
@@ -56,7 +65,8 @@ function shuffle(array) {
 // Preload assets
 timeline.push({
   type: jsPsychPreload,
-  images: ['assets/blue.jpg', 'assets/cyan.jpg', 'assets/green.jpg', 'assets/magenta.jpg', 'assets/red.jpg', 'assets/yellow.jpg'],
+  images: ['assets/C1.jpg', 'assets/C2.jpg', 'assets/C3.jpg', 'assets/C4.jpg', 'assets/C5.jpg', 'assets/C6.jpg'],
+  
 });
 
 // Welcome screen
@@ -90,10 +100,10 @@ const refresh = {
 
     if (data1.response !== null && displayOrder[data1.response] !== undefined) {
       if (displayOrder[data1.response].includes(" id='selected'")) {
-        displayOrder[data1.response] = displayOrder[data1.response].replace(" id='selected'", "");
+        displayOrder[data1.response] = displayOrder[data1.response].replace(" id='selected'", "").replace("highlighted", "");
         switch_attempted = false;
       } else {
-        displayOrder[data1.response] = displayOrder[data1.response].replace("<img", "<img id='selected'");
+        displayOrder[data1.response] = displayOrder[data1.response].replace("<img", "<img id='selected' class='highlighted'");
         switch_attempted = true;
       }
       if (times_clicked % 2 === 0 && switch_attempted) {
