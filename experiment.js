@@ -1,11 +1,5 @@
-
-const style = document.createElement('style');
-  style.innerHTML = `
-    .highlighted {
-      border: 2px solid red;
-    }
-  `;
-  document.head.appendChild(style);
+var selected_color = "#FF7909"
+var unselected_color = "#000000"
 
 // Initialize jsPsych
 const jsPsych = initJsPsych();
@@ -45,7 +39,7 @@ function removeSelection(imglist) {
   let result = imglist.map(x => x);
   for (let i = 0; i < imglist.length; i++) {
     if (imglist[i].includes(" id='selected'")) {
-      result[i] = result[i].replace(" id='selected'", "").replace("highlighted", "");
+      result[i] = result[i].replace(" id='selected'", "");
     }
   }
   return result;
@@ -66,7 +60,6 @@ function shuffle(array) {
 timeline.push({
   type: jsPsychPreload,
   images: ['assets/C1.jpg', 'assets/C2.jpg', 'assets/C3.jpg', 'assets/C4.jpg', 'assets/C5.jpg', 'assets/C6.jpg'],
-  
 });
 
 // Welcome screen
@@ -100,10 +93,10 @@ const refresh = {
 
     if (data1.response !== null && displayOrder[data1.response] !== undefined) {
       if (displayOrder[data1.response].includes(" id='selected'")) {
-        displayOrder[data1.response] = displayOrder[data1.response].replace(" id='selected'", "").replace("highlighted", "");
+        displayOrder[data1.response] = displayOrder[data1.response].replace(" id='selected'", "");
         switch_attempted = false;
       } else {
-        displayOrder[data1.response] = displayOrder[data1.response].replace("<img", "<img id='selected' class='highlighted'");
+        displayOrder[data1.response] = displayOrder[data1.response].replace("<img", "<img id='selected'");
         switch_attempted = true;
       }
       if (times_clicked % 2 === 0 && switch_attempted) {
