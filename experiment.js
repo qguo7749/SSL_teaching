@@ -13,14 +13,146 @@ timeline.push({
   images: ['assets/C1.jpg', 'assets/C2.jpg', 'assets/C3.jpg', 'assets/C4.jpg', 'assets/C5.jpg', 'assets/C6.jpg','assets/C7.jpg','assets/C8.jpg'],
 });
 
+// Define the images
 
+  //load all available images
+  let img1 = "<img src='assets/C1.jpg' height='150'>";
+  let img2 = "<img src='assets/C2.jpg' height='150'>";
+  let img3 = "<img src='assets/C3.jpg' height='150'>";
+  let img4 = "<img src='assets/C4.jpg' height='150'>";
+  let img5 = "<img src='assets/C5.jpg' height='150'>";
+  let img6 = "<img src='assets/C6.jpg' height='150'>";
+  let img7 = "<img src='assets/C7.jpg' height='150'>";
+  let img8 = "<img src='assets/C8.jpg' height='150'>";
 
 //////////////////////////////////////////////////////////////////// LEARN BLOCK ///////////////////////////////////////////////////////////////////////////
 
+
+order_in_num=[1,0,2,3,4]
+list_comp=[[0,1],[1,2]]
+list_comp_bool=[1,1]
+let img_t=[img1,img2,img3,img4,img5]
+let img_s=[img1,img2,img3,img4,img5]
+
+// img_t[list_comp[0][0]]=img_t[list_comp[0][0]].replace("<img", "<img id='selected'");
+
+
+
+var imi_hl1={
+  type: jsPsychHtmlButtonResponse,
+  stimulus: function() {
+    img_t[list_comp[0][0]]=img_t[list_comp[0][0]].replace("<img", "<img id='selected'");
+    img_t_join=img_t.join(" ");
+    return img_t_join
+  },
+  choices: img_s,
+  margin_vertical:'100px',
+  button_html: '<button class="jspsych-btn">%choice%</button>',
+  prompt: "<p>Select any two images to compare, or click finish if you are done sorting.</p>",
+  trial_duration:500,
+}
+
+var imi_hl2={
+  type: jsPsychHtmlButtonResponse,
+  stimulus: function() {
+    img_t[list_comp[0][0]]=img_t[list_comp[0][0]].replace("<img", "<img id='selected'");
+    img_t[list_comp[0][1]]=img_t[list_comp[0][1]].replace("<img", "<img id='selected'");
+    img_t_join=img_t.join(" ");
+    return img_t_join
+  },
+  choices: img_s,
+  margin_vertical:'100px',
+  button_html: '<button class="jspsych-btn">%choice%</button>',
+  prompt: "<p>Select any two images to compare, or click finish if you are done sorting.</p>",
+  trial_duration:800,
+}
+
+
+
+var imi_comp1={
+  type: jsPsychHtmlButtonResponse,
+  stimulus: function(){
+    if (list_comp_bool[0]==1){
+      temp=img_t[list_comp[0][0]]
+      img_t[list_comp[0][0]]=img_t[list_comp[0][1]].replace("<img", "<img id='selected'");
+      img_t[list_comp[0][1]]=temp.replace("<img", "<img id='selected'");
+      img_t_join=img_t.join(" ");
+
+    }else{
+      img_t[list_comp[0][0]]=img_t[list_comp[0][0]].replace("<img", "<img id='selected'");
+      img_t[list_comp[0][1]]=img_t[list_comp[0][1]].replace("<img", "<img id='selected'");
+      img_t_join=img_t.join(" ");
+    }
+
+    return img_t_join
+  },
+  choices: img_s,
+  margin_vertical:'100px',
+  button_html: '<button class="jspsych-btn">%choice%</button>',
+  prompt: "<p>Select any two images to compare, or click finish if you are done sorting.</p>",
+  trial_duration:1000,
+}
+
+timeline.push(imi_hl1)
+timeline.push(imi_hl2)
+timeline.push(imi_comp1)
+
+const imi_comp2={
+  type: jsPsychHtmlButtonResponse,
+  stimulus: img_t,
+  choices: function () {
+    return img_s;
+  },
+  margin_vertical:'100px',
+  button_html: '<button class="jspsych-btn">%choice%</button>',
+  prompt: "<p>Select any two images to compare, or click finish if you are done sorting.</p>",
+}
+
+
+const refresh = {
+  timeline: [imi_comp2],
+  conditional_function: function () {
+    let data1 = jsPsych.data.get().last(1).values()[0];//the second selection
+    let data2 = jsPsych.data.get().last(2).values()[0]; //the first selection
+
+    if (jsPsych.pluginAPI.compareKeys(String(data1.response), String(list_comp[0][1]))&&jsPsych.pluginAPI.compareKeys(String(data2.response), String(list_comp[0][0]))&&list_comp_bool[0]==1){
+      let temp = img_s[data1.response];
+      img_s[data1.response] = img_s[data2.response];
+      img_s[data2.response] = temp;
+      return false;
+    }else if (jsPsych.pluginAPI.compareKeys(String(data1.response), String(list_comp[0][0]))&&jsPsych.pluginAPI.compareKeys(String(data2.response), String(list_comp[0][1]))&&list_comp_bool[0]==1){
+      let temp = img_s[data1.response];
+      img_s[data1.response] = img_s[data2.response];
+      img_s[data2.response] = temp;
+      return false;
+    }else{
+    return true;
+    };
+  },
+}
+
+
+
+const loopNode = {
+  timeline: [refresh],
+  loop_function: function (data) {
+    let data1 = jsPsych.data.get().last(1).values()[0];//the second selection
+    let data2 = jsPsych.data.get().last(2).values()[0]; //the first selection
+    if (jsPsych.pluginAPI.compareKeys(String(data1.response), String(list_comp[0][1]))&&jsPsych.pluginAPI.compareKeys(String(data2.response), String(list_comp[0][0]))) {
+      return false;
+    } else if (jsPsych.pluginAPI.compareKeys(String(data1.response), String(list_comp[0][0]))&&jsPsych.pluginAPI.compareKeys(String(data2.response), String(list_comp[0][1]))){
+      return false
+    } else {
+      return true;
+    }
+  },
+};
+
+timeline.push(loopNode)
+
+//////////////////////////////////////////////////////////////////// DO BLOCK ///////////////////////////////////////////////////////////////////////////
 // import ini_shuffle from "./do_block_funcs";
 // ini_shuffle();
-//////////////////////////////////////////////////////////////////// DO BLOCK ///////////////////////////////////////////////////////////////////////////
-
 n_img_disp_list=[]
 for(var i=0; i<4; i++){
   if (i%2==0){n_img_disp_list.push(5)
@@ -99,17 +231,7 @@ for(var i=0; i<4; i++){
   }
 
 
-  // Define the images
-
-  //load all available images
-  let img1 = "<img src='assets/C1.jpg' height='150'>";
-  let img2 = "<img src='assets/C2.jpg' height='150'>";
-  let img3 = "<img src='assets/C3.jpg' height='150'>";
-  let img4 = "<img src='assets/C4.jpg' height='150'>";
-  let img5 = "<img src='assets/C5.jpg' height='150'>";
-  let img6 = "<img src='assets/C6.jpg' height='150'>";
-  let img7 = "<img src='assets/C7.jpg' height='150'>";
-  let img8 = "<img src='assets/C8.jpg' height='150'>";
+  
 
   img_all=[img1, img2, img3, img4, img5, img6, img7, img8];
 
@@ -226,5 +348,7 @@ for(var i=0; i<4; i++){
 
 
 //////////////////////////////////////////////////////////////////// TEACH BLOCK ///////////////////////////////////////////////////////////////////////////
+
+
 
 jsPsych.run(timeline);
