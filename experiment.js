@@ -10,20 +10,24 @@ const timeline = [];
 // Preload assets
 timeline.push({
   type: jsPsychPreload,
-  images: ['assets/C1.jpg', 'assets/C2.jpg', 'assets/C3.jpg', 'assets/C4.jpg', 'assets/C5.jpg', 'assets/C6.jpg','assets/C7.jpg','assets/C8.jpg'],
+  images: ['assets/C1.jpg', 'assets/C2.jpg', 'assets/C3.jpg', 'assets/C4.jpg', 'assets/C5.jpg', 'assets/C6.jpg','assets/C7.jpg','assets/C8.jpg','assets/V_1_0.jpg','assets/V_1_1.jpg','assets/V_1_2.jpg','assets/V_1_3.jpg'],
 });
 
 // Define the images
 
 //load all available images
-let img1 = "<img src='assets/C1.jpg' height='150'>";
-let img2 = "<img src='assets/C2.jpg' height='150'>";
-let img3 = "<img src='assets/C3.jpg' height='150'>";
-let img4 = "<img src='assets/C4.jpg' height='150'>";
-let img5 = "<img src='assets/C5.jpg' height='150'>";
-let img6 = "<img src='assets/C6.jpg' height='150'>";
-let img7 = "<img src='assets/C7.jpg' height='150'>";
-let img8 = "<img src='assets/C8.jpg' height='150'>";
+let img1 = "<img src='assets/C1.jpg' height='120'>";
+let img2 = "<img src='assets/C2.jpg' height='120'>";
+let img3 = "<img src='assets/C3.jpg' height='120'>";
+let img4 = "<img src='assets/C4.jpg' height='120'>";
+let img5 = "<img src='assets/C5.jpg' height='120'>";
+let img6 = "<img src='assets/C6.jpg' height='120'>";
+let img7 = "<img src='assets/C7.jpg' height='120'>";
+let img8 = "<img src='assets/C8.jpg' height='120'>";
+let img_v_1_0 = "<img src='assets/V_1_0.jpg' height='200'>";
+let img_v_1_1 = "<img src='assets/V_1_1.jpg' height='200'>";
+let img_v_1_2 = "<img src='assets/V_1_2.jpg' height='200'>";
+let img_v_1_3 = "<img src='assets/V_1_3.jpg' height='200'>";
 
 
 //////////////////////////////////////////////////////////////////// LEARN BLOCK ///////////////////////////////////////////////////////////////////////////
@@ -32,18 +36,18 @@ let img8 = "<img src='assets/C8.jpg' height='150'>";
 order_in_num=[1,0,2,3,4]
 list_comp=[[0,1],[1,2],[2,3]]
 list_comp_bool=[1,0,1]
-const img_t=[img1,img2,img3,img4,img5]
+const img_t=[img1,img2,img3,img4,img5,img_v_1_0]
 const img_s=[img1,img2,img3,img4,img5]
+const img_v_1=[img_v_1_1,img_v_1_2,img_v_1_3]
 
-// img_t[list_comp[0][0]]=img_t[list_comp[0][0]].replace("<img", "<img id='selected'");
 
 for(var i=0; i<3; i++){
 
   const index_t_1=list_comp[i][0]
   const index_t_2=list_comp[i][1]
   const imit_swap=list_comp_bool[i]
+  const img_v_1_i=img_v_1[i]
   
-
 
   const imi_hl1={
     type: jsPsychHtmlButtonResponse,
@@ -95,7 +99,7 @@ for(var i=0; i<3; i++){
     choices: img_s,
     margin_vertical:'100px',
     button_html: '<button class="jspsych-btn">%choice%</button>',
-    prompt: "<p>Select any two images to compare, or click finish if you are done sorting.</p>",
+    prompt: "<p> Select any two images to compare, or click finish if you are done sorting.</p>",
     trial_duration:1000,
   }
 
@@ -111,50 +115,9 @@ for(var i=0; i<3; i++){
       return img_s;
     },
     margin_vertical:'100px',
-    button_html: '<button class="jspsych-btn">%choice%</button>',
+    button_html: '<button class="jspsych-btn" >%choice%</button>',
     prompt: "<p>Select any two images to compare, or click finish if you are done sorting.</p>",
   }
-
-
-
-
-  // const refresh = {
-  //   timeline: [imi_comp2],
-  //   conditional_function: function () {
-
-  //     let data1 = jsPsych.data.get().last(1).values()[0];//the second selection
-  //     let data2 = jsPsych.data.get().last(2).values()[0]; //the first selection
-  //     console.log(data2.response)
-
-  //     if (data2.response !== null && imit_swap==1) {
-  //       console.log("yes")
-  //       let temp = img_s[data1.response];
-  //       img_s[data1.response] = img_s[data2.response];
-  //       img_s[data2.response] = temp;
-  //     }
-  //     if (jsPsych.pluginAPI.compareKeys(String(data2.response), String(index_t_1))&&jsPsych.pluginAPI.compareKeys(String(data1.response), String(index_t_2))) {//whether you clicked "finished" which is string(6)
-  //       return false;
-  //     }
-  //     return true;
-  //   },
-  // };
-
-
-
-  // const loopNode = {
-  //   timeline: [refresh],
-  //   loop_function: function (data) {
-  //     let data1 = jsPsych.data.get().last(1).values()[0];//the second selection
-  //     let data2 = jsPsych.data.get().last(2).values()[0]; //the first selection
-  //     if (jsPsych.pluginAPI.compareKeys(String(data1.response), String(index_t_2))&&jsPsych.pluginAPI.compareKeys(String(data2.response), String(index_t_1))) {
-  //       return false;
-  //     } else if (jsPsych.pluginAPI.compareKeys(String(data1.response), String(index_t_1))&&jsPsych.pluginAPI.compareKeys(String(data2.response), String(index_t_2))){
-  //       return false
-  //     } else {
-  //       return true;
-  //     }
-  //   },
-  // };
 
 
   const refresh = {
@@ -165,28 +128,20 @@ for(var i=0; i<3; i++){
       let data2 = jsPsych.data.get().last(2).values()[0]; //the first selection
       // console.log(data2.response)
       if (jsPsych.pluginAPI.compareKeys(String(data1.response), String(index_t_2))&&jsPsych.pluginAPI.compareKeys(String(data2.response), String(index_t_1))&& imit_swap==1) {
+        
         // console.log("yes")
 
         return false;
       } else if (jsPsych.pluginAPI.compareKeys(String(data1.response), String(index_t_1))&&jsPsych.pluginAPI.compareKeys(String(data2.response), String(index_t_2))&& imit_swap==1){
+        
         // console.log("yes")
 
         return false
       } else {
+        
         return true;
       }
     },
-
-      // if (data2.response !== null && imit_swap==1) {
-      //   console.log("yes")
-      //   let temp = img_s[data1.response];
-      //   img_s[data1.response] = img_s[data2.response];
-      //   img_s[data2.response] = temp;
-      // }
-      // if (jsPsych.pluginAPI.compareKeys(String(data2.response), String(index_t_1))&&jsPsych.pluginAPI.compareKeys(String(data1.response), String(index_t_2))) {//whether you clicked "finished" which is string(6)
-      //   return false;
-      // }
-      // return true;
   };
 
 
@@ -201,22 +156,26 @@ for(var i=0; i<3; i++){
           let temp = img_s[data1.response];
           img_s[data1.response] = img_s[data2.response];
           img_s[data2.response] = temp;
+          img_t.pop();
+          img_t.push(img_v_1_i)
           return false;
         } else {
+          img_t.pop();
+          img_t.push(img_v_1_i)
           return false;
-        }
+          
+        };
       };
       return true;
     },
   };
-
-
-
-
-
-
-
+  
   timeline.push(loopNode)
+
+
+
+  
+  
 
   const imi_hl0={
     type: jsPsychHtmlButtonResponse,
@@ -224,13 +183,13 @@ for(var i=0; i<3; i++){
       // console.log(img_t) 
       img_t[index_t_1]=img_t[index_t_1].replace("id='selected'", "");
       img_t[index_t_2]=img_t[index_t_2].replace("id='selected'", "");
-      // console.log(img_t) 
       const img_t_join=img_t.join(" ");
+      
       return img_t_join
     },
     choices: img_s,
     margin_vertical:'100px',
-    button_html: '<button class="jspsych-btn">%choice%</button>',
+    button_html: '<button class="jspsych-btn" >%choice%</button>',
     prompt: "<p>Select any two images to compare, or click finish if you are done sorting.</p>",
     trial_duration:500,
   }
