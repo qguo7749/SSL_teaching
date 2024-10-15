@@ -10,7 +10,7 @@ const timeline = [];
 // Preload assets
 timeline.push({
   type: jsPsychPreload,
-  images: ['assets/C1.jpg', 'assets/C2.jpg', 'assets/C3.jpg', 'assets/C4.jpg', 'assets/C5.jpg', 'assets/C6.jpg','assets/C7.jpg','assets/C8.jpg','assets/V_1_0.jpg','assets/V_1_1.jpg','assets/V_1_2.jpg','assets/V_1_3.jpg'],
+  images: ['assets/C1.jpg', 'assets/C2.jpg', 'assets/C3.jpg', 'assets/C4.jpg', 'assets/C5.jpg', 'assets/C6.jpg','assets/C7.jpg','assets/C8.jpg','assets/V_1_0.jpg','assets/V_1_1.jpg','assets/V_1_2.jpg','assets/V_1_3.jpg','assets/V_1_4.jpg','assets/V_1_5.jpg','assets/V_1_6.jpg'],
 });
 
 // Define the images
@@ -24,24 +24,27 @@ let img5 = "<img src='assets/C5.jpg' height='120'>";
 let img6 = "<img src='assets/C6.jpg' height='120'>";
 let img7 = "<img src='assets/C7.jpg' height='120'>";
 let img8 = "<img src='assets/C8.jpg' height='120'>";
-let img_v_1_0 = "<img src='assets/V_1_0.jpg' height='200'>";
-let img_v_1_1 = "<img src='assets/V_1_1.jpg' height='200'>";
-let img_v_1_2 = "<img src='assets/V_1_2.jpg' height='200'>";
-let img_v_1_3 = "<img src='assets/V_1_3.jpg' height='200'>";
+let img_v_1_0 = "<img src='assets/V_1_0.jpg' height='300'>";
+let img_v_1_1 = "<img src='assets/V_1_1.jpg' height='300'>";
+let img_v_1_2 = "<img src='assets/V_1_2.jpg' height='300'>";
+let img_v_1_3 = "<img src='assets/V_1_3.jpg' height='300'>";
+let img_v_1_4 = "<img src='assets/V_1_4.jpg' height='300'>";
+let img_v_1_5 = "<img src='assets/V_1_5.jpg' height='300'>";
+let img_v_1_6 = "<img src='assets/V_1_6.jpg' height='300'>";
 
 
 //////////////////////////////////////////////////////////////////// LEARN BLOCK ///////////////////////////////////////////////////////////////////////////
 
 
-order_in_num=[1,0,2,3,4]
-list_comp=[[0,1],[1,2],[2,3]]
-list_comp_bool=[1,0,1]
+
+list_comp=[[0, 1], [1, 2], [0, 1], [2, 3], [3, 4], [2, 3]]
+list_comp_bool=[0, 1, 0, 0, 1, 0]
 const img_t=[img1,img2,img3,img4,img5,img_v_1_0]
 const img_s=[img1,img2,img3,img4,img5]
-const img_v_1=[img_v_1_1,img_v_1_2,img_v_1_3]
+const img_v_1=[img_v_1_1,img_v_1_2,img_v_1_3,img_v_1_4,img_v_1_5,img_v_1_6]
 
 
-for(var i=0; i<3; i++){
+for(var i=0; i<list_comp_bool.length; i++){
 
   const index_t_1=list_comp[i][0]
   const index_t_2=list_comp[i][1]
@@ -58,7 +61,7 @@ for(var i=0; i<3; i++){
     },
     choices: img_s,
     margin_vertical:'100px',
-    button_html: '<button class="jspsych-btn">%choice%</button>',
+    button_html: '<button class="jspsych-btn" style="position: relative ;right:100%; ">%choice%</button>',
     prompt: "<p>Select any two images to compare, or click finish if you are done sorting.</p>",
     trial_duration:500,
   }
@@ -73,7 +76,7 @@ for(var i=0; i<3; i++){
     },
     choices: img_s,
     margin_vertical:'100px',
-    button_html: '<button class="jspsych-btn">%choice%</button>',
+    button_html: '<button class="jspsych-btn" style="position: relative ;right:100%; ">%choice%</button>',
     prompt: "<p>Select any two images to compare, or click finish if you are done sorting.</p>",
     trial_duration:800,
   }
@@ -98,7 +101,7 @@ for(var i=0; i<3; i++){
     },
     choices: img_s,
     margin_vertical:'100px',
-    button_html: '<button class="jspsych-btn">%choice%</button>',
+    button_html: '<button class="jspsych-btn" style="position: relative ;right:100%; ">%choice%</button>',
     prompt: "<p> Select any two images to compare, or click finish if you are done sorting.</p>",
     trial_duration:1000,
   }
@@ -115,7 +118,7 @@ for(var i=0; i<3; i++){
       return img_s;
     },
     margin_vertical:'100px',
-    button_html: '<button class="jspsych-btn" >%choice%</button>',
+    button_html: '<button class="jspsych-btn" style="position: relative ;right:100%; ">%choice%</button>',
     prompt: "<p>Select any two images to compare, or click finish if you are done sorting.</p>",
   }
 
@@ -189,7 +192,7 @@ for(var i=0; i<3; i++){
     },
     choices: img_s,
     margin_vertical:'100px',
-    button_html: '<button class="jspsych-btn" >%choice%</button>',
+    button_html: '<button class="jspsych-btn"  style="position: relative ;right:100%; ">%choice%</button>',
     prompt: "<p>Select any two images to compare, or click finish if you are done sorting.</p>",
     trial_duration:500,
   }
