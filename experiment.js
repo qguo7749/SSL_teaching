@@ -751,7 +751,40 @@ const demo_8_4=[[8, 3, 7, 6, 5, 4, 2, 1], [8, 7, 6, 4, 5, 1, 3, 2], [7, 8, 5, 6,
 
 
 
-let globalDemoSequences = [];
+function removeSelection_demo(imglist) {
+  let result = imglist.map(x => x);
+  for (let i = 0; i < imglist.length; i++) {
+    if (imglist[i].includes(" id='selected'")) { //id=selected might be jspsych features
+      result[i] = result[i].replace(" id='selected'", "");
+    }
+  }
+  return result;
+}
+
+function switchOrNot_demo(imga, imgb,trueOrder) {
+  const order_imga=trueOrder.get(imga);
+  const order_imgb=trueOrder.get(imgb);
+  if (!order_imga || !order_imgb) return false;
+
+  if (order_imga > order_imgb ) {//get the value for dictionary
+    // console.log("sornot1",trueOrder)
+    // console.log(trueOrder.get(imgb))
+    var bigger = imga;
+    var smaller = imgb;
+  } else {
+    
+    // console.log("sornot2",trueOrder.get(imga))
+    // console.log(imgb)
+    // console.log("sornot2",trueOrder)
+    // console.log("sornot2",trueOrder.get(imgb))
+    var bigger = imgb;
+    var smaller = imga;
+  }
+  let clean = removeSelection_demo(displayOrder);
+  return !(clean.indexOf(bigger) > clean.indexOf(smaller));
+}
+
+
 const teaching_choice = {
   type: jsPsychSurveyMultiChoice,
   questions: [
@@ -783,8 +816,6 @@ const teaching_choice = {
       required: true,
       horizontal: true
     },
-
-
     // },{
     //   prompt: "<strong>Example 3</strong>: how many items needs to be sorted?", 
     //   name: 'length', 
@@ -813,68 +844,323 @@ const teaching_choice = {
     //   horizontal: true
     // },
   ],
-  on_finish: function(data) {
-    var answer_Q1 = [data.response.Q0,data.response.Q1,data.response.Q2,data.response.Q3]; 
-    var demo_all=[]
-    for (var j=0; j<4; j+=2){
-      var a=answer_Q1[j];
-      // console.log(a)
-      if (a=="5-item" && answer_Q1[j+1]=="least") {
-        demo_all.push(demo_5_1[0]);
-        demo_5_1.shift()
-      }
-      if (a=="5-item" && answer_Q1[j+1]=="somehow") {
-        demo_all.push(demo_5_2[0]);
-        demo_5_2.shift()
-      }
-      if (a=="5-item" && answer_Q1[j+1]=="fairly") {
-        demo_all.push(demo_5_3[0]);
-        demo_5_3.shift()
-      }
-      if (a=="5-item" && answer_Q1[j+1]=="most") {
-        demo_all.push(demo_5_4[0]);
-        demo_5_4.shift()
-      }
-      if (a=="8-item" && answer_Q1[j+1]=="least") {
-        demo_all.push(demo_8_1[0]);
-        demo_8_1.shift()
-      }
-      if (a=="8-item" && answer_Q1[j+1]=="somehow") {
-        demo_all.push(demo_8_2[0]);
-        demo_8_2.shift()
-      }
-      if (a=="8-item" && answer_Q1[j+1]=="fairly") {
-        demo_all.push(demo_8_3[0]);
-        demo_8_3.shift()
-      }
-      if (a=="8-item" && answer_Q1[j+1]=="most") {
-        demo_all.push(demo_8_4[0]);
-        demo_8_4.shift()
-      }
-      console.log(demo_all)
-      // var globalDemoSequences  = demo_all;
-    
-    }
-    // console.log(answer_Q1)
-    globalDemoSequences.push(demo_all);
-    // console.log(data.response.Q1);
-  }
   
 };
 
-// console.log("ss",globalDemoSequences)
 // console.log(demo_all)
+  
+  
+// Then create a trial to handle the demo blocks
+const demo_blocks = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: "+",
+  trial_duration: 0,
+  on_start: function() {
+      // Get the sequences from the teaching choice
+      const lastTrial = jsPsych.data.get().last(1).values()[0].response;
+      // console.log(lastTrial)
+      var answer_Q1 = [lastTrial.Q0, lastTrial.Q1, 
+                      lastTrial.Q2, lastTrial.Q3];
+      // console.log(answer_Q1)
+      var demo_all = [];
+      // Your sequence processing code
+      for (var j=0; j<4; j+=2) {
+        var a=answer_Q1[j];
+        // console.log(a)
+        if (a=="5-item" && answer_Q1[j+1]=="least") {
+          demo_all.push(demo_5_1[0]);
+          demo_5_1.shift()
+        }
+        if (a=="5-item" && answer_Q1[j+1]=="somehow") {
+          demo_all.push(demo_5_2[0]);
+          demo_5_2.shift()
+        }
+        if (a=="5-item" && answer_Q1[j+1]=="fairly") {
+          demo_all.push(demo_5_3[0]);
+          demo_5_3.shift()
+        }
+        if (a=="5-item" && answer_Q1[j+1]=="most") {
+          demo_all.push(demo_5_4[0]);
+          demo_5_4.shift()
+        }
+        if (a=="8-item" && answer_Q1[j+1]=="least") {
+          demo_all.push(demo_8_1[0]);
+          demo_8_1.shift()
+        }
+        if (a=="8-item" && answer_Q1[j+1]=="somehow") {
+          demo_all.push(demo_8_2[0]);
+          demo_8_2.shift()
+        }
+        if (a=="8-item" && answer_Q1[j+1]=="fairly") {
+          demo_all.push(demo_8_3[0]);
+          demo_8_3.shift()
+        }
+        if (a=="8-item" && answer_Q1[j+1]=="most") {
+          demo_all.push(demo_8_4[0]);
+          demo_8_4.shift()
+        }
+          // ... rest of conditions ...
+      }
+      // window.current_demo_data = demo_all;
+      // jsPsych.data.addProperties({demos:demo_all});
+      // console.log(jsPsych.getCurrentTimelineNodeID())
+
+      // currentDemoData = demo_all;
+      window.demo_all = demo_all;
+      console.log("Aa",demo_all)
+    }
+};
+
+
 timeline.push(teaching_choice)
+timeline.push(demo_blocks)
+
+  // console.log(jsPsych.data.get().values[0].answers)
+    
+
+  
 
 
 
-for (var j=0; j<4; j++){
-  var a=globalDemoSequences[j];
-  console.log(a)
 
-}   
+  
+    
+
+// const display_img_demo = {
+//     type: jsPsychHtmlKeyboardResponse,
+//     stimulus: function () {
+//       demo_all=jsPsych.data.get().last(1).values()[0].demos
+//       order_demo=demo_all[0];
+//       n_img_disp=order_demo.length;
+//       console.log(demo_all)
+
+//       var displayOrder=[img1,img2,img3,img4,img5];
+//       console.log(demo_all[0])
+//       if (order_demo==8){
+//         var displayOrder=[img1,img2,img3,img4,img5,img6,img7,img8];
+//       };
+//       console.log("SS",displayOrder)
+//       displayOrder.push("finish"); 
+//       console.log("SS2",displayOrder)
+//       return "<p>+</p>";
+//     },
+//     trial_duration: 500,
+// };
 
 
+
+
+let times_clicked = -1;
+let times_switched = 0;
+let switch_attempted = false;
+
+//if select 5-item, change displayOrder from [img1,img2,img3,img4,img5,img6,img7,img8] to [img1,img2,img3,img4,img5]
+function demo_length(array1,array2) { //array1 is displayOrder ([img1,img2,img3,img4,img5,img6,img7,img8]) array2 is the order selected (such as 5,2,3,4,1)
+  let newArray = [...array1]; // Create a copy to avoid modifying original
+  if (array2.length == 5) {
+    newArray = newArray.slice(0, 5);
+  }
+  newArray.push("finish");
+  return newArray;
+
+  
+  // if (array.length==5){
+  //   array.push("finish");
+  // }else{
+  //   array.pop();
+  //   array.pop();
+  //   array.pop();
+  //   array.push("finish");
+  // }
+  
+  // return array;
+}
+displayOrder=[img1,img2,img3,img4,img5,img6,img7,img8];
+
+// var demo_img_order=[[img1,demo_all[0][0]],[img2,demo_all[0][1]],[img3,demo_all[0][2]],[img4,demo_all[0][3]],[img5,demo_all[0][4]]];
+// const trueOrder = new Map(demo_img_order);
+function trueOrderBuilder(array1,array2,q){
+  var array=[];
+  for (var ii=0;ii<array1.length;ii++) {
+    // console.log(array1.length)
+    array.push([array1[ii],array2[q][ii]])
+  }
+  return array;
+}
+
+let globalTrueOrder_Q1 = null;
+let global_order_demo_Q1=null;
+let global_n_img_disp_Q1=null;
+
+
+
+timeline.push({
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: function () {
+    // displayOrder = shuffle(displayOrder); 
+    // demo_all=jsPsych.data.get().last(1).values()[0].demos;
+    global_order_demo_Q1=demo_all[0];
+    console.log(global_order_demo_Q1)
+    global_n_img_disp_Q1=global_order_demo_Q1.length;
+    // globalTrueOrder_Q1 = new Map(trueOrderBuilder(removeSelection_demo(displayOrder),demo_all,0));
+    // globalTrueOrder_Q1 = new Map(trueOrderBuilder(removeSelection_demo(displayOrder), window.demo_all, 0));
+    globalTrueOrder_Q1 = new Map(trueOrderBuilder(removeSelection_demo(displayOrder), global_order_demo_Q1, 0));
+    console.log("dd",global_order_demo_Q1.length)
+    displayOrder=demo_length(displayOrder,global_order_demo_Q1);
+    console.log("dd",displayOrder)
+    // if (global_n_img_disp_Q1==5){
+    //   displayOrder=demo_length(displayOrder);
+    // };
+
+    return "<p> + <p/>";
+  },
+  trial_duration: 500,
+});
+
+const display_img_demo = {
+  type: jsPsychHtmlButtonResponse,
+  stimulus: "",
+  choices: function () {
+    return displayOrder;
+  },
+  button_html: '<button class="jspsych-btn">%choice%</button>',
+  prompt: "<p>Select any two images to compare, or click finish if you are done sorting.</p>",
+};
+
+
+const refresh_demo = {
+  timeline: [display_img_demo],
+  conditional_function: function () {
+    // console.log("display_img_demo")
+    // demo_all=jsPsych.data.get().last(1).values()[0].demos;
+    // demo_all=jsPsych.data.getDataByTimelineNode("0.0-2.0").values()[0].demos;
+    // demo_all = jsPsych.data.get().filter({demos: true}).values()[0].demos;
+    // demo_all = window.current_demo_data;
+    // if (!demo_all) {
+    //   console.error('Demo data not found');
+    //   return false;
+    // }
+
+
+    // console.log("dd",demo_all)
+    // global_order_demo_Q1=demo_all[0];
+    // global_n_img_disp_Q1=global_order_demo_Q1.length;
+    
+    // console.log("RE",trueOrderBuilder(displayOrder,demo_all,0))
+    // if (times_clicked % 2 === 0 && times_clicked !== 0) { //Comment out here and moved it after switchornot, so highlight will disappear when clicking on two items
+    //   displayOrder = removeSelection_demo(displayOrder);
+    // }
+    times_clicked++;
+    let data1_tb = jsPsych.data.get().last(1).values()[0];//the second selection
+    let data2_tb = jsPsych.data.get().last(2).values()[0]; //the first selection
+    // console.log(data1_tb)
+
+    if (data1_tb.response !== null && displayOrder[data1_tb.response] !== undefined) {
+      if (displayOrder[data1_tb.response].includes(" id='selected'")) {
+        displayOrder[data1_tb.response] = displayOrder[data1_tb.response].replace(" id='selected'", "");
+        console.log("Remove")
+        switch_attempted = false; //if click an image twice then selection is removed
+      } else {
+        displayOrder[data1_tb.response] = displayOrder[data1_tb.response].replace("<img", "<img id='selected'");
+        switch_attempted = true;
+      }
+      if (times_clicked % 2 === 0 && switch_attempted) {
+        times_switched++;
+      }
+    }
+    let clean = removeSelection_demo(displayOrder);
+    // console.log(data2_tb)
+    // console.log(clean[data1_tb.response], clean[data2_tb.response])
+    // console.log(switchOrNot_demo(clean[data1_tb.response], clean[data2_tb.response],trueOrder))
+    if (data2_tb.response !== null && times_clicked % 2 === 0 && switchOrNot_demo(clean[data1_tb.response], clean[data2_tb.response],globalTrueOrder_Q1)) {
+      console.log("switch")
+      let temp = displayOrder[data1_tb.response];
+      displayOrder[data1_tb.response] = displayOrder[data2_tb.response];
+      displayOrder[data2_tb.response] = temp;
+    }
+    if (times_clicked % 2 === 0 && times_clicked !== 0) {
+      displayOrder = removeSelection_demo(displayOrder);
+    }
+    if (jsPsych.pluginAPI.compareKeys(String(data1_tb.response), String(global_n_img_disp_Q1))) {//whether you clicked "finished" which is string(6)
+      return false;
+    }
+    return true;
+  },
+};
+
+
+
+
+
+const loopNode_demo = {
+  timeline: [refresh_demo],
+  loop_function: function (data) {
+    // demo_all=jsPsych.data.get().last(1).values()[0].demos
+    // demo_all = window.current_demo_data;
+    // if (!demo_all) {
+    //   console.error('Demo data not found');
+    //   return false;
+    // }
+    // global_order_demo_Q1=demo_all[0];
+    // global_n_img_disp_Q1=global_order_demo_Q1.length;
+    // const trueOrder = new Map(trueOrderBuilder(removeSelection_demo(displayOrder),demo_all,0));
+    var data = jsPsych.data.get().last(1).values()[0];
+    if (jsPsych.pluginAPI.compareKeys(String(data.response), String(global_n_img_disp_Q1))) {
+      return false;
+    } else {
+      return true;
+    }
+  },
+};
+
+timeline.push(loopNode_demo);
+
+// the final page shows true order as number overlapped on your order
+const finish_demo = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: function () {
+    console.log("finish")
+    displayOrder.pop();
+    displayOrder=removeSelection_demo(displayOrder);
+    let finalDisplay = [];
+
+    // demo_all=jsPsych.data.getDataByTimelineNode("0.0-2.0").values()[0].demos;
+    // demo_all = jsPsych.data.get().filter({demos: true}).values()[0].demos;
+    // demo_all = window.current_demo_data;
+    // if (!demo_all) {
+    //   console.error('Demo data not found');
+    //   return false;
+    // }
+
+    // global_order_demo_Q1=demo_all[0];
+    // n_img_disp=global_order_demo_Q1.length;
+    // var demo_img_order=[[img1,demo_all[0][0]],[img2,demo_all[0][1]],[img3,demo_all[0][2]],[img4,demo_all[0][3]],[img5,demo_all[0][4]]];
+    // const trueOrder = new Map(demo_img_order);
+    // const trueOrder = new Map(trueOrderBuilder(displayOrder,demo_all,0));
+    // const trueOrder = new Map(trueOrderBuilder(removeSelection_demo(displayOrder),demo_all,0));
+    
+    var TrueOrder_o=[];
+
+    if (!global_n_img_disp_Q1) {
+      console.error('length data not found');
+      return false;
+    }
+    for(var i=0; i<global_n_img_disp_Q1; i++){
+      TrueOrder_o.push(globalTrueOrder_Q1.get(displayOrder[i])) // order of final display (if it is 1,2,3,4,5 then the sorting is correct)
+    };
+
+    for (var range_len=[],i=1;i<=global_n_img_disp_Q1;++i) range_len.push(i);
+
+    if (JSON.stringify(TrueOrder_o) === JSON.stringify(range_len)){
+      finalDisplay.push("You sorted correctly with "+ String(times_switched) + " comparisons in total. <br><br> "+ displayOrder.join("")+ "<br><br> Your final order is " + TrueOrder_o + "<br><br><br>The method in this game will allow you to sort correctly with 8 comparisons. Press Enter to learn it!")
+    } else {
+      finalDisplay.push("You sorted incorrectly with "+ String(times_switched) + " comparisons in total. <br><br> "+ displayOrder.join("")+ "<br><br> Your final order is " + TrueOrder_o + "<br><br><br>The method in this game will allow you to sort correctly with 8 comparisons. Press Enter to learn it!")
+    }
+    return finalDisplay;
+  },
+};
+
+timeline.push(finish_demo);
 
 
 
