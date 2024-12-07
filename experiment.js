@@ -10,40 +10,41 @@ const timeline = [];
 // Preload assets
 timeline.push({
   type: jsPsychPreload,
-  images: ['Intro_Pic.png','G_1.jpg', 'G_2.jpg', 'G_3.jpg', 'G_4.jpg', 'G_5.jpg', 'G_6.jpg','G_7.jpg','G_8.jpg','G_9.jpg','G_10.jpg','Out-of-order-scale.jpg'], //cogntion.run version
+  // images: ['Intro_Pic.png','G_1.jpg', 'G_2.jpg', 'G_3.jpg', 'G_4.jpg', 'G_5.jpg', 'G_6.jpg','G_7.jpg','G_8.jpg','G_9.jpg','G_10.jpg','Out-of-order-scale.jpg'], //cogntion.run version
 
-  // images: ['assets/Intro_Pic.png','assets/G_1.jpg', 'assets/G_2.jpg', 'assets/G_3.jpg', 'assets/G_4.jpg', 'assets/G_5.jpg', 'assets/G_6.jpg','assets/G_7.jpg','assets/G_8.jpg','assets/G_9.jpg','assets/G_10.jpg','assets/Out-of-order-scale.jpg'],
+  images: ['assets/Intro_Pic.png','assets/G_1.jpg', 'assets/G_2.jpg', 'assets/G_3.jpg', 'assets/G_4.jpg', 'assets/G_5.jpg', 'assets/G_6.jpg','assets/G_7.jpg','assets/G_8.jpg','assets/G_9.jpg','assets/G_10.jpg','assets/Out-of-order-scale.jpg'],
 });
 
 // Define the images
 
 //load all available images
-//Cognition.run version
-let img_intro = "<img src='Intro_Pic.png' height='120'>";
-let img_outoforder = "<img src='Out-of-order-scale.jpg' height='200'>";
-let img1 = "<img src='G_1.jpg' height='90'>";
-let img2 = "<img src='G_2.jpg' height='90'>";
-let img3 = "<img src='G_3.jpg' height='90'>";
-let img4 = "<img src='G_4.jpg' height='90'>";
-let img5 = "<img src='G_5.jpg' height='90'>";
-let img6 = "<img src='G_6.jpg' height='90'>";
-let img7 = "<img src='G_7.jpg' height='90'>";
-let img8 = "<img src='G_8.jpg' height='90'>";
-let img9 = "<img src='G_9.jpg' height='90'>";
-let img10 = "<img src='G_10.jpg' height='90'>";
+// //Cognition.run version
+// let img_intro = "<img src='Intro_Pic.png' height='120'>";
+// let img_outoforder = "<img src='Out-of-order-scale.jpg' height='200'>";
+// let img1 = "<img src='G_1.jpg' height='90'>";
+// let img2 = "<img src='G_2.jpg' height='90'>";
+// let img3 = "<img src='G_3.jpg' height='90'>";
+// let img4 = "<img src='G_4.jpg' height='90'>";
+// let img5 = "<img src='G_5.jpg' height='90'>";
+// let img6 = "<img src='G_6.jpg' height='90'>";
+// let img7 = "<img src='G_7.jpg' height='90'>";
+// let img8 = "<img src='G_8.jpg' height='90'>";
+// let img9 = "<img src='G_9.jpg' height='90'>";
+// let img10 = "<img src='G_10.jpg' height='90'>";
 
-// let img_intro = "<img src='assets/Intro_Pic.png' height='120'>";
-// let img_outoforder = "<img src='assets/Out-of-order-scale.jpg' height='200'>";
-// let img1 = "<img src='assets/G_1.jpg' height='120'>";
-// let img2 = "<img src='assets/G_2.jpg' height='120'>";
-// let img3 = "<img src='assets/G_3.jpg' height='120'>";
-// let img4 = "<img src='assets/G_4.jpg' height='120'>";
-// let img5 = "<img src='assets/G_5.jpg' height='120'>";
-// let img6 = "<img src='assets/G_6.jpg' height='120'>";
-// let img7 = "<img src='assets/G_7.jpg' height='120'>";
-// let img8 = "<img src='assets/G_8.jpg' height='120'>";
-// let img9 = "<img src='assets/G_9.jpg' height='120'>";
-// let img10 = "<img src='assets/G_10.jpg' height='120'>";
+//version before cognition.run
+let img_intro = "<img src='assets/Intro_Pic.png' height='120'>";
+let img_outoforder = "<img src='assets/Out-of-order-scale.jpg' height='200'>";
+let img1 = "<img src='assets/G_1.jpg' height='90'>";
+let img2 = "<img src='assets/G_2.jpg' height='90'>";
+let img3 = "<img src='assets/G_3.jpg' height='90'>";
+let img4 = "<img src='assets/G_4.jpg' height='90'>";
+let img5 = "<img src='assets/G_5.jpg' height='90'>";
+let img6 = "<img src='assets/G_6.jpg' height='90'>";
+let img7 = "<img src='assets/G_7.jpg' height='90'>";
+let img8 = "<img src='assets/G_8.jpg' height='90'>";
+let img9 = "<img src='assets/G_9.jpg' height='90'>";
+let img10 = "<img src='assets/G_10.jpg' height='90'>";
 
 
 
@@ -115,6 +116,7 @@ const display_img_intro = {
   type: jsPsychHtmlButtonResponse,
   stimulus: "",
   choices: function () {
+    // console.log(display_intro);
     return display_intro;
   },
   button_html: '<button class="jspsych-btn">%choice%</button>',
@@ -125,9 +127,10 @@ const display_img_intro = {
 const refresh_intro = {
   timeline: [display_img_intro],
   conditional_function: function () {
-    // if (times_clicked % 2 === 0 && times_clicked !== 0) { //Comment out here and moved it after switchornot, so highlight will disappear when clicking on two items
-    //   display_intro = removeSelection_intro(display_intro);
-    // }
+    // console.log("refresh");
+    if (times_clicked % 2 === 0 && times_clicked !== 0) { //Comment out here and moved it after switchornot, so highlight will disappear when clicking on two items
+      display_intro = removeSelection_intro(display_intro);
+    }
     times_clicked++;
     let data1_ib = jsPsych.data.get().last(1).values()[0].response;//the second selection
     let data2_ib = jsPsych.data.get().last(2).values()[0].response; //the first selection
@@ -151,25 +154,49 @@ const refresh_intro = {
       display_intro[data1_ib] = display_intro[data2_ib];
       display_intro[data2_ib] = temp;
     }
-    if (times_clicked % 2 === 0 && times_clicked !== 0) {
-     display_intro = removeSelection_intro(display_intro);
-    }
+    // if (times_clicked % 2 === 0 && times_clicked !== 0) {
+    //  display_intro = removeSelection_intro(display_intro);
+    // }
     if (jsPsych.pluginAPI.compareKeys(String(data1_ib), String(n_img_disp))) {//whether you clicked "finished" which is string(6)
       return false;
     }
     return true;
   },
+  // on_finish:function(data){
+  //   console.log("a",times_clicked);
+  //   if ((times_clicked+1) % 2 === 0 && (times_clicked+1) !== 0) { //Comment out here and moved it after switchornot, so highlight will disappear when clicking on two items
+  //     // setTimeout(function(){
+  //     //   console.log("timeout")
+  //       removeSelection_intro(display_intro)
+
+  //     // },150)
+      
+  //   }
+  // },
 };
 
 const loopNode_intro = {
   timeline: [refresh_intro],
   loop_function: function (data) {
     var data = jsPsych.data.get().last(1).values()[0].response;
+    // console.log("loop");
+    
 
     if (jsPsych.pluginAPI.compareKeys(String(data), String(n_img_disp))) {
       return false;
     } else {
       return true;
+    }
+  },
+  on_finish:function(data){
+    console.log("a",times_clicked);
+    if ((times_clicked+1) % 2 === 0 && (times_clicked+1) !== 0) { //Comment out here and moved it after switchornot, so highlight will disappear when clicking on two items
+      setTimeout(function(){
+        console.log("timeout")
+      display_intro=removeSelection_intro(display_intro);
+
+      },150)
+      
     }
   },
 };
