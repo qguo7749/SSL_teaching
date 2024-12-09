@@ -109,108 +109,83 @@ const display_img_intro = {
 };
 
 
-// const refresh_intro = {
-//   timeline: [display_img_intro],
-//   conditional_function: function () {
-//     // console.log("refresh");
-//     if (times_clicked % 2 === 0 && times_clicked !== 0) { //Comment out here and moved it after switchornot, so highlight will disappear when clicking on two items
-//       display_intro = removeSelection_intro(display_intro);
-//     }
-//     times_clicked++;
-//     let data1_ib = jsPsych.data.get().last(1).values()[0].response;//the second selection
-//     let data2_ib = jsPsych.data.get().last(2).values()[0].response; //the first selection
-
-//     if (data1_ib !== null && display_intro[data1_ib] !== undefined) {
-//       if (display_intro[data1_ib].includes(" id='selected'")) {
-//         display_intro[data1_ib] = display_intro[data1_ib].replace(" id='selected'", "");
-//         // console.log(display_intro[data1])
-//         switch_attempted = false; //if click an image twice then selection is removed
-//       } else {
-//         display_intro[data1_ib] = display_intro[data1_ib].replace("<img", "<img id='selected'");
-//         switch_attempted = true;
-//       }
-//       if (times_clicked % 2 === 0 && switch_attempted) {
-//         times_switched++;
-//       }
-//     }
-//     let clean = removeSelection_intro(display_intro);
-//     if (data2_ib !== null && times_clicked % 2 === 0 && switchOrNot_intro(clean[data1_ib], clean[data2_ib])) {
-//       let temp = display_intro[data1_ib];
-//       display_intro[data1_ib] = display_intro[data2_ib];
-//       display_intro[data2_ib] = temp;
-//     }
-//     // if (times_clicked % 2 === 0 && times_clicked !== 0) {
-//     //  display_intro = removeSelection_intro(display_intro);
-//     // }
-//     if (jsPsych.pluginAPI.compareKeys(String(data1_ib), String(n_img_disp))) {//whether you clicked "finished" which is string(6)
-//       return false;
-//     }
-//     return true;
-//   },
-//   // on_finish:function(data){
-//   //   console.log("a",times_clicked);
-//   //   if ((times_clicked+1) % 2 === 0 && (times_clicked+1) !== 0) { //Comment out here and moved it after switchornot, so highlight will disappear when clicking on two items
-//   //     // setTimeout(function(){
-//   //     //   console.log("timeout")
-//   //       removeSelection_intro(display_intro)
-
-//   //     // },150)
-      
-//   //   }
-//   // },
-// };
-
-
-
-// Track selected images
-let selectedImages = [];
-
 const refresh_intro = {
   timeline: [display_img_intro],
   conditional_function: function () {
+    // console.log("refresh");
+    if (times_clicked % 2 === 0 && times_clicked !== 0) { //Comment out here and moved it after switchornot, so highlight will disappear when clicking on two items
+      display_intro = removeSelection_intro(display_intro);
+    }
     times_clicked++;
-    let data1_ib = jsPsych.data.get().last(1).values()[0].response;
-    let data2_ib = jsPsych.data.get().last(2).values()[0].response;
+    let data1_ib = jsPsych.data.get().last(1).values()[0].response;//the second selection
+    let data2_ib = jsPsych.data.get().last(2).values()[0].response; //the first selection
 
-    // Handle first selection
-    if (data1_ib !== null && display_intro[data1_ib] !== undefined) {
-      // Add highlight to first selected image
-      if (!display_intro[data1_ib].includes(" id='selected'")) {
+    if (data1_ib !== null && display_intro[data1_ib] !== undefined) {// if second selection is not null
+      if (display_intro[data1_ib].includes(" id='selected'")) { //if second selection is selected
+        display_intro[data1_ib] = display_intro[data1_ib].replace(" id='selected'", "");
+        // console.log(display_intro[data1])
+        switch_attempted = false; //if click an image twice then selection is removed
+      } else { //if second selection was not selected
         display_intro[data1_ib] = display_intro[data1_ib].replace("<img", "<img id='selected'");
-        selectedImages.push(data1_ib);
         switch_attempted = true;
+        // setTimeout(() => {
+        //   // display_intro = removeSelection_intro(currentDisplay);
+        //   jsPsych.finishTrial();
+        // }, 300);
       }
-
-      // If this is the second selection
-      if (selectedImages.length === 2) {
+      if (times_clicked % 2 === 0 && switch_attempted) {
         times_switched++;
-        
-        // Store the images to swap
-        let clean = removeSelection_intro(display_intro);
-        let shouldSwap = switchOrNot_intro(clean[data1_ib], clean[data2_ib]);
-        
-        // Remove highlights after delay
-        setTimeout(() => {
-          display_intro = removeSelection_intro(display_intro);
-          selectedImages = [];
-          
-          // Perform swap if needed
-          if (shouldSwap) {
-            let temp = display_intro[data1_ib];
-            display_intro[data1_ib] = display_intro[data2_ib];
-            display_intro[data2_ib] = temp;
-          }
-        }, 300);
+        // setTimeout(() => {
+        //   // display_intro = removeSelection_intro(currentDisplay);
+        //   jsPsych.finishTrial();
+        // }, 300);
       }
     }
-
-    // Check for finish button click
-    if (jsPsych.pluginAPI.compareKeys(String(data1_ib), String(n_img_disp))) {
+    let clean = removeSelection_intro(display_intro);
+    if (data2_ib !== null && times_clicked % 2 === 0 && switchOrNot_intro(clean[data1_ib], clean[data2_ib])) {
+      // setTimeout(() => {
+      //   jsPsych.finishTrial();
+      // }, 300);
+      
+      let temp = display_intro[data1_ib];
+      display_intro[data1_ib] = display_intro[data2_ib];
+      display_intro[data2_ib] = temp;
+      
+    }
+    // if (times_clicked % 2 === 0 && times_clicked !== 0) {
+    //  display_intro = removeSelection_intro(display_intro);
+    // }
+    
+    if (jsPsych.pluginAPI.compareKeys(String(data1_ib), String(n_img_disp))) {//whether you clicked "finished" which is string(6)
       return false;
     }
     return true;
-  }
+  },
+  on_finish: function() {
+    if (times_clicked % 2 === 0 && times_clicked !== 0) {
+     display_intro = removeSelection_intro(display_intro);
+    }
+
+    setTimeout(function() {
+      document.getElementById("selected").style.border = "5px solid #FFFFFF";
+  }, 2000);
+
+  },
+  // on_finish:function(data){
+  //   console.log("a",times_clicked);
+  //   if ((times_clicked+1) % 2 === 0 && (times_clicked+1) !== 0) { //Comment out here and moved it after switchornot, so highlight will disappear when clicking on two items
+  //     // setTimeout(function(){
+  //     //   console.log("timeout")
+  //       removeSelection_intro(display_intro)
+
+  //     // },150)
+      
+  //   }
+  // },
 };
+
+// timeline.push(refresh_intro);
+
 
 
 const loopNode_intro = {
