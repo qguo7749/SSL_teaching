@@ -101,7 +101,7 @@ const display_img_intro = {
   type: jsPsychHtmlButtonResponse,
   stimulus: "",
   choices: function () {
-    console.log(display_intro);
+    // console.log(display_intro);
     return display_intro;
   },
   button_html: '<button class="jspsych-btn">%choice%</button>',
@@ -120,6 +120,12 @@ const refresh_intro = {
     let data1_ib = jsPsych.data.get().last(1).values()[0].response;//the second selection
     let data2_ib = jsPsych.data.get().last(2).values()[0].response; //the first selection
 
+    // if (times_clicked % 2 === 0 && times_clicked !== 0) {
+    //   display_intro = removeSelection_intro(display_intro);
+    //  }
+    
+    
+
     if (data1_ib !== null && display_intro[data1_ib] !== undefined) {// if second selection is not null
       if (display_intro[data1_ib].includes(" id='selected'")) { //if second selection is selected
         display_intro[data1_ib] = display_intro[data1_ib].replace(" id='selected'", "");
@@ -128,60 +134,27 @@ const refresh_intro = {
       } else { //if second selection was not selected
         display_intro[data1_ib] = display_intro[data1_ib].replace("<img", "<img id='selected'");
         switch_attempted = true;
-        // setTimeout(() => {
-        //   // display_intro = removeSelection_intro(currentDisplay);
-        //   jsPsych.finishTrial();
-        // }, 300);
       }
+
       if (times_clicked % 2 === 0 && switch_attempted) {
         times_switched++;
-        // setTimeout(() => {
-        //   // display_intro = removeSelection_intro(currentDisplay);
-        //   jsPsych.finishTrial();
-        // }, 300);
       }
     }
+    
     let clean = removeSelection_intro(display_intro);
     if (data2_ib !== null && times_clicked % 2 === 0 && switchOrNot_intro(clean[data1_ib], clean[data2_ib])) {
-      // setTimeout(() => {
-      //   jsPsych.finishTrial();
-      // }, 300);
-      
       let temp = display_intro[data1_ib];
       display_intro[data1_ib] = display_intro[data2_ib];
       display_intro[data2_ib] = temp;
       
     }
-    // if (times_clicked % 2 === 0 && times_clicked !== 0) {
-    //  display_intro = removeSelection_intro(display_intro);
-    // }
     
-    if (jsPsych.pluginAPI.compareKeys(String(data1_ib), String(n_img_disp))) {//whether you clicked "finished" which is string(6)
-      return false;
-    }
-    return true;
+    // if (jsPsych.pluginAPI.compareKeys(String(data1_ib), String(n_img_disp))) {//whether you clicked "finished" which is string(6)
+    //   return false;
+    // }
+    // return true;
   },
-  on_finish: function() {
-    if (times_clicked % 2 === 0 && times_clicked !== 0) {
-     display_intro = removeSelection_intro(display_intro);
-    }
-
-    setTimeout(function() {
-      document.getElementById("selected").style.border = "5px solid #FFFFFF";
-  }, 2000);
-
-  },
-  // on_finish:function(data){
-  //   console.log("a",times_clicked);
-  //   if ((times_clicked+1) % 2 === 0 && (times_clicked+1) !== 0) { //Comment out here and moved it after switchornot, so highlight will disappear when clicking on two items
-  //     // setTimeout(function(){
-  //     //   console.log("timeout")
-  //       removeSelection_intro(display_intro)
-
-  //     // },150)
-      
-  //   }
-  // },
+  
 };
 
 // timeline.push(refresh_intro);
@@ -201,24 +174,13 @@ const loopNode_intro = {
       return true;
     }
   },
-  // on_finish:function(data){
-  //   console.log("a",times_clicked);
-  //   if ((times_clicked+1) % 2 === 0 && (times_clicked+1) !== 0) { //Comment out here and moved it after switchornot, so highlight will disappear when clicking on two items
-  //     setTimeout(function(){
-  //       console.log("timeout")
-  //     display_intro=removeSelection_intro(display_intro);
-
-  //     },500)
-      
-  //   }
-  // },
 };
 
 
 
 
 timeline.push(loopNode_intro);
-
+// 
 // the final page shows true order as number overlapped on your order
 const finish_intro = {
   type: jsPsychHtmlKeyboardResponse,

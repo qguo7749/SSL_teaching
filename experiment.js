@@ -20,6 +20,7 @@ timeline.push({
 //load all available images
 // //Cognition.run version
 // let img_intro = "<img src='Intro_Pic.png' height='120'>";
+// let balance = "<img src='Balance.jpg' height='120'>";
 // let img_outoforder = "<img src='Out-of-order-scale.jpg' height='200'>";
 // let img1 = "<img src='G_1.jpg' height='90'>";
 // let img2 = "<img src='G_2.jpg' height='90'>";
@@ -33,8 +34,9 @@ timeline.push({
 // let img10 = "<img src='G_10.jpg' height='90'>";
 
 //version before cognition.run
-let img_intro = "<img src='assets/Intro_Pic.png' height='120'>";
-let img_outoforder = "<img src='assets/Out-of-order-scale.jpg' height='200'>";
+let img_intro = "<img id='img_intro' src='assets/Intro_Pic.png' height='120'>";
+let balance = "<img id='img_intro' src='assets/Balance.jpg' height='200'>";
+let img_outoforder = "<img id='img_intro' src='assets/Out-of-order-scale.jpg' height='200'>";
 let img1 = "<img src='assets/G_1.jpg' height='90'>";
 let img2 = "<img src='assets/G_2.jpg' height='90'>";
 let img3 = "<img src='assets/G_3.jpg' height='90'>";
@@ -55,23 +57,23 @@ const Intro = {
   type: jsPsychInstructions,
   pages: [
   '<p>Welcome to the experiment! <br><br> Press Enter to continue.</p>',
-  '<p style="text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Imagine you have five gold blocks that vary in weights. How can you sort them by weight using a balance? </p>'+'<br>' + img_intro+'<p style="text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px"><br>Press Enter to continue.</p>',
-  '<p style="text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">There are many ways to do that. In this game, you will learn a method that is very efficient. <br><strong>Don’t worry about coming up with new methods. Your task is to learn this method and use it accurately and efficiently in the test. </strong> Some other people will learn from you as your students. </p>'+'<br>' + img_intro+'<p style="text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px"><br>Press Enter to continue.</p>',
-  '<p style="text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px"><br><br>Your reward bonus will depend on your performance in the test.</p>'+'<br>' + img_intro +'<p style="text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Press Enter to continue.</p>',
-  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px"> To get you familiar with this game, let’s try it first. This will not be counted as your performance. <br><br> <strong> You can only compare two items at each time by clicking them. If their order is wrong, they will swap positions. The animal on the item is only a mark and not relevant to the order of the items. </strong>   </p>'+'<br>' + img_intro +'<p style="text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px"><br>Press Enter to continue.</p>',
+  img_intro +'<p>Imagine you have five gold blocks that vary in weights. <b>How can you sort them by weight using a balance (comparing two at each time)? </b><br></p>' + balance+'<p><br>There are many ways to do that. In this game, you will learn a great method called "Omgne Sort".<br>Press Enter to continue.</p>',
+  '<p>Don’t worry about coming up with new methods. Your task is to learn <b>Omgne Sort</b> and use it <b>accurately and efficiently</b> in the test. </strong> </p>'+'<br>' + img_intro+'<p><br>Press Enter to continue.</p>',
+  '<p> Your reward bonus will depend on your performance in the test.</p>'+'<br>' + img_intro +'<p>Press Enter to continue.</p>',
+  '<p> Let’s try it first. This will not be counted as your performance. <br><br> <strong> Compare two blocks at each time by clicking them. If their order is wrong, they will swap positions. The animal on the block is a marker and not relevant to the order of the blocks. </strong>   </p>'+'<br>'+'<p><br>Press Enter to continue.</p>',
   ],
   show_clickable_nav: false,
   key_forward:"Enter"
 }
 
-timeline.push(Intro)
+// timeline.push(Intro)
 
 
 function removeSelection_intro(imglist) {
   let result = imglist.map(x => x);
   for (let i = 0; i < imglist.length; i++) {
     if (imglist[i].includes(" id='selected'")) { //id=selected might be jspsych features
-      result[i] = result[i].replace(" id='selected'", "");
+      result[i] = result[i].replace(" id='selected'", " ");
     }
   }
   return result;
@@ -106,7 +108,7 @@ timeline.push({
   type: jsPsychHtmlKeyboardResponse,
   stimulus: function () {
     display_intro.push("finish"); 
-    console.log(display_intro)
+    // console.log(display_intro)
     return "<p> + <p/>";
   },
   trial_duration: 500,
@@ -120,7 +122,7 @@ const display_img_intro = {
     return display_intro;
   },
   button_html: '<button class="jspsych-btn">%choice%</button>',
-  prompt: "<p>Select any two images to compare, or click finish if you are done sorting.</p>",
+  prompt: "<p>Select any two blocks to compare. To undo a selection, select the block again. If their order is wrong, they will swap positions. <br><br>Click finish if you are done sorting.</p>",
 };
 
 
@@ -136,12 +138,12 @@ const refresh_intro = {
     let data2_ib = jsPsych.data.get().last(2).values()[0].response; //the first selection
 
     if (data1_ib !== null && display_intro[data1_ib] !== undefined) {
-      if (display_intro[data1_ib].includes(" id='selected'")) {
-        display_intro[data1_ib] = display_intro[data1_ib].replace(" id='selected'", "");
+      if (display_intro[data1_ib].includes("id='selected'")) {
+        display_intro[data1_ib] = display_intro[data1_ib].replace(" id='selected'", " ");
         // console.log(display_intro[data1])
         switch_attempted = false; //if click an image twice then selection is removed
       } else {
-        display_intro[data1_ib] = display_intro[data1_ib].replace("<img", "<img id='selected'");
+        display_intro[data1_ib] = display_intro[data1_ib].replace("<img ", "<img id='selected'");
         switch_attempted = true;
       }
       if (times_clicked % 2 === 0 && switch_attempted) {
@@ -162,17 +164,17 @@ const refresh_intro = {
     }
     return true;
   },
-  // on_finish:function(data){
-  //   console.log("a",times_clicked);
-  //   if ((times_clicked+1) % 2 === 0 && (times_clicked+1) !== 0) { //Comment out here and moved it after switchornot, so highlight will disappear when clicking on two items
-  //     // setTimeout(function(){
-  //     //   console.log("timeout")
-  //       removeSelection_intro(display_intro)
-
-  //     // },150)
-      
-  //   }
-  // },
+  // on_start:function(data){
+  //   //   console.log("a",times_clicked);
+  //     console.log(display_intro)
+  //     if ((times_clicked) % 2 === 0 && (times_clicked) !== 0) { //Comment out here and moved it after switchornot, so highlight will disappear when clicking on two items
+  //       setTimeout(function(display_intro){
+  //         document.getElementById("selected"," ").style.border='5px solid #FFFFFF';          
+  //         document.getElementsByName("img").style.border='5px solid #FFFFFF'; 
+  //       },500)
+        
+  //     }
+  //   },
 };
 
 const loopNode_intro = {
@@ -188,20 +190,9 @@ const loopNode_intro = {
       return true;
     }
   },
-  on_finish:function(data){
-    console.log("a",times_clicked);
-    if ((times_clicked+1) % 2 === 0 && (times_clicked+1) !== 0) { //Comment out here and moved it after switchornot, so highlight will disappear when clicking on two items
-      setTimeout(function(){
-        console.log("timeout")
-      display_intro=removeSelection_intro(display_intro);
-
-      },150)
-      
-    }
-  },
 };
 
-timeline.push(loopNode_intro);
+// timeline.push(loopNode_intro);
 
 // the final page shows true order as number overlapped on your order
 const finish_intro = {
@@ -227,7 +218,7 @@ const finish_intro = {
   },
 };
 
-timeline.push(finish_intro);
+// timeline.push(finish_intro);
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -285,6 +276,7 @@ for(var j=0; j<4; j++){
   timeline.push({
     type: jsPsychHtmlKeyboardResponse,
     stimulus: ["Example " +(j+1)+"<br><br>Press Enter to continue."],
+    trial_duration:1000,
   });
 
 
@@ -302,10 +294,11 @@ for(var j=0; j<4; j++){
     const imit_swap=list_comp_bool[i];
     const which_exam=j;
 
-    const imi_hl1={
+    const imi_hl12={
       type: jsPsychHtmlButtonResponse,
       stimulus: function() {
         img_t[index_t_1]=img_t[index_t_1].replace("<img", "<img id='selected'");
+        img_t[index_t_2]=img_t[index_t_2].replace("<img", "<img id='selected'");
         let img_t_join=img_t.join(" ");
         return img_t_join;
       },
@@ -315,28 +308,41 @@ for(var j=0; j<4; j++){
       button_html: '<button class="jspsych-btn">%choice%</button>',
       prompt: "<p>In the bottom row, you can compare two items at each time by clicking them. If their order is wrong, they will swap positions. <br><br> <strong>Please follow the pairs being compared at the top row. Try to find the pattern of this sorting method.</strong></p>",
       trial_duration:300,
-      data: {
-        save_trial: false  // Add this flag
-      },
     }
 
-    const imi_hl2={
-      type: jsPsychHtmlButtonResponse,
-      stimulus: function() {
-        img_t[index_t_2]=img_t[index_t_2].replace("<img", "<img id='selected'");
-        let img_t_join=img_t.join(" ");
-        return img_t_join;
-      },
-      choices: img_s,
-      margin_vertical:'100px',
-      button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p>In the bottom row, you can compare two items at each time by clicking them. If their order is wrong, they will swap positions. <br><br> <strong>Please follow the pairs being compared at the top row. Try to find the pattern of this sorting method.</strong></p>",
-      trial_duration:300,
-      data: {
-        save_trial: false  // Add this flag
-      },
-    }
+    timeline.push(imi_hl12)
 
+    // const imi_hl1={
+    //   type: jsPsychHtmlButtonResponse,
+    //   stimulus: function() {
+    //     img_t[index_t_1]=img_t[index_t_1].replace("<img", "<img id='selected'");
+    //     let img_t_join=img_t.join(" ");
+    //     return img_t_join;
+    //   },
+    //   choices: img_s,
+    //   margin_vertical:'100px',
+    //   // button_html: '<button class="jspsych-btn" style="position: relative ;right:80%; ">%choice%</button>', //move button to the left, used this when we have the visualization in the end of the stimulus
+    //   button_html: '<button class="jspsych-btn">%choice%</button>',
+    //   prompt: "<p>In the bottom row, you can compare two items at each time by clicking them. If their order is wrong, they will swap positions. <br><br> <strong>Please follow the pairs being compared at the top row. Try to find the pattern of this sorting method.</strong></p>",
+    //   trial_duration:100,
+    // }
+
+    // const imi_hl2={
+    //   type: jsPsychHtmlButtonResponse,
+    //   stimulus: function() {
+    //     img_t[index_t_2]=img_t[index_t_2].replace("<img", "<img id='selected'");
+    //     let img_t_join=img_t.join(" ");
+    //     return img_t_join;
+    //   },
+    //   choices: img_s,
+    //   margin_vertical:'100px',
+    //   button_html: '<button class="jspsych-btn">%choice%</button>',
+    //   prompt: "<p>In the bottom row, you can compare two items at each time by clicking them. If their order is wrong, they will swap positions. <br><br> <strong>Please follow the pairs being compared at the top row. Try to find the pattern of this sorting method.</strong></p>",
+    //   trial_duration:100,
+    // }
+
+    // timeline.push(imi_hl1)
+    // timeline.push(imi_hl2)
 
     const imi_comp1={
       type: jsPsychHtmlButtonResponse,
@@ -360,13 +366,8 @@ for(var j=0; j<4; j++){
       button_html: '<button class="jspsych-btn">%choice%</button>',
       prompt: "<p>In the bottom row, you can compare two items at each time by clicking them. If their order is wrong, they will swap positions. <br><br>  <strong>Please follow the pairs being compared at the top row. Try to find the pattern of this sorting method.</strong></p>",
       trial_duration:200,
-      data: {
-        save_trial: false  // Add this flag
-      },
     }
 
-    timeline.push(imi_hl1)
-    timeline.push(imi_hl2)
     timeline.push(imi_comp1)
 
     const imi_comp2 = {
@@ -384,9 +385,22 @@ for(var j=0; j<4; j++){
       data: { phase: 'Learning example '+which_exam },
     }
 
+
+    function removeSelection_learn(imglist) {
+      let result = imglist.map(x => x);
+      for (let i = 0; i < imglist.length; i++) {
+        if (imglist[i].includes(" id='selected'")) { //id=selected might be jspsych features
+          result[i] = result[i].replace(" id='selected'", " ");
+        }
+      }
+      return result;
+    }
+
     const refresh = {
       timeline: [imi_comp2],
       conditional_function: function () {
+        
+
         // Get the last two trials using values() instead of trials()
         const allTrials = jsPsych.data.get().values();
         const lastTrialIndex = allTrials.length - 1;
@@ -394,16 +408,45 @@ for(var j=0; j<4; j++){
         
         // If we don't have two trials yet, continue
         if (lastTrialIndex < 1) return true;
+
+        // if (lastResponse !==index_t_2)
         
+
+        // times_clicked_learn++;
+
         const lastResponse = allTrials[lastTrialIndex].response;
         const secondLastResponse = allTrials[secondLastTrialIndex].response;
+        console.log(lastResponse)
+
+        
+
+// &&(secondLastResponse === index_t_1||secondLastResponse === index_t_2)
+// (lastResponse == index_t_2 || lastResponse == index_t_1 )
+  
+        
+        
+        //   console.log("yes")
+        //   if (img_s[secondLastResponse].includes("id='selected'")) {
+        //     img_s[secondLastResponse] = img_s[secondLastResponse].replace(" id='selected'", " ");
+        //     // console.log(img_s[data1])
+        //     switch_attempted_learn = false; //if click an image twice then selection is removed
+        //   } else {
+        //     img_s[secondLastResponse] = img_s[secondLastResponse].replace("<img ", "<img id='selected'");
+        //     switch_attempted_learn = true;
+        //   }
+        // }
+
         
         // Check if we have a matching pair
         const isMatch = (
           (lastResponse === index_t_2 && secondLastResponse === index_t_1) ||
           (lastResponse === index_t_1 && secondLastResponse === index_t_2)
         ) && imit_swap === 1;
+
         
+
+        
+
         // Continue if no match
         return !isMatch;
       }
@@ -421,9 +464,24 @@ for(var j=0; j<4; j++){
         
         const lastResponse = allTrials[lastTrialIndex].response;
         const secondLastResponse = allTrials[secondLastTrialIndex].response;
+
+        if (
+          (lastResponse == index_t_2 || lastResponse == index_t_1)
+        ) {
+          img_s[lastResponse] = img_s[lastResponse].replace("<img ", "<img id='selected'");
+          }
+
+
+
         
-        if ((lastResponse === index_t_2 && secondLastResponse === index_t_1) ||
-            (lastResponse === index_t_1 && secondLastResponse === index_t_2)) {
+        if ((lastResponse == index_t_2 && secondLastResponse == index_t_1) ||
+            (lastResponse == index_t_1 && secondLastResponse == index_t_2)) {
+              setTimeout(() => {
+                img_s[lastResponse] = img_s[lastResponse].replace("<img id='selected'", "<img ");
+                img_s[secondLastResponse] = img_s[secondLastResponse].replace("<img id='selected'", "<img ");
+              }, 300); 
+              
+          
           if (imit_swap === 1) {
             let temp = img_s[lastResponse];
             img_s[lastResponse] = img_s[secondLastResponse];
@@ -431,7 +489,6 @@ for(var j=0; j<4; j++){
           }
           return false;
         }
-        
         return true;
       }
     };
