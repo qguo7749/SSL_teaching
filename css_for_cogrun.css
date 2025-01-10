@@ -1,4 +1,4 @@
-p{
+/* p{
     font-size:24px;
 }
   
@@ -13,4 +13,29 @@ border: 5px solid #FF7909;
 
 
 #jspsych-html-button-response-stimulus {color: white; word-spacing: 35px}
-#jspsych-html-keyboard-response-stimulus {font-size: 24px}
+#jspsych-html-keyboard-response-stimulus {font-size: 24px} */
+
+p{
+    font-size:24px;
+    text-align:left; 
+    line-height: 1.2;
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+  
+  img {
+    margin: 0px; 
+    border: 5px solid #FFFFFF;
+  }
+  #selected {
+    margin: 0px; 
+    border: 5px solid #FF7909;
+  }
+  #unsel {
+    margin: 0px; 
+    border: 5px solid #FFFFFF;
+  }
+
+
+  #jspsych-html-button-response-stimulus {color: white; word-spacing: 35px}
+  #jspsych-html-keyboard-response-stimulus {font-size: 24px}

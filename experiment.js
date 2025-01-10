@@ -10,9 +10,9 @@ const timeline = [];
 // Preload assets
 timeline.push({
   type: jsPsychPreload,
-  // images: ['Intro_Pic.png','G_1.jpg', 'G_2.jpg', 'G_3.jpg', 'G_4.jpg', 'G_5.jpg', 'G_6.jpg','G_7.jpg','G_8.jpg','G_9.jpg','G_10.jpg','Out-of-order-scale.jpg'], //cogntion.run version
+  // images: ['Intro_Pic.png','G_1.jpg', 'G_2.jpg', 'G_3.jpg', 'G_4.jpg', 'G_5.jpg', 'G_6.jpg','G_7.jpg','G_8.jpg','G_9.jpg','G_10.jpg','Out-of-order-scale.jpg','Balance.jpg'], //cogntion.run version
 
-  images: ['assets/Intro_Pic.png','assets/G_1.jpg', 'assets/G_2.jpg', 'assets/G_3.jpg', 'assets/G_4.jpg', 'assets/G_5.jpg', 'assets/G_6.jpg','assets/G_7.jpg','assets/G_8.jpg','assets/G_9.jpg','assets/G_10.jpg','assets/Out-of-order-scale.jpg'],
+  images: ['assets/Intro_Pic.png','assets/G_1.jpg', 'assets/G_2.jpg', 'assets/G_3.jpg', 'assets/G_4.jpg', 'assets/G_5.jpg', 'assets/G_6.jpg','assets/G_7.jpg','assets/G_8.jpg','assets/G_9.jpg','assets/G_10.jpg','assets/Out-of-order-scale.jpg','assets/Balance.jpg'],
 });
 
 // Define the images
@@ -50,6 +50,15 @@ let img10 = "<img src='assets/G_10.jpg' height='90'>";
 
 
 
+const Consent = {
+  type: jsPsychInstructions,
+  pages: [
+  '<h3>CONSENT TO PARTICIPATE IN RESEARCH</h3>'+'<h4>Gold Block Experiment</h4>'+'<p><b>Introduction/Purpose</b></p>'+'<p>My name is William Thompson. I am a faculty member at the University of California, Berkeley, working with my research colleague Qi Guo in the Department of Psychology. We are planning to conduct a research study, which I invite you to take part in. The purpose of this study is to better understand how people learn and teach a sorting method.</p>'+'<p><b>Procedures</b></p>'+'<p>If you agree to participate in my research, I/we will ask you to complete the attached online survey/ questionnaire. In this experiment you will see gold blocks. Your will be asked to sort them by weight. You will learn an efficient sorting method and teach that method to future participants. The task should take about 15 minutes to complete.</p>'+'<p><b>Benefits</b></p>'+'<p>There is no direct benefit to you anticipated from participating in this study. However, it is hoped that the information gained from the study will benefit society at large. By furthering our understanding of human learning and teaching, this research will benefit society by helping with the development of automated systems that can better communicate with humans, learn from humans, and teach humans.</p>'+'<p><b>Risks/Discomforts/Confidentiality</b></p>'+'<p>Your study data will be handled as confidentially as possible. If results of this study are published or presented, individual names and other personally identifiable information will not be used. Your data will not be associated with your name directly in any way. However, while the study is running it will be associated with your Prolific ID which someone could potentially use to personally identify you. Once the study is complete, we will replace your Prolific ID with a random string. These records may be shared with other researchers, but will not contain your Prolific ID or any other personal information. Responses you make within the study may be shown to other participants, but these responpses will not be linked to your personally identifiable information in any way.</p>'+'<p>While we will handle your responses as confidentially as possible, we cannot guarantee the confidentiality of information transmitted over the Internet. As with all research, there is a chance that confidentiality could be compromised; however, we are taking precautions to minimize this risk. We will be keeping data collected as part of this experiment indefinitely. Identifiers might be removed from the identifiable private information. After such removal, the information could be used for future research studies or distributed to other investigators for future research studies without additional informed consent from the subject or the legally authorized representative.</p>'+'<p><b>Compensation</b></p>'+'<p>In return for your time and effort, you will be paid $2.50 for taking part in this study. This money will be credited to your account within a week of submitting the study. There will be an opportunity to earn additional bonus compensation dependent upon completion of and performance within the task.</p>'+'<p><b>Rights</b></p>'+'<p><b><i>Participation in research is completely voluntary.</i></b>  You have the right to decline to participate or to withdraw at any point in this study without penalty or loss of benefits to which you are otherwise entitled.</p>'+'<p><b>Questions</b></p>'+'<p>If you have any questions or concerns about this study, you may contact William Thompson at <a href="mailto:wdt@berkeley.edu">wdt@berkeley.edu</a>.</p>'+'<p>If you have any questions or concerns about your rights and treatment as a research subject, you may contact the office of UC Berkeley\'s Committee for the Protection of Human Subjects, at 510-642-7461 or <a href="mailto:subjects@berkeley.edu">subjects@berkeley.edu</a>.</p>'+'<p>*********************************************</p>'+'<p>By consenting to participate, you acknowledge that you are 18 years or older, have read this consent form, agree to its contents, and agree to take part in this research. If you do not wish to consent, close this page and return the assignment to the recruitment platform.</p>'+'<div><button type="button" class="btn btn-primary btn-info" onClick="window.print();return false;" style="float: right;">Print this page</button></div>'],
+  show_clickable_nav: true,
+  button_label_next: "I agree"
+}
+timeline.push(Consent)
+
 
 //////////////////////////////////////////////////////////////////// INTRO BLOCK ///////////////////////////////////////////////////////////////////////////
 
@@ -66,7 +75,7 @@ const Intro = {
   key_forward:"Enter"
 }
 
-// timeline.push(Intro)
+
 
 
 function removeSelection_intro(imglist) {
@@ -209,17 +218,17 @@ const finish_intro = {
     for (var range_len=[],i=1;i<=n_img_disp;++i) range_len.push(i);
 
     if (JSON.stringify(TrueOrder_o) === JSON.stringify(range_len)){
-      finalDisplay.push("You sorted correctly with "+ String(times_switched) + " comparisons in total. <br><br> "+ display_intro.join("")+ "<br><br> Your final order is " + TrueOrder_o + "<br><br><br>The method in this game will allow you to sort correctly with 8 comparisons. Press Enter to learn it!")
+      finalDisplay.push("You sorted correctly with "+ String(times_switched) + " comparisons in total. <br><br> "+ display_intro.join("")+ "<br><br> Your final order is " + TrueOrder_o + "<br><br><br>Omgne Sort in this game will allow you to sort correctly with 8 comparisons. Press Enter to learn it!")
     } else {
-      finalDisplay.push("You sorted incorrectly with "+ String(times_switched) + " comparisons in total. <br><br> "+ display_intro.join("")+ "<br><br> Your final order is " + TrueOrder_o + "<br><br><br>The method in this game will allow you to sort correctly with 8 comparisons. Press Enter to learn it!")
+      finalDisplay.push("You sorted incorrectly with "+ String(times_switched) + " comparisons in total. <br><br> "+ display_intro.join("")+ "<br><br> Your final order is " + TrueOrder_o + "<br><br><br>Omgne Sort in this game will allow you to sort correctly with 8 comparisons. Press Enter to learn it!")
     }
     return finalDisplay;
   },
 };
 
-// timeline.push(Intro)
-// timeline.push(loopNode_intro);
-// timeline.push(finish_intro);
+timeline.push(Intro)
+timeline.push(loopNode_intro);
+timeline.push(finish_intro);
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -277,12 +286,12 @@ let img_s_all = JSON.parse(JSON.stringify(img_t_all))
 const Out_of_order = {
   type: jsPsychInstructions,
   pages: [
-  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Given a certain number of gold blocks, some sequence are initially more <b>out of order</b> than others. <b>The out-of-order-ness is estimated based on how many comparisons are needed to sort correctly.</b></p>', '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">For example, to sort five gold blocks correctly, the least number of comparisons needed is four ([1,2,3,4,5], etc). Therefore, we will call this condition <b>"least out-of-order"</b>. The most number of comparisons needed is ten ([1, 5, 4, 3, 2], etc) and we will call it <b>"most out-of-order"</b>. <br><br>Between least and most out-of-order there are two additional levels---<b>somehow out-of-order</b> and <b>fairly out-of-order</b>. </p>'+img_outoforder,
-  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">If an 5-item example requires 8 comparisons to sort correctly with the method, how out-of-order do you think it is?</p>'+img_outoforder,
-  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">If an 5-item example requires 8 comparisons to sort correctly with the method, how out-of-order do you think it is?</p>'+img_outoforder+'<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">The answer is <b>"Fairly out-of-order"</b>. <br><br>Click "Previous" to review instructions. Click "Next" to the test phase.</p>'
+  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Given a certain number of gold blocks, the number of required comparisons varies based on their initial arrangement. <br><br>The "least out-of-order" condition, such as [1,2,3,4,5], needs only <b>four comparisons with Omgne Sort</b>. <br><br>The "most out-of-order" condition, like [1,5,4,3,2], requires <b>ten comparisons with Omgne Sort</b>. </p>', 
+  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px"><br><br>Between least and most out-of-order there are two additional levels---<b>somehow out-of-order</b> and <b>fairly out-of-order</b>. </p>'+img_outoforder,
+  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">If an 5-item example requires 8 comparisons to sort correctly with Omgne Sort, how out-of-order do you think it is?</p>'+img_outoforder+'<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Click "Next" to see the answer.</p>',
+  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">If an 5-item example requires 8 comparisons to sort correctly with Omgne Sort, how out-of-order do you think it is?</p>'+img_outoforder+'<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">The answer is <b>"Fairly out-of-order"</b>. <br><br>Click "Previous" to review instructions. Click "Next" to the learning phase.</p>'
   ],
   show_clickable_nav: true,
-  // key_forward:"Enter"
 }
 
 timeline.push(Out_of_order)
@@ -428,7 +437,7 @@ for(var j=0; j<4; j++){
     timeline.push(imi_hl1_demo_only)
     timeline.push(imi_hl2_demo_only)
     timeline.push(imi_comp1_demo_only)
-    // timeline.push(imi_comp2_demo_only)
+
 
     timeline.push(imi_hl0_demo_only)
   };
@@ -641,6 +650,49 @@ for(var j=0; j<4; j++){
     type: jsPsychHtmlKeyboardResponse,
     stimulus: ["Final order was 1,2,3,4,5. The initial order was " +p_order+".<br>It took "+list_comp_bool.length+" comparisons to sort it correctly with Omgne Sort. <br><br>Press Enter to continue."],
   });
+
+
+  const outoforder5 = {
+    type: jsPsychSurveyLikert,
+    questions: [
+      {
+
+        prompt: "<div style='font-size: 20px;'>Given five blocks, the least out-of-order sequence requires 4 comparisons and the most out-of-order sequence requires 10 comparisons.<br><br>The one you just finished requires " + list_comp_bool.length + " comparisons, how out-of-order do you think it is?<br><br></div>", 
+        labels: ['<div style="font-size: 20px;">least</div>',
+          ' ',
+          '<div style="font-size: 20px;">somehow</div>',
+          ' ',
+          '<div style="font-size: 20px;">fairly</div>',
+          ' ',
+          '<div style="font-size: 20px;">most</div>'], 
+        required: true,
+      } ],
+  };
+  
+const outoforder8 = {
+  type: jsPsychSurveyLikert,
+  questions: [
+    {
+      prompt: "<div style='font-size: 20px;'>Given eight blocks, the least out-of-order sequence requires 7 comparisons and the most out-of-order sequence requires 28 comparisons. <br><br>The one you just finished requires "+ list_comp_bool.length +" comparisons, how out-of-order do you think it is?<br><br></div>", 
+      labels: ['<div style="font-size: 20px;">least</div>',
+          ' ',
+          '<div style="font-size: 20px;">somehow</div>',
+          ' ',
+          '<div style="font-size: 20px;">fairly</div>',
+          ' ',
+          '<div style="font-size: 20px;">most</div>'], 
+      required: true,
+    }, ],
+  };
+
+  if (j<2){
+    timeline.push(outoforder5);
+  }else{
+    timeline.push(outoforder8);
+  }
+
+
+
 };
 
 
@@ -651,7 +703,7 @@ for(var j=0; j<4; j++){
 
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: "<p>Welcome to the test phase! <br><br> You will do 10 problems. Your performance bonus will be calculated based on <b> how you accurately and efficiently use the method</b>. <br><br> Press Enter to continue.<p/>",
+  stimulus: "<p>Welcome to the test phase! <br><br> You will do 10 problems. Your performance bonus will be calculated based on <b> how you accurately and efficiently use Omgne Sort</b>. <br><br> Press Enter to continue.<p/>",
 });
 
 n_img_disp_list=[]
@@ -887,7 +939,9 @@ for(var i=0; i<4; i++){
     },
   };
 
-  timeline.push(loopNode);
+  // timeline.push(loopNode);
+
+  // const finish_new=
 
 
 
@@ -903,15 +957,18 @@ for(var i=0; i<4; i++){
       for(var i=0; i<n_img_disp; i++){
         TrueOrder_o.push(trueOrder.get(displayOrder[i])) // order of final display (if it is 0,1,2,3,4 then the sorting is correct)
       };
+      console.log("to",TrueOrder_o)
       
       
       
 
       if (jsPsych.pluginAPI.compareKeys(String(displayOrder), String(TrueOrder_io))){
         let Order_final=TrueOrder_o.map(v=> v+1);
-        finalDisplay.push("You sorted correctly with "+ String(times_switched) + " comparisons in total. <br> The necessary number of comparison is"+ n_nece_comp_test+"<br><br>"+displayOrder.join("")+ "<br><br> Your final order is " + Order_final+"<br><br> Press Enter to continue.")
+        // finalDisplay.push("You sorted correctly with "+ String(times_switched) + " comparisons in total. <br> The necessary number of comparison is"+ n_nece_comp_test+"<br><br>"+displayOrder.join("")+ "<br><br> Your final order is " + Order_final+"<br><br> Press Enter to continue.")
+        finalDisplay.push("You sorted correctly with "+ String(times_switched) + " comparisons in total. <br><br> "+ displayOrder.join("")+ "<br><br> Your final order is " + Order_final+"<br><br> Press Enter to continue.")
       } else {
-        finalDisplay.push("You sorted incorrectly with "+ String(times_switched) + " comparisons in total. <br><br> "+ displayOrder.join("")+ "<br><br> Your final order is " + Order_final+"<br><br> Press Enter to continue.")
+        let Order_final=TrueOrder_o.map(v=> v+1);
+        finalDisplay.push("You sorted incorrectly with "+ String(times_switched) + " comparisons in total. <br><br> "+ displayOrder.join("")+  "<br><br> Your final order is " + Order_final+"<br><br> Press Enter to continue.")
       }
       return finalDisplay;
     },
@@ -924,44 +981,44 @@ for(var i=0; i<4; i++){
   let n_nece_comp_test=n_nece_comp(TT);
   console.log(n_nece_comp_test)
 
-  const outoforder5 = {
-    type: jsPsychSurveyLikert,
-    questions: [
-      {
+//   const outoforder5 = {
+//     type: jsPsychSurveyLikert,
+//     questions: [
+//       {
 
-        prompt: "<div style='font-size: 20px;'>Given five blocks, the least out-of-order sequence requires 4 comparisons and the most out-of-order sequence requires 10 comparisons.<br><br>The one you just finished requires " + n_nece_comp_test + " comparisons, how out-of-order do you think it is?<br><br></div>", 
-        labels: ['<div style="font-size: 20px;">least</div>',
-          ' ',
-          '<div style="font-size: 20px;">somehow</div>',
-          ' ',
-          '<div style="font-size: 20px;">fairly</div>',
-          ' ',
-          '<div style="font-size: 20px;">most</div>'], 
-        required: true,
-      } ],
-  };
+//         prompt: "<div style='font-size: 20px;'>Given five blocks, the least out-of-order sequence requires 4 comparisons and the most out-of-order sequence requires 10 comparisons.<br><br>The one you just finished requires " + n_nece_comp_test + " comparisons, how out-of-order do you think it is?<br><br></div>", 
+//         labels: ['<div style="font-size: 20px;">least</div>',
+//           ' ',
+//           '<div style="font-size: 20px;">somehow</div>',
+//           ' ',
+//           '<div style="font-size: 20px;">fairly</div>',
+//           ' ',
+//           '<div style="font-size: 20px;">most</div>'], 
+//         required: true,
+//       } ],
+//   };
   
-const outoforder8 = {
-  type: jsPsychSurveyLikert,
-  questions: [
-    {
-      prompt: "<div style='font-size: 20px;'>Given eight blocks, the least out-of-order sequence requires 7 comparisons and the most out-of-order sequence requires 28 comparisons. <br><br>The one you just finished requires "+n_nece_comp_test +" comparisons, how out-of-order do you think it is?<br><br></div>", 
-      labels: ['<div style="font-size: 20px;">least</div>',
-          ' ',
-          '<div style="font-size: 20px;">somehow</div>',
-          ' ',
-          '<div style="font-size: 20px;">fairly</div>',
-          ' ',
-          '<div style="font-size: 20px;">most</div>'], 
-      required: true,
-    }, ],
-  };
+// const outoforder8 = {
+//   type: jsPsychSurveyLikert,
+//   questions: [
+//     {
+//       prompt: "<div style='font-size: 20px;'>Given eight blocks, the least out-of-order sequence requires 7 comparisons and the most out-of-order sequence requires 28 comparisons. <br><br>The one you just finished requires "+n_nece_comp_test +" comparisons, how out-of-order do you think it is?<br><br></div>", 
+//       labels: ['<div style="font-size: 20px;">least</div>',
+//           ' ',
+//           '<div style="font-size: 20px;">somehow</div>',
+//           ' ',
+//           '<div style="font-size: 20px;">fairly</div>',
+//           ' ',
+//           '<div style="font-size: 20px;">most</div>'], 
+//       required: true,
+//     }, ],
+//   };
 
-  if (i%2==0){
-    timeline.push(outoforder5);
-  }else{
-    timeline.push(outoforder8);
-  }
+//   if (i%2==0){
+//     timeline.push(outoforder5);
+//   }else{
+//     timeline.push(outoforder8);
+//   }
 
 
 
@@ -1312,7 +1369,7 @@ for(var kk=0; kk<4; kk++){
 var Description = {
   type: jsPsychSurveyText,
   questions: [
-    {prompt: 'Please leave a note for your student to use the method accurately and efficiently. Your student will read your note when they learn the sorting method.',rows: 10}
+    {prompt: 'Please leave a note for your student to use Omgne Sort accurately and efficiently. Your student will read your note when they learn the sorting method.',rows: 10}
   ]
 }
 
