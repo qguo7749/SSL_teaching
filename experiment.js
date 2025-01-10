@@ -60,7 +60,7 @@ const Intro = {
   img_intro +'<p>Imagine you have five gold blocks that vary in weights. <b>How can you sort them by weight using a balance (comparing two at each time)? </b><br></p>' + balance+'<p><br>There are many ways to do that. In this game, you will learn a great method called "Omgne Sort".<br>Press Enter to continue.</p>',
   '<p>Don’t worry about coming up with new methods. Your task is to learn <b>Omgne Sort</b> and use it <b>accurately and efficiently</b> in the test. </strong> </p>'+'<br>' + img_intro+'<p><br>Press Enter to continue.</p>',
   '<p> Your reward bonus will depend on your performance in the test.</p>'+'<br>' + img_intro +'<p>Press Enter to continue.</p>',
-  '<p> Let’s try it first. This will not be counted as your performance. <br><br> <strong> Compare two blocks at each time by clicking them. If their order is wrong, they will swap positions. The animal on the block is a marker and not relevant to the order of the blocks. </strong>   </p>'+'<br>'+'<p><br>Press Enter to continue.</p>',
+  '<p> Let’s try it first. This will not be counted as your performance. <br><br> <strong> Click any two blocks to compare them. If they are in the wrong order, they will swap places. The animals shown are just markers and do not indicate the ordering. </strong>   </p>'+'<br>'+'<p><br>Press Enter to continue.</p>',
   ],
   show_clickable_nav: false,
   key_forward:"Enter"
@@ -122,7 +122,7 @@ const display_img_intro = {
     return display_intro;
   },
   button_html: '<button class="jspsych-btn">%choice%</button>',
-  prompt: "<p>Select any two blocks to compare. To undo a selection, select the block again. If their order is wrong, they will swap positions. <br><br>Click finish if you are done sorting.</p>",
+  prompt: "<p>Select any two blocks to compare. To undo a selection, select the block again. If they are in the wrong order, they will swap positions. <br><br>Click finish if you are done sorting.</p>",
 };
 
 
@@ -192,7 +192,6 @@ const loopNode_intro = {
   },
 };
 
-// timeline.push(loopNode_intro);
 
 // the final page shows true order as number overlapped on your order
 const finish_intro = {
@@ -218,12 +217,18 @@ const finish_intro = {
   },
 };
 
+// timeline.push(Intro)
+// timeline.push(loopNode_intro);
 // timeline.push(finish_intro);
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////// LEARN BLOCK ///////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 
 function shuffle_learning(array) {
     let currentIndex = array.length, randomIndex;
@@ -269,6 +274,19 @@ let img_t_all=[eg_5_1,eg_5_2,eg_8_1,eg_8_2];
 let img_s_all = JSON.parse(JSON.stringify(img_t_all))
 
 
+const Out_of_order = {
+  type: jsPsychInstructions,
+  pages: [
+  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Given a certain number of gold blocks, some sequence are initially more <b>out of order</b> than others. <b>The out-of-order-ness is estimated based on how many comparisons are needed to sort correctly.</b></p>', '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">For example, to sort five gold blocks correctly, the least number of comparisons needed is four ([1,2,3,4,5], etc). Therefore, we will call this condition <b>"least out-of-order"</b>. The most number of comparisons needed is ten ([1, 5, 4, 3, 2], etc) and we will call it <b>"most out-of-order"</b>. <br><br>Between least and most out-of-order there are two additional levels---<b>somehow out-of-order</b> and <b>fairly out-of-order</b>. </p>'+img_outoforder,
+  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">If an 5-item example requires 8 comparisons to sort correctly with the method, how out-of-order do you think it is?</p>'+img_outoforder,
+  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">If an 5-item example requires 8 comparisons to sort correctly with the method, how out-of-order do you think it is?</p>'+img_outoforder+'<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">The answer is <b>"Fairly out-of-order"</b>. <br><br>Click "Previous" to review instructions. Click "Next" to the test phase.</p>'
+  ],
+  show_clickable_nav: true,
+  // key_forward:"Enter"
+}
+
+timeline.push(Out_of_order)
+
 ///////////////////////////////Learning Trials//////////////////////
 for(var j=0; j<4; j++){
 
@@ -276,16 +294,151 @@ for(var j=0; j<4; j++){
   timeline.push({
     type: jsPsychHtmlKeyboardResponse,
     stimulus: ["Example " +(j+1)+"<br><br>Press Enter to continue."],
-    trial_duration:1000,
+    // trial_duration:1000,
   });
 
-
+  
+  const img_t_demo_only=JSON.parse(JSON.stringify(img_t_all[j] ));
   const img_t=JSON.parse(JSON.stringify(img_t_all[j] ));
   const img_s=JSON.parse(JSON.stringify(img_s_all[j] ));
 
   const list_comp=p_comp_all[j];
   const list_comp_bool=p_comp_bool_all[j];
   const p_order=p_order_all[j];
+
+  //demonstration only
+  for(var i=0; i<list_comp_bool.length; i++){
+
+    const index_t_1=list_comp[i][0];
+    const index_t_2=list_comp[i][1];
+    const imit_swap=list_comp_bool[i];
+    const which_exam=j;
+
+    const imi_hl1_demo_only={
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: function() {
+        img_t_demo_only[index_t_1]=img_t_demo_only[index_t_1].replace("<img", "<img id='selected'");
+        let img_t_demo_only_join=img_t_demo_only.join(" ");
+        return img_t_demo_only_join;
+      },
+      choices: "NO_KEYS",
+      margin_vertical:'30px',
+      // button_html: '<button class="jspsych-btn" style="position: relative ;right:80%; ">%choice%</button>', //move button to the left, used this when we have the visualization in the end of the stimulus
+      // button_html: '<button class="jspsych-btn">%choice%</button>',
+      prompt: "<p><strong>Try to find the pattern of the Omgne Sort.</strong></p>",
+      trial_duration:500,
+    }
+
+    const imi_hl2_demo_only={
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: function() {
+        img_t_demo_only[index_t_2]=img_t_demo_only[index_t_2].replace("<img", "<img id='selected'");
+        let img_t_demo_only_join=img_t_demo_only.join(" ");
+        return img_t_demo_only_join;
+      },
+      // choices: img_s,
+      choices: "NO_KEYS",
+      margin_vertical:'30px',
+      // button_html: '<button class="jspsych-btn">%choice%</button>',
+      prompt: "<p><strong>Try to find the pattern of the Omgne Sort.</strong></p>",
+      trial_duration:500,
+    }
+
+
+
+    const imi_comp1_demo_only={
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: function(){
+        if (imit_swap==1){
+          let temp=img_t_demo_only[index_t_1]
+          img_t_demo_only[index_t_1]=img_t_demo_only[index_t_2];
+          img_t_demo_only[index_t_2]=temp;
+          img_t_demo_only_join=img_t_demo_only.join(" ");
+
+        }else{
+          img_t_demo_only[index_t_1]=img_t_demo_only[index_t_1];
+          img_t_demo_only[index_t_2]=img_t_demo_only[index_t_2];
+          img_t_demo_only_join=img_t_demo_only.join(" ");
+        }
+
+        return img_t_demo_only_join;
+      },
+      // choices: img_s,
+      choices: "NO_KEYS",
+      margin_vertical:'30px',
+      // button_html: '<button class="jspsych-btn">%choice%</button>',
+      prompt: "<p><strong>Try to find the pattern of the Omgne Sort.</strong></p>",
+      trial_duration:500,
+    }
+
+    
+
+    const imi_comp2_demo_only = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: function(){
+        img_t_demo_only_join = img_t_demo_only.join(" ");
+        return img_t_demo_only_join;
+      },
+      // choices: function () {
+      //   console.log(img_s)
+      //   return img_s;
+      // },
+      choices: "NO_KEYS",
+      margin_vertical: '30px',
+      // button_html: '<button class="jspsych-btn">%choice%</button>',
+      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to find the pattern of this sorting method.</strong></p>",
+      data: { phase: 'Learning example '+which_exam },
+    }
+
+
+    function removeSelection_learn(imglist) {
+      // let result = imglist.map(x => x);
+      for (let i = 0; i < imglist.length; i++) {
+        // imglist[i] = imglist[i].replace("<img id='selected'", "<img ");
+        if (imglist[i].includes("selected")) { //id=selected might be jspsych features
+          
+          imglist[i] = imglist[i].replace("<img id='selected'", "<img ");
+        }
+      }
+      return imglist;
+    }
+
+    
+    const imi_hl0_demo_only={
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: function() {
+        // console.log(img_t_demo_only) 
+        img_t_demo_only[index_t_1]=img_t_demo_only[index_t_1].replace("id='selected'", "");
+        img_t_demo_only[index_t_2]=img_t_demo_only[index_t_2].replace("id='selected'", "");
+        const img_t_demo_only_join=img_t_demo_only.join(" ");
+        
+        return img_t_demo_only_join;
+      },
+      // choices: img_s,
+      choices: "NO_KEYS",
+      margin_vertical:'30px',
+      // button_html: '<button class="jspsych-btn">%choice%</button>',
+      prompt: "<p><strong>Try to find the pattern of the Omgne Sort.</strong></p>",
+      trial_duration:300,
+      data: {
+        save_trial: false  // Add this flag
+      },
+    }
+
+    timeline.push(imi_hl1_demo_only)
+    timeline.push(imi_hl2_demo_only)
+    timeline.push(imi_comp1_demo_only)
+    // timeline.push(imi_comp2_demo_only)
+
+    timeline.push(imi_hl0_demo_only)
+  };
+
+  //Imitation
+  timeline.push({
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: ["Example " +(j+1)+"<br><br>Press Enter to continue."],
+    // trial_duration:1000,
+  });
 
   for(var i=0; i<list_comp_bool.length; i++){
 
@@ -294,23 +447,6 @@ for(var j=0; j<4; j++){
     const imit_swap=list_comp_bool[i];
     const which_exam=j;
 
-    // const imi_hl12={
-    //   type: jsPsychHtmlButtonResponse,
-    //   stimulus: function() {
-    //     img_t[index_t_1]=img_t[index_t_1].replace("<img", "<img id='selected'");
-    //     img_t[index_t_2]=img_t[index_t_2].replace("<img", "<img id='selected'");
-    //     let img_t_join=img_t.join(" ");
-    //     return img_t_join;
-    //   },
-    //   choices: img_s,
-    //   margin_vertical:'30px',
-    //   // button_html: '<button class="jspsych-btn" style="position: relative ;right:80%; ">%choice%</button>', //move button to the left, used this when we have the visualization in the end of the stimulus
-    //   button_html: '<button class="jspsych-btn">%choice%</button>',
-    //   prompt: "<p>In the bottom row, you can compare two items at each time by clicking them. If their order is wrong, they will swap positions. <br><br> <strong>Please follow the pairs being compared at the top row. Try to find the pattern of this sorting method.</strong></p>",
-    //   trial_duration:300,
-    // }
-
-    // timeline.push(imi_hl12)
 
     const imi_hl1={
       type: jsPsychHtmlButtonResponse,
@@ -321,10 +457,9 @@ for(var j=0; j<4; j++){
       },
       choices: img_s,
       margin_vertical:'30px',
-      // button_html: '<button class="jspsych-btn" style="position: relative ;right:80%; ">%choice%</button>', //move button to the left, used this when we have the visualization in the end of the stimulus
       button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to find the pattern of this sorting method.</strong></p>",
-      trial_duration:300,
+      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to find the pattern of the Omgne Sort.</strong></p>",
+      trial_duration:400,
     }
 
     const imi_hl2={
@@ -337,12 +472,11 @@ for(var j=0; j<4; j++){
       choices: img_s,
       margin_vertical:'30px',
       button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to find the pattern of this sorting method.</strong></p>",
-      trial_duration:200,
+      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to find the pattern of the Omgne Sort.</strong></p>",
+      trial_duration:300,
     }
 
-    timeline.push(imi_hl1)
-    timeline.push(imi_hl2)
+
 
     const imi_comp1={
       type: jsPsychHtmlButtonResponse,
@@ -364,11 +498,11 @@ for(var j=0; j<4; j++){
       choices: img_s,
       margin_vertical:'30px',
       button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to find the pattern of this sorting method.</strong></p>",
-      trial_duration:200,
+      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to find the pattern of the Omgne Sort.</strong></p>",
+      trial_duration:300,
     }
 
-    timeline.push(imi_comp1)
+    
 
     const imi_comp2 = {
       type: jsPsychHtmlButtonResponse,
@@ -382,7 +516,7 @@ for(var j=0; j<4; j++){
       },
       margin_vertical: '30px',
       button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to find the pattern of this sorting method.</strong></p>",
+      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to find the pattern of the Omgne Sort.</strong></p>",
       data: { phase: 'Learning example '+which_exam },
     }
 
@@ -456,30 +590,16 @@ for(var j=0; j<4; j++){
             let temp = img_s[lastResponse];
             img_s[lastResponse] = img_s[secondLastResponse];
             img_s[secondLastResponse] = temp;
-            // img_s=removeSelection_learn(img_s);
             setTimeout(() => {
             for (let ii=0;ii<img_s.length;ii++){
               img_s[ii] = img_s[ii].replace("id='selected'", " ");
             }
           }, 200); 
-          //   img_s[0] = img_s[0].replace("<img id='selected'", "<img ");
-          //   img_s[1] = img_s[1].replace("<img id='selected'", "<img ");
-          //   img_s[2] = img_s[2].replace("<img id='selected'", "<img ");
-          //   img_s[3] = img_s[3].replace("<img id='selected'", "<img ");
-          //   img_s[4] = img_s[4].replace("<img id='selected'", "<img ");
           }else{
             setTimeout(() => {
-              // img_s[lastResponse] = img_s[lastResponse].replace("<img id='selected'", "<img ");
-              // img_s[secondLastResponse] = img_s[secondLastResponse].replace("<img id='selected'", "<img ");
-              // img_s=removeSelection_learn(img_s);
               for (let ii=0;ii<img_s.length;ii++){
                 img_s[ii] = img_s[ii].replace("id='selected'", " ");
               }
-              // img_s[0] = img_s[0].replace("<img id='selected'", "<img ");
-              // img_s[1] = img_s[1].replace("<img id='selected'", "<img ");
-              // img_s[2] = img_s[2].replace("<img id='selected'", "<img ");
-              // img_s[3] = img_s[3].replace("<img id='selected'", "<img ");
-              // img_s[4] = img_s[4].replace("<img id='selected'", "<img ");
             }, 200); 
           }
           return false;
@@ -489,7 +609,9 @@ for(var j=0; j<4; j++){
       }
     };
 
-    
+    timeline.push(imi_hl1)
+    timeline.push(imi_hl2)
+    timeline.push(imi_comp1)
     timeline.push(loopNode)
 
 
@@ -506,7 +628,7 @@ for(var j=0; j<4; j++){
       choices: img_s,
       margin_vertical:'30px',
       button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to find the pattern of this sorting method.</strong></p>",
+      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to find the pattern of the Omgne Sort.</strong></p>",
       trial_duration:200,
       data: {
         save_trial: false  // Add this flag
@@ -517,22 +639,11 @@ for(var j=0; j<4; j++){
 
   timeline.push({
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: ["The initial order was " +p_order+" and it took "+list_comp_bool.length+" comparisons to sort it correctly with the method. <br><br>Press Enter to continue."],
+    stimulus: ["Final order was 1,2,3,4,5. The initial order was " +p_order+".<br>It took "+list_comp_bool.length+" comparisons to sort it correctly with Omgne Sort. <br><br>Press Enter to continue."],
   });
 };
 
-const Out_of_order = {
-  type: jsPsychInstructions,
-  pages: [
-  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Given a certain number of gold blocks, some sequence are initially more <b>out of order</b> than others. <b>The out-of-order-ness is estimated based on how many comparisons are needed to sort correctly.</b></p>', '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">For example, to sort five gold blocks correctly, the least number of comparisons needed is four ([1,2,3,4,5], etc). Therefore, we will call this condition <b>"least out-of-order"</b>. The most number of comparisons needed is ten ([1, 5, 4, 3, 2], etc) and we will call it <b>"most out-of-order"</b>. <br><br>Between least and most out-of-order there are two additional levels---<b>somehow out-of-order</b> and <b>fairly out-of-order</b>. </p>'+img_outoforder,
-  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">If an 5-item example requires 8 comparisons to sort correctly with the method, how out-of-order do you think it is?</p>'+img_outoforder,
-  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">If an 5-item example requires 8 comparisons to sort correctly with the method, how out-of-order do you think it is?</p>'+img_outoforder+'<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">The answer is <b>"Fairly out-of-order"</b>. <br><br>Click "Previous" to review instructions. Click "Next" to the test phase.</p>'
-  ],
-  show_clickable_nav: true,
-  // key_forward:"Enter"
-}
 
-timeline.push(Out_of_order)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////// DO BLOCK ///////////////////////////////////////////////////////////////////////////
