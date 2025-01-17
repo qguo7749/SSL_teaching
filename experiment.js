@@ -1,6 +1,3 @@
-var selected_color = "#FF7909"
-var unselected_color = "#FFFFFF"
-
 // Initialize jsPsych
 const jsPsych = initJsPsych();
 
@@ -52,11 +49,11 @@ let img10 = "<img src='assets/G_10.jpg' height='90'>";
 
 const Consent = {
   type: jsPsychInstructions,
-  pages: [
-  '<h3>CONSENT TO PARTICIPATE IN RESEARCH</h3>'+'<h4>Gold Block Experiment</h4>'+'<p><b>Introduction/Purpose</b></p>'+'<p>My name is William Thompson. I am a faculty member at the University of California, Berkeley, working with my research colleague Qi Guo in the Department of Psychology. We are planning to conduct a research study, which I invite you to take part in. The purpose of this study is to better understand how people learn and teach a sorting method.</p>'+'<p><b>Procedures</b></p>'+'<p>If you agree to participate in my research, I/we will ask you to complete the attached online survey/ questionnaire. In this experiment you will see gold blocks. Your will be asked to sort them by weight. You will learn an efficient sorting method and teach that method to future participants. The task should take about 15 minutes to complete.</p>'+'<p><b>Benefits</b></p>'+'<p>There is no direct benefit to you anticipated from participating in this study. However, it is hoped that the information gained from the study will benefit society at large. By furthering our understanding of human learning and teaching, this research will benefit society by helping with the development of automated systems that can better communicate with humans, learn from humans, and teach humans.</p>'+'<p><b>Risks/Discomforts/Confidentiality</b></p>'+'<p>Your study data will be handled as confidentially as possible. If results of this study are published or presented, individual names and other personally identifiable information will not be used. Your data will not be associated with your name directly in any way. However, while the study is running it will be associated with your Prolific ID which someone could potentially use to personally identify you. Once the study is complete, we will replace your Prolific ID with a random string. These records may be shared with other researchers, but will not contain your Prolific ID or any other personal information. Responses you make within the study may be shown to other participants, but these responpses will not be linked to your personally identifiable information in any way.</p>'+'<p>While we will handle your responses as confidentially as possible, we cannot guarantee the confidentiality of information transmitted over the Internet. As with all research, there is a chance that confidentiality could be compromised; however, we are taking precautions to minimize this risk. We will be keeping data collected as part of this experiment indefinitely. Identifiers might be removed from the identifiable private information. After such removal, the information could be used for future research studies or distributed to other investigators for future research studies without additional informed consent from the subject or the legally authorized representative.</p>'+'<p><b>Compensation</b></p>'+'<p>In return for your time and effort, you will be paid $2.50 for taking part in this study. This money will be credited to your account within a week of submitting the study. There will be an opportunity to earn additional bonus compensation dependent upon completion of and performance within the task.</p>'+'<p><b>Rights</b></p>'+'<p><b><i>Participation in research is completely voluntary.</i></b>  You have the right to decline to participate or to withdraw at any point in this study without penalty or loss of benefits to which you are otherwise entitled.</p>'+'<p><b>Questions</b></p>'+'<p>If you have any questions or concerns about this study, you may contact William Thompson at <a href="mailto:wdt@berkeley.edu">wdt@berkeley.edu</a>.</p>'+'<p>If you have any questions or concerns about your rights and treatment as a research subject, you may contact the office of UC Berkeley\'s Committee for the Protection of Human Subjects, at 510-642-7461 or <a href="mailto:subjects@berkeley.edu">subjects@berkeley.edu</a>.</p>'+'<p>*********************************************</p>'+'<p>By consenting to participate, you acknowledge that you are 18 years or older, have read this consent form, agree to its contents, and agree to take part in this research. If you do not wish to consent, close this page and return the assignment to the recruitment platform.</p>'+'<div><button type="button" class="btn btn-primary btn-info" onClick="window.print();return false;" style="float: right;">Print this page</button></div>'],
+  pages: ['<h3>CONSENT TO PARTICIPATE IN RESEARCH</h3>'+'<h4>Gold Block Experiment</h4>'+'<p><b>Introduction/Purpose</b></p>'+'<p>My name is William Thompson. I am a faculty member at the University of California, Berkeley, working with my research colleague Qi Guo in the Department of Psychology. We are planning to conduct a research study, which I invite you to take part in. The purpose of this study is to better understand how people learn and teach a sorting method.</p>'+'<p><b>Procedures</b></p>'+'<p>If you agree to participate in my research, I/we will ask you to complete the attached online survey/ questionnaire. In this experiment you will see gold blocks. Your will be asked to sort them by weight. You will learn an efficient sorting method and teach that method to future participants. The task should take about 15 minutes to complete.</p>'+'<p><b>Benefits</b></p>'+'<p>There is no direct benefit to you anticipated from participating in this study. However, it is hoped that the information gained from the study will benefit society at large. By furthering our understanding of human learning and teaching, this research will benefit society by helping with the development of automated systems that can better communicate with humans, learn from humans, and teach humans.</p>'+'<p><b>Risks/Discomforts/Confidentiality</b></p>'+'<p>Your study data will be handled as confidentially as possible. If results of this study are published or presented, individual names and other personally identifiable information will not be used. Your data will not be associated with your name directly in any way. However, while the study is running it will be associated with your Prolific ID which someone could potentially use to personally identify you. Once the study is complete, we will replace your Prolific ID with a random string. These records may be shared with other researchers, but will not contain your Prolific ID or any other personal information. Responses you make within the study may be shown to other participants, but these responpses will not be linked to your personally identifiable information in any way.</p>'+'<p>While we will handle your responses as confidentially as possible, we cannot guarantee the confidentiality of information transmitted over the Internet. As with all research, there is a chance that confidentiality could be compromised; however, we are taking precautions to minimize this risk. We will be keeping data collected as part of this experiment indefinitely. Identifiers might be removed from the identifiable private information. After such removal, the information could be used for future research studies or distributed to other investigators for future research studies without additional informed consent from the subject or the legally authorized representative.</p>'+'<p><b>Compensation</b></p>'+'<p>In return for your time and effort, you will be paid $2.50 for taking part in this study. This money will be credited to your account within a week of submitting the study. There will be an opportunity to earn additional bonus compensation dependent upon completion of and performance within the task.</p>'+'<p><b>Rights</b></p>'+'<p><b><i>Participation in research is completely voluntary.</i></b>  You have the right to decline to participate or to withdraw at any point in this study without penalty or loss of benefits to which you are otherwise entitled.</p>'+'<p><b>Questions</b></p>'+'<p>If you have any questions or concerns about this study, you may contact William Thompson at <a href="mailto:wdt@berkeley.edu">wdt@berkeley.edu</a>.</p>'+'<p>If you have any questions or concerns about your rights and treatment as a research subject, you may contact the office of UC Berkeley\'s Committee for the Protection of Human Subjects, at 510-642-7461 or <a href="mailto:subjects@berkeley.edu">subjects@berkeley.edu</a>.</p>'+'<p>*********************************************</p>'+'<p>By consenting to participate, you acknowledge that you are 18 years or older, have read this consent form, agree to its contents, and agree to take part in this research. If you do not wish to consent, close this page and return the assignment to the recruitment platform.</p>'+'<div><button type="button" class="btn btn-primary btn-info" onClick="window.print();return false;" style="float: right;">Print this page</button></div>'],
   show_clickable_nav: true,
   button_label_next: "I agree"
 }
+
 timeline.push(Consent)
 
 
@@ -66,10 +63,10 @@ const Intro = {
   type: jsPsychInstructions,
   pages: [
   '<p>Welcome to the experiment! <br><br> Press Enter to continue.</p>',
-  img_intro +'<p>Imagine you have five gold blocks that vary in weights. <b>How can you sort them by weight using a balance (comparing two at each time)? </b><br></p>' + balance+'<p><br>There are many ways to do that. In this game, you will learn a great method called "Omgne Sort".<br>Press Enter to continue.</p>',
-  '<p>Don’t worry about coming up with new methods. Your task is to learn <b>Omgne Sort</b> and use it <b>accurately and efficiently</b> in the test. </strong> </p>'+'<br>' + img_intro+'<p><br>Press Enter to continue.</p>',
-  '<p> Your reward bonus will depend on your performance in the test.</p>'+'<br>' + img_intro +'<p>Press Enter to continue.</p>',
-  '<p> Let’s try it first. This will not be counted as your performance. <br><br> <strong> Click any two blocks to compare them. If they are in the wrong order, they will swap places. The animals shown are just markers and do not indicate the ordering. </strong>   </p>'+'<br>'+'<p><br>Press Enter to continue.</p>',
+  img_intro +'<p>Imagine you have five gold blocks that vary in weights. How can you sort them by weight using a balance (comparing two at each time)? <br></p>' + balance+'<p><br>Press Enter to continue.</p>',
+  '<p>There are many ways to do that. In this game, you will learn a great method called "Omgne Sort". <br><br>Don’t worry about coming up with new methods. Your task is to learn how to do Omgne Sort. </p>'+'<br>' + img_intro+'<p><br>Press Enter to continue.</p>',
+  '<p> Your reward bonus will depend on how accurately and efficiently you use Omgne Sort in the test.</p>'+'<br>' + img_intro +'<p>Press Enter to continue.</p>',
+  '<p> Let’s try it first. This will not be counted as your performance. <br><br> Click any two blocks to compare them. If they are in the wrong order, they will swap places. The animals shown are just markers and do not indicate the ordering. </p>'+'<br>'+'<p><br>Press Enter to continue.</p>',
   ],
   show_clickable_nav: false,
   key_forward:"Enter"
@@ -81,9 +78,12 @@ const Intro = {
 function removeSelection_intro(imglist) {
   let result = imglist.map(x => x);
   for (let i = 0; i < imglist.length; i++) {
-    if (imglist[i].includes(" id='selected'")) { //id=selected might be jspsych features
+    if (imglist[i].includes(" id='selected'")) { //id=selected 
       result[i] = result[i].replace(" id='selected'", " ");
     }
+    // if (imglist[i].includes(" id='swapped'")) { //id=swapped 
+    //   result[i] = result[i].replace(" id='swapped'", " ");
+    // }
   }
   return result;
 }
@@ -112,6 +112,7 @@ const n_img_disp=5;
 let times_clicked = -1;
 let times_switched = 0;
 let switch_attempted = false;
+let times_swapped=0;
 
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
@@ -139,9 +140,9 @@ const refresh_intro = {
   timeline: [display_img_intro],
   conditional_function: function () {
     // console.log("refresh");
-    if (times_clicked % 2 === 0 && times_clicked !== 0) { //Comment out here and moved it after switchornot, so highlight will disappear when clicking on two items
-      display_intro = removeSelection_intro(display_intro);
-    }
+    // if (times_clicked % 2 === 0 && times_clicked !== 0) { //Comment out here and moved it after switchornot, so highlight will disappear when clicking on two items
+    //   display_intro = removeSelection_intro(display_intro);
+    // }
     times_clicked++;
     let data1_ib = jsPsych.data.get().last(1).values()[0].response;//the second selection
     let data2_ib = jsPsych.data.get().last(2).values()[0].response; //the first selection
@@ -156,6 +157,10 @@ const refresh_intro = {
         switch_attempted = true;
       }
       if (times_clicked % 2 === 0 && switch_attempted) {
+        // if (display_intro[data1_ib].includes("id='selected'")) {
+        //   display_intro[data1_ib] = display_intro[data1_ib].replace(" id='selected'", " ");
+        // }
+        // display_intro[data1_ib] = display_intro[data1_ib].replace("<img ", "<img id='swapped'");
         times_switched++;
       }
     }
@@ -164,26 +169,20 @@ const refresh_intro = {
       let temp = display_intro[data1_ib];
       display_intro[data1_ib] = display_intro[data2_ib];
       display_intro[data2_ib] = temp;
+      times_swapped++;
     }
-    // if (times_clicked % 2 === 0 && times_clicked !== 0) {
-    //  display_intro = removeSelection_intro(display_intro);
-    // }
+    if (times_clicked % 2 === 0 && times_clicked !== 0) {
+     display_intro = removeSelection_intro(display_intro);
+    //  if (times_clicked % 2 === 0 && switch_attempted) {
+    //   display_intro[data1_ib] = display_intro[data1_ib].replace("<img ", "<img id='swapped'");
+    //   display_intro[data2_ib] = display_intro[data2_ib].replace("<img ", "<img id='swapped'");
+    //  }
+    }
     if (jsPsych.pluginAPI.compareKeys(String(data1_ib), String(n_img_disp))) {//whether you clicked "finished" which is string(6)
       return false;
     }
     return true;
   },
-  // on_start:function(data){
-  //   //   console.log("a",times_clicked);
-  //     console.log(display_intro)
-  //     if ((times_clicked) % 2 === 0 && (times_clicked) !== 0) { //Comment out here and moved it after switchornot, so highlight will disappear when clicking on two items
-  //       setTimeout(function(display_intro){
-  //         document.getElementById("selected"," ").style.border='5px solid #FFFFFF';          
-  //         document.getElementsByName("img").style.border='5px solid #FFFFFF'; 
-  //       },500)
-        
-  //     }
-  //   },
 };
 
 const loopNode_intro = {
@@ -218,17 +217,19 @@ const finish_intro = {
     for (var range_len=[],i=1;i<=n_img_disp;++i) range_len.push(i);
 
     if (JSON.stringify(TrueOrder_o) === JSON.stringify(range_len)){
-      finalDisplay.push("You sorted correctly with "+ String(times_switched) + " comparisons in total. <br><br> "+ display_intro.join("")+ "<br><br> Your final order is " + TrueOrder_o + "<br><br><br>Omgne Sort in this game will allow you to sort correctly with 8 comparisons. Press Enter to learn it!")
+      finalDisplay.push("You sorted correctly by using the balance "+ String(times_switched) + " times. <br><br> "+ display_intro.join("")+ "<br><br> Your final order is " + TrueOrder_o + "<br><br><br>Omgne Sort in this game will allow you to sort correctly by using the balance 8 times. Press Enter to learn it!")
     } else {
-      finalDisplay.push("You sorted incorrectly with "+ String(times_switched) + " comparisons in total. <br><br> "+ display_intro.join("")+ "<br><br> Your final order is " + TrueOrder_o + "<br><br><br>Omgne Sort in this game will allow you to sort correctly with 8 comparisons. Press Enter to learn it!")
+      finalDisplay.push("You sorted incorrectly by using the balance "+ String(times_switched) + " times. <br><br> "+ display_intro.join("")+ "<br><br> Your final order is " + TrueOrder_o + "<br><br><br>Omgne Sort in this game will allow you to sort correctly by using the balance 8 times. Press Enter to learn it!")
     }
     return finalDisplay;
   },
 };
 
+/////////////////////////////////////////////////// TIMELINES ////////////////////////////////////////
 timeline.push(Intro)
 timeline.push(loopNode_intro);
 timeline.push(finish_intro);
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -249,64 +250,81 @@ function shuffle_learning(array) {
     return array;
   }
 
-timeline.push({
+const welcome_learning = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: "<p>Welcome to the learning phase! <br><br> You will learn by <b>imitating four examples</b>. <br><br> Press Enter to continue.<p/>",
-});
+  stimulus: "<p>Welcome to the learning phase! <br><br> You will learn by six examples. <br><br> Press Enter to continue.<p/>",
+};
+timeline.push(welcome_learning)
 
+//   timeline.push({
+//   type: jsPsychHtmlKeyboardResponse,
+//   stimulus: "<p>Welcome to the learning phase! <br><br> You will learn by six examples. <br><br> Press Enter to continue.<p/>",
+// });
 
-p1=[4, 2, 3, 5, 1];
-p2=[2, 5, 4, 3, 1];
-p3=[2, 1, 3, 4, 5, 6, 7, 8];
-p4=[3, 5, 4, 1, 2, 6, 8, 7];
+//examples are 5-least, 5-somehow, 5-most, 8-least, 8-somehow, 8-fairly (5L,5S,5M,8L,8S,8F)
+p1=[2, 1, 3, 4, 5] ; // 5 comparison, 1 swaps
+p2=[3, 4, 1, 2, 5] ; // 8 comparison, 4 swaps
+p3=[5, 4, 3, 2, 1] ; // 10 comparison, 10 swaps
+p4=[1, 2, 3, 4, 5, 7, 6, 8] ; // 14 comparison, 1 swaps
+p5=[4, 6, 3, 1, 2, 5, 8, 7] ; // 19 comparison, 10 swaps
+p6=[8, 5, 2, 6, 7, 3, 1, 4] ; // 24 comparison, 19 swaps
 
-p1_comp=[[0, 1], [1, 2], [0, 1], [2, 3], [3, 4], [2, 3], [1, 2], [0, 1]];
-p1_comp_bool=[1, 1, 0, 0, 1, 1, 1, 1];
-p2_comp=[[0, 1], [1, 2], [0, 1], [2, 3], [1, 2], [0, 1], [3, 4], [2, 3], [1, 2], [0, 1]];
-p2_comp_bool=[0, 1, 0, 1, 1, 0, 1, 1, 1, 1];
-p3_comp=[[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7]] ;
-p3_comp_bool=[1, 0, 0, 0, 0, 0, 0];
-p4_comp=[[0, 1], [1, 2], [0, 1], [2, 3], [1, 2], [0, 1], [3, 4], [2, 3], [1, 2], [0, 1], [4, 5], [5, 6], [6, 7], [5, 6]];
-p4_comp_bool=[0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0];
+p1_comp=[[0, 1], [1, 2], [2, 3], [3, 4]] ;
+p1_comp_bool=[1, 0, 0, 0];
+p2_comp=[[0, 1], [1, 2], [0, 1], [2, 3], [1, 2], [0, 1], [3, 4]] ;
+p2_comp_bool=[0, 1, 1, 1, 1, 0, 0];
+p3_comp=[[0, 1], [1, 2], [0, 1], [2, 3], [1, 2], [0, 1], [3, 4], [2, 3], [1, 2], [0, 1]] ;
+p3_comp_bool=[1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+p4_comp=[[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [4, 5], [6, 7]] ;
+p4_comp_bool=[0, 0, 0, 0, 0, 1, 0, 0];
+p5_comp=[[0, 1], [1, 2], [0, 1], [2, 3], [1, 2], [0, 1], [3, 4], [2, 3], [1, 2], [0, 1], [4, 5], [3, 4], [5, 6], [6, 7], [5, 6]];
+p5_comp_bool= [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0];
+p6_comp=[[0, 1], [1, 2], [0, 1], [2, 3], [1, 2], [3, 4], [2, 3], [4, 5], [3, 4], [2, 3], [1, 2], [0, 1], [5, 6], [4, 5], [3, 4], [2, 3], [1, 2], [0, 1], [6, 7], [5, 6], [4, 5], [3, 4], [2, 3]] ;
+p6_comp_bool=[1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0];
 
-const p_order_all=[p1,p2,p3,p4];
-const p_comp_all=[p1_comp,p2_comp,p3_comp,p4_comp];
-const p_comp_bool_all=[p1_comp_bool,p2_comp_bool,p3_comp_bool,p4_comp_bool];
+const p_order_all=[p1,p5,p2,p3,p4,p6];
+const p_comp_all=[p1_comp,p5_comp,p2_comp,p3_comp,p4_comp,p6_comp];
+const p_comp_bool_all=[p1_comp_bool,p5_comp_bool,p2_comp_bool,p3_comp_bool,p4_comp_bool,p6_comp_bool];
 
 const img_5=[img1,img3,img5,img7,img9];
 const img_8=[img1,img2,img3,img4,img5,img6,img7,img8];
-const eg_5_1=shuffle_learning(img_5)
-const eg_5_2=shuffle_learning(img_5)
-const eg_8_1=shuffle_learning(img_8)
-const eg_8_2=shuffle_learning(img_8)
-let img_t_all=[eg_5_1,eg_5_2,eg_8_1,eg_8_2];
+const eg_5_L=shuffle_learning(img_5)
+const eg_5_S=shuffle_learning(img_5)
+const eg_5_M=shuffle_learning(img_5)
+const eg_8_L=shuffle_learning(img_8)
+const eg_8_S=shuffle_learning(img_8)
+const eg_8_F=shuffle_learning(img_8)
+let img_t_all=[eg_5_L,eg_8_S,eg_5_S,eg_5_M,eg_8_L,eg_8_F]; // the examples are ordered this way (5L,8S,5S,5M,8L,8F) so the last four examples cover all four levels, it is p5-l
 let img_s_all = JSON.parse(JSON.stringify(img_t_all))
 
 
-const Out_of_order = {
-  type: jsPsychInstructions,
-  pages: [
-  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Given a certain number of gold blocks, the number of required comparisons varies based on their initial arrangement. <br><br>The "least out-of-order" condition, such as [1,2,3,4,5], needs only <b>four comparisons with Omgne Sort</b>. <br><br>The "most out-of-order" condition, like [1,5,4,3,2], requires <b>ten comparisons with Omgne Sort</b>. </p>', 
-  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px"><br><br>Between least and most out-of-order there are two additional levels---<b>somehow out-of-order</b> and <b>fairly out-of-order</b>. </p>'+img_outoforder,
-  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">If an 5-item example requires 8 comparisons to sort correctly with Omgne Sort, how out-of-order do you think it is?</p>'+img_outoforder+'<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Click "Next" to see the answer.</p>',
-  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">If an 5-item example requires 8 comparisons to sort correctly with Omgne Sort, how out-of-order do you think it is?</p>'+img_outoforder+'<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">The answer is <b>"Fairly out-of-order"</b>. <br><br>Click "Previous" to review instructions. Click "Next" to the learning phase.</p>'
-  ],
-  show_clickable_nav: true,
-}
 
-timeline.push(Out_of_order)
 
 ///////////////////////////////Learning Trials//////////////////////
-for(var j=0; j<4; j++){
-
+for(var j=0; j<6; j++){
+  if (j==2){
+    const Out_of_order = {
+    type: jsPsychInstructions,
+    pages: [
+    '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Given a certain number of gold blocks, the number of swaps varies based on their initial arrangement. <br><br>The "least out-of-order" condition, such as [2,1,3,4,5], needs <b>the least number of swaps with Omgne Sort</b> (1 swap in this case). <br><br>The "most out-of-order" condition, like [5,4,3,2,1], requires <b> the most swaps with Omgne Sort</b> (10 swaps in this case). </p>', 
+    '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px"><br><br>Between the <b>least</b> and <b>most</b> out-of-order there are two additional levels---<b>somehow</b> out-of-order and <b>fairly</b> out-of-order. </p>'+img_outoforder,
+    '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">If an 5-item example requires 7 swaps to sort correctly with Omgne Sort, how out-of-order do you think it is?</p>'+img_outoforder+'<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Click "Next" to see the answer.</p>',
+    '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">If an 5-item example requires 7 swaps to sort correctly with Omgne Sort, how out-of-order do you think it is?</p>'+img_outoforder+'<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">The answer is <b>"Fairly out-of-order"</b>. <br><br>Click "Previous" to review instructions. Click "Next" to the learning phase.</p>'
+    ],
+    show_clickable_nav: true,
+  }
   
-  timeline.push({
+  timeline.push(Out_of_order)
+  }
+
+  const intro_example = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: ["Example " +(j+1)+"<br><br>Press Enter to continue."],
-    // trial_duration:1000,
-  });
+    stimulus: ["Example " +(j+1)+"<br><br>You will see how Omgne Sort work. Try to find the pattern of the Omgne Sort. <br><br>Press Enter to continue."],
+  };
 
-  
+  timeline.push(intro_example)
+
+
   const img_t_demo_only=JSON.parse(JSON.stringify(img_t_all[j] ));
   const img_t=JSON.parse(JSON.stringify(img_t_all[j] ));
   const img_s=JSON.parse(JSON.stringify(img_s_all[j] ));
@@ -359,6 +377,8 @@ for(var j=0; j<4; j++){
       type: jsPsychHtmlKeyboardResponse,
       stimulus: function(){
         if (imit_swap==1){
+          img_t_demo_only[index_t_1]=img_t_demo_only[index_t_1].replace("<img id='selected'", "<img id='swapped'");
+          img_t_demo_only[index_t_2]=img_t_demo_only[index_t_2].replace("<img id='selected'", "<img id='swapped'");
           let temp=img_t_demo_only[index_t_1]
           img_t_demo_only[index_t_1]=img_t_demo_only[index_t_2];
           img_t_demo_only[index_t_2]=temp;
@@ -408,6 +428,10 @@ for(var j=0; j<4; j++){
           
           imglist[i] = imglist[i].replace("<img id='selected'", "<img ");
         }
+        if (imglist[i].includes("swapped")) { //id=selected might be jspsych features
+          
+          imglist[i] = imglist[i].replace("<img id='swapped'", "<img ");
+        }
       }
       return imglist;
     }
@@ -419,6 +443,8 @@ for(var j=0; j<4; j++){
         // console.log(img_t_demo_only) 
         img_t_demo_only[index_t_1]=img_t_demo_only[index_t_1].replace("id='selected'", "");
         img_t_demo_only[index_t_2]=img_t_demo_only[index_t_2].replace("id='selected'", "");
+        img_t_demo_only[index_t_1]=img_t_demo_only[index_t_1].replace("id='swapped'", "");
+        img_t_demo_only[index_t_2]=img_t_demo_only[index_t_2].replace("id='swapped'", "");
         const img_t_demo_only_join=img_t_demo_only.join(" ");
         
         return img_t_demo_only_join;
@@ -434,19 +460,17 @@ for(var j=0; j<4; j++){
       },
     }
 
+
     timeline.push(imi_hl1_demo_only)
     timeline.push(imi_hl2_demo_only)
     timeline.push(imi_comp1_demo_only)
-
-
     timeline.push(imi_hl0_demo_only)
   };
 
   //Imitation
   timeline.push({
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: ["Example " +(j+1)+"<br><br>Press Enter to continue."],
-    // trial_duration:1000,
+    stimulus: ["Have you found some clues? <br><br>Press Enter to watch that example again and follow the steps of Omgne Sort."],
   });
 
   for(var i=0; i<list_comp_bool.length; i++){
@@ -491,6 +515,8 @@ for(var j=0; j<4; j++){
       type: jsPsychHtmlButtonResponse,
       stimulus: function(){
         if (imit_swap==1){
+          img_t[index_t_1]=img_t[index_t_1].replace("<img id='selected'", "<img id='swapped'");
+          img_t[index_t_2]=img_t[index_t_2].replace("<img id='selected'", "<img id='swapped'");
           let temp=img_t[index_t_1]
           img_t[index_t_1]=img_t[index_t_2];
           img_t[index_t_2]=temp;
@@ -537,6 +563,10 @@ for(var j=0; j<4; j++){
         if (imglist[i].includes("selected")) { //id=selected might be jspsych features
           
           imglist[i] = imglist[i].replace("<img id='selected'", "<img ");
+        }
+        if (imglist[i].includes("swapped")) { //id=selected might be jspsych features
+          
+          imglist[i] = imglist[i].replace("<img id='swapped'", "<img ");
         }
       }
       return imglist;
@@ -618,11 +648,6 @@ for(var j=0; j<4; j++){
       }
     };
 
-    timeline.push(imi_hl1)
-    timeline.push(imi_hl2)
-    timeline.push(imi_comp1)
-    timeline.push(loopNode)
-
 
     const imi_hl0={
       type: jsPsychHtmlButtonResponse,
@@ -630,6 +655,8 @@ for(var j=0; j<4; j++){
         // console.log(img_t) 
         img_t[index_t_1]=img_t[index_t_1].replace("id='selected'", "");
         img_t[index_t_2]=img_t[index_t_2].replace("id='selected'", "");
+        img_t[index_t_1]=img_t[index_t_1].replace("id='swapped'", "");
+        img_t[index_t_2]=img_t[index_t_2].replace("id='swapped'", "");
         const img_t_join=img_t.join(" ");
         
         return img_t_join;
@@ -643,13 +670,17 @@ for(var j=0; j<4; j++){
         save_trial: false  // Add this flag
       },
     }
+
+
+    timeline.push(imi_hl1)
+    timeline.push(imi_hl2)
+    timeline.push(imi_comp1)
+    timeline.push(loopNode)
+
     timeline.push(imi_hl0)
   };
 
-  timeline.push({
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus: ["Final order was 1,2,3,4,5. The initial order was " +p_order+".<br>It took "+list_comp_bool.length+" comparisons to sort it correctly with Omgne Sort. <br><br>Press Enter to continue."],
-  });
+  
 
 
   const outoforder5 = {
@@ -657,7 +688,7 @@ for(var j=0; j<4; j++){
     questions: [
       {
 
-        prompt: "<div style='font-size: 20px;'>Given five blocks, the least out-of-order sequence requires 4 comparisons and the most out-of-order sequence requires 10 comparisons.<br><br>The one you just finished requires " + list_comp_bool.length + " comparisons, how out-of-order do you think it is?<br><br></div>", 
+        prompt: "<div style='font-size: 20px;'>Given five blocks, the least out-of-order sequence requires 1 swap and the most out-of-order sequence requires 10 swaps.<br><br>The one you just finished requires " + list_comp_bool.reduce((partialSum, a) => partialSum + a, 0) + " swaps, how out-of-order do you think it is?<br><br></div>", 
         labels: ['<div style="font-size: 20px;">least</div>',
           ' ',
           '<div style="font-size: 20px;">somehow</div>',
@@ -669,29 +700,48 @@ for(var j=0; j<4; j++){
       } ],
   };
   
-const outoforder8 = {
-  type: jsPsychSurveyLikert,
-  questions: [
-    {
-      prompt: "<div style='font-size: 20px;'>Given eight blocks, the least out-of-order sequence requires 7 comparisons and the most out-of-order sequence requires 28 comparisons. <br><br>The one you just finished requires "+ list_comp_bool.length +" comparisons, how out-of-order do you think it is?<br><br></div>", 
-      labels: ['<div style="font-size: 20px;">least</div>',
-          ' ',
-          '<div style="font-size: 20px;">somehow</div>',
-          ' ',
-          '<div style="font-size: 20px;">fairly</div>',
-          ' ',
-          '<div style="font-size: 20px;">most</div>'], 
-      required: true,
-    }, ],
-  };
-
-  if (j<2){
-    timeline.push(outoforder5);
+  const outoforder8 = {
+    type: jsPsychSurveyLikert,
+    questions: [
+      {
+        prompt: "<div style='font-size: 20px;'>Given eight blocks, the least out-of-order sequence requires 1 swap and the most out-of-order sequence requires 28 swaps. <br><br>The one you just finished requires "+ list_comp_bool.reduce((partialSum, a) => partialSum + a, 0) +" swaps, how out-of-order do you think it is?<br><br></div>", 
+        labels: ['<div style="font-size: 20px;">least</div>',
+            ' ',
+            '<div style="font-size: 20px;">somehow</div>',
+            ' ',
+            '<div style="font-size: 20px;">fairly</div>',
+            ' ',
+            '<div style="font-size: 20px;">most</div>'], 
+        required: true,
+      }, ],
+    };
+  if (j>1){
+    if (j<4){
+      timeline.push({
+        type: jsPsychHtmlKeyboardResponse,
+        stimulus: ["Final order was 1,2,3,4,5. The initial order was " +p_order+".<br>It took "+list_comp_bool.reduce((partialSum, a) => partialSum + a, 0)+" swaps to sort it correctly with Omgne Sort. <br><br>Press Enter to continue."],
+      });
+      timeline.push(outoforder5);
+    }else{
+      timeline.push({
+        type: jsPsychHtmlKeyboardResponse,
+        stimulus: ["Final order was 1,2,3,4,5,6,7,8. The initial order was " +p_order+".<br>It took "+list_comp_bool.reduce((partialSum, a) => partialSum + a, 0)+" swaps to sort it correctly with Omgne Sort. <br><br>Press Enter to continue."],
+      });
+      timeline.push(outoforder8);
+    }
   }else{
-    timeline.push(outoforder8);
+    if (j==0){
+      timeline.push({
+        type: jsPsychHtmlKeyboardResponse,
+        stimulus: ["Final order was 1,2,3,4,5. The initial order was " +p_order+".<br>It took "+list_comp_bool.reduce((partialSum, a) => partialSum + a, 0)+" swaps to sort it correctly with Omgne Sort. <br><br>Press Enter to continue."],
+      });
+    }else{
+      timeline.push({
+        type: jsPsychHtmlKeyboardResponse,
+        stimulus: ["Final order was 1,2,3,4,5,6,7,8. The initial order was " +p_order+".<br>It took "+list_comp_bool.reduce((partialSum, a) => partialSum + a, 0)+" swaps to sort it correctly with Omgne Sort. <br><br>Press Enter to continue."],
+      });
+    }
   }
-
-
 
 };
 
@@ -707,7 +757,7 @@ timeline.push({
 });
 
 n_img_disp_list=[]
-for(var i=0; i<4; i++){
+for(var i=0; i<10; i++){
   if (i%2==0){n_img_disp_list.push(5)
   } else {n_img_disp_list.push(8)
   }
@@ -812,9 +862,11 @@ for(var i=0; i<4; i++){
       TrueOrder_oo.push(trueOrder.get(trueOrderArray[jj][0]));
     }
     
-    const TT=TrueOrder_oo.map(x => TrueOrder_oo.filter(y => y < x).length + 1); //initial order such as [5,2,4,1,3]
+    // const TT=TrueOrder_oo.map(x => TrueOrder_oo.filter(y => y < x).length + 1); //initial order such as [5,2,4,1,3]
+    // console.log("trueOrder",trueOrder)
+    // console.log("TT",TT)
 
-    return [TrueOrder_io,trueOrder,TT];
+    return [TrueOrder_io,trueOrder,trueOrderArray_sort];
   }
 
 
@@ -840,6 +892,17 @@ for(var i=0; i<4; i++){
     return result;
   }
 
+  // function shuffle(array) {
+  //   let currentIndex = array.length, randomIndex;
+  //   while (currentIndex != 0) {
+  //     randomIndex = Math.floor(Math.random() * currentIndex);
+  //     currentIndex--;
+  //     [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+  //   }
+  //   array.push("finish");
+  //   return array;
+  // }
+
   function shuffle(array) {
     let currentIndex = array.length, randomIndex;
     while (currentIndex != 0) {
@@ -847,8 +910,11 @@ for(var i=0; i<4; i++){
       currentIndex--;
       [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
     }
-    array.push("finish");
-    return array;
+    let aa=array.map(function(value,index) { return value[0]; }); //io means image only, show the list of images selected
+    aa.push("finish");
+    let TT=array.map(function(value,index) { return value[1]; }); //io means image only, show the list of images selected
+
+    return [aa,TT];
   }
 
   img_all=[img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
@@ -858,9 +924,9 @@ for(var i=0; i<4; i++){
   let n_img_disp=n_img_disp_list[i];
   let which_test=i;
 
-  const [TrueOrder_io,trueOrder,TT] = disp_n_true(n_img_disp,n_img)
-  let displayOrder=TrueOrder_io.map((x) => x); //new code
-
+  const [TrueOrder_io,trueOrder,trueOrderArray_sort] = disp_n_true(n_img_disp,n_img)
+  // let displayOrder=TrueOrder_io.map((x) => x);
+  let displayOrder=null;
 
   let times_clicked = -1;
   let times_switched = 0;
@@ -868,14 +934,26 @@ for(var i=0; i<4; i++){
 
 
   // Welcome screen
+  // let order_init = null; 
   timeline.push({
     type: jsPsychHtmlKeyboardResponse,
     stimulus: function () {
-      displayOrder = shuffle(displayOrder); 
+      // displayOrder = shuffle(displayOrder); 
+      let [aa,TT]=shuffle(trueOrderArray_sort)
+      displayOrder=aa;
+      order_init=TT;
+      // console.log(displayOrder)
+      console.log(order_init)
       return "<p> + <p/>";
     },
     trial_duration: 500,
+    on_start: function(trial) {
+      // This ensures data is set after order_init has been assigned
+      trial.data = { phase: 'Initial Order: ' + order_init };
+    }
+
   });
+  // console.log("TT",TT)
 
 
 
@@ -886,7 +964,7 @@ for(var i=0; i<4; i++){
       return displayOrder;
     },
     button_html: '<button class="jspsych-btn">%choice%</button>',
-    prompt: "<p>Select any two images to compare, or click finish if you are done sorting.</p>",
+    prompt: "<p>Select any two blocks to compare. To undo a selection, select the block again. If they are in the wrong order, they will swap positions. <br><br>Click finish if you are done sorting.</p>",
     data: { phase: 'Test '+which_test },
   };
 
@@ -939,12 +1017,10 @@ for(var i=0; i<4; i++){
     },
   };
 
-  // timeline.push(loopNode);
 
-  // const finish_new=
+  
 
-
-
+  let Order_final=null;
   // the final page shows true order as number overlapped on your order
   const finish = {
     type: jsPsychHtmlKeyboardResponse,
@@ -964,22 +1040,25 @@ for(var i=0; i<4; i++){
 
       if (jsPsych.pluginAPI.compareKeys(String(displayOrder), String(TrueOrder_io))){
         let Order_final=TrueOrder_o.map(v=> v+1);
-        // finalDisplay.push("You sorted correctly with "+ String(times_switched) + " comparisons in total. <br> The necessary number of comparison is"+ n_nece_comp_test+"<br><br>"+displayOrder.join("")+ "<br><br> Your final order is " + Order_final+"<br><br> Press Enter to continue.")
-        finalDisplay.push("You sorted correctly with "+ String(times_switched) + " comparisons in total. <br><br> "+ displayOrder.join("")+ "<br><br> Your final order is " + Order_final+"<br><br> Press Enter to continue.")
+        // finalDisplay.push("You sorted correctly with "+ String(times_switched) + " comparisons in total. <br><br> "+ displayOrder.join("")+ "<br><br> Your final order is " + Order_final+"<br><br> Press Enter to continue.")
+        finalDisplay.push("You sorted correctly. <br><br> "+ displayOrder.join("")+ "<br><br> Your final order is " + Order_final+"<br><br> Press Enter to continue.")
       } else {
         let Order_final=TrueOrder_o.map(v=> v+1);
-        finalDisplay.push("You sorted incorrectly with "+ String(times_switched) + " comparisons in total. <br><br> "+ displayOrder.join("")+  "<br><br> Your final order is " + Order_final+"<br><br> Press Enter to continue.")
+        finalDisplay.push("You sorted incorrectly. <br><br> "+ displayOrder.join("")+  "<br><br> Your final order is " + Order_final+"<br><br> Press Enter to continue.")
       }
       return finalDisplay;
     },
-    data: { phase: 'Test '+which_test},
+    on_start: function(trial) {
+      // This ensures data is set after order_init has been assigned
+      trial.data = { phase: 'Final Order: ' + Order_final };
+    }
   };
 
-
+  timeline.push(loopNode);
   timeline.push(finish);
 
-  let n_nece_comp_test=n_nece_comp(TT);
-  console.log(n_nece_comp_test)
+  // let n_nece_comp_test=n_nece_comp(TT);
+  // console.log(n_nece_comp_test)
 
 //   const outoforder5 = {
 //     type: jsPsychSurveyLikert,
@@ -1034,8 +1113,9 @@ const Teaching_Intro = {
   type: jsPsychInstructions,
   pages: [
   '<p>Welcome to the teaching phase! <br><br> Press Enter to continue.</p>',
-  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">You will teach by assigning four examples for your student to imitate. Additionally, you need to write a memo to help them learn this method and use it in their tests.<br><br> Press Enter to continue.</p>',
-  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px"> Note:<br><br>1) Your teaching bonus is calculated based on your students’ performance (<strong>how they accurately and efficiently use this method</strong>). <br><br>2) In the test phase, your students will do 10 tests including five 5-item and five 8-item tests. <strong>The test problems will be new and random</strong>.<br><br> Press Enter to continue.</p>'
+  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">You will teach by assigning six examples for your student to imitate. Additionally, you need to write a memo to help them learn this method and use it in their tests.<br><br> Press Enter to continue.</p>',
+  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px"> Note:<br><br>1) Your teaching bonus is calculated based on your students’ performance (<strong>how they accurately and efficiently use Omgne Sort</strong>). <br><br>2) In the test phase, your students will do 10 tests including four 5-item and five 8-item tests. <strong>The test problems will be new and random</strong>.<br><br> Press Enter to continue.</p>',
+  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">For each example for your student, first select how many item to be sorted, then select how out-of-order the example should be.<br><br> Press Enter to continue.</p>',
   ],
   show_clickable_nav: false,
   key_forward:"Enter"
@@ -1044,16 +1124,14 @@ const Teaching_Intro = {
 timeline.push(Teaching_Intro)
 
 // examples for demonstration generated from Gnome_Calcs.ipynb
-const demo_5_1=[[1, 2, 3, 4, 5], [2, 1, 3, 4, 5], [2, 1, 3, 4, 5], [1, 2, 3, 4, 5]];
-const demo_5_2=[[2, 1, 5, 3, 4], [2, 3, 1, 5, 4], [3, 2, 4, 1, 5], [4, 1, 2, 3, 5]];
-const demo_5_3=[[5, 3, 1, 2, 4], [2, 5, 1, 4, 3], [4, 3, 1, 5, 2], [5, 2, 3, 1, 4]];
-const demo_5_4=[[4, 5, 2, 3, 1], [1, 5, 4, 3, 2], [5, 1, 4, 3, 2], [4, 5, 3, 2, 1]];
-const demo_8_1=[[2, 1, 3, 4, 5, 6, 7, 8], [1, 2, 3, 4, 5, 6, 7, 8], [1, 2, 3, 4, 5, 6, 7, 8], [2, 1, 3, 4, 5, 6, 7, 8]];
-const demo_8_2=[[1, 2, 7, 6, 3, 4, 5, 8], [3, 2, 5, 4, 8, 1, 6, 7], [1, 5, 3, 2, 6, 8, 4, 7], [4, 5, 1, 3, 6, 2, 7, 8]];
-const demo_8_3=[[4, 7, 5, 3, 1, 8, 6, 2], [4, 8, 3, 7, 2, 5, 1, 6], [5, 3, 7, 2, 8, 6, 4, 1], [4, 2, 6, 8, 7, 5, 1, 3]];
-const demo_8_4=[[8, 3, 7, 6, 5, 4, 2, 1], [8, 7, 6, 4, 5, 1, 3, 2], [7, 8, 5, 6, 4, 1, 3, 2], [8, 5, 7, 6, 4, 2, 3, 1]];
-
-
+const demo_5_1=[[1, 2, 3, 5, 4], [1, 2, 4, 3, 5], [1, 3, 2, 4, 5], [2, 1, 3, 4, 5], [1, 2, 4, 3, 5], [2, 1, 3, 4, 5]];
+const demo_5_2=[[3, 4, 1, 2, 5], [2, 4, 1, 5, 3], [2, 1, 5, 4, 3], [1, 4, 3, 5, 2], [5, 1, 2, 3, 4], [4, 1, 3, 2, 5]];
+const demo_5_3=[[3, 4, 5, 2, 1], [3, 5, 4, 1, 2], [5, 2, 4, 1, 3], [4, 3, 2, 5, 1], [2, 5, 4, 3, 1], [4, 3, 5, 1, 2]];
+const demo_5_4=[[5, 4, 3, 2, 1], [5, 4, 3, 2, 1], [5, 4, 3, 2, 1], [5, 4, 3, 2, 1], [5, 4, 3, 2, 1], [5, 4, 3, 2, 1]];
+const demo_8_1=[[1, 2, 4, 3, 5, 6, 7, 8], [1, 2, 3, 4, 6, 5, 7, 8], [1, 2, 3, 5, 4, 6, 7, 8], [2, 1, 3, 4, 5, 6, 7, 8], [1, 2, 3, 4, 5, 7, 6, 8], [1, 3, 2, 4, 5, 6, 7, 8]];
+const demo_8_2=[[4, 6, 1, 2, 5, 7, 8, 3], [2, 3, 6, 5, 1, 8, 7, 4], [3, 2, 5, 1, 8, 6, 7, 4], [3, 6, 1, 7, 4, 2, 5, 8], [1, 8, 3, 2, 4, 7, 6, 5], [2, 6, 3, 1, 8, 4, 7, 5]];
+const demo_8_3=[[6, 8, 4, 2, 3, 7, 5, 1], [7, 6, 4, 2, 5, 8, 1, 3], [6, 7, 2, 5, 4, 8, 3, 1], [3, 7, 5, 6, 8, 4, 2, 1], [7, 5, 8, 2, 3, 4, 6, 1], [1, 8, 6, 7, 4, 5, 3, 2]];
+const demo_8_4=[[8, 7, 6, 5, 4, 3, 2, 1], [8, 7, 6, 5, 4, 3, 2, 1], [8, 7, 6, 5, 4, 3, 2, 1], [8, 7, 6, 5, 4, 3, 2, 1], [8, 7, 6, 5, 4, 3, 2, 1], [8, 7, 6, 5, 4, 3, 2, 1]];
 
 
 
@@ -1061,47 +1139,71 @@ const teaching_choice = {
   type: jsPsychSurveyMultiChoice,
   questions: [
     {
-      prompt: "<strong>Example 1</strong>: how many items needs to be sorted?", 
+      prompt: "<strong>Student Example 1</strong>: how many items needs to be sorted?", 
       options: ['5-item', '8-item'], 
       required: true,
       horizontal: true
     }, 
     {
-      prompt: "<strong>Example 1</strong>: how out-of-order is the initial state?", 
+      prompt: "<strong>Student Example 1</strong>: how out-of-order is the initial state?", 
       options: ['least', 'somehow', 'fairly','most'], 
       required: true,
       horizontal: true
     },
     {
-      prompt: "<strong>Example 2</strong>: how many items needs to be sorted?", 
+      prompt: "<strong>Student Example 2</strong>: how many items needs to be sorted?", 
       options: ['5-item', '8-item'], 
       required: true,
       horizontal: true
     }, 
     {
-      prompt: "<strong>Example 2</strong>: how out-of-order is the initial state?", 
+      prompt: "<strong>Student Example 2</strong>: how out-of-order is the initial state?", 
       options: ['least', 'somehow', 'fairly','most'], 
       required: true,
       horizontal: true
     },{
-      prompt: "<strong>Example 3</strong>: how many items needs to be sorted?", 
+      prompt: "<strong>Student Example 3</strong>: how many items needs to be sorted?", 
       options: ['5-item', '8-item'], 
       required: true,
       horizontal: true
     }, 
     {
-      prompt: "<strong>Example 3</strong>: how out-of-order is the initial state?", 
+      prompt: "<strong>Student Example 3</strong>: how out-of-order is the initial state?", 
       options: ['least', 'somehow', 'fairly','most'], 
       required: true,
       horizontal: true
     },{
-      prompt: "<strong>Example 4</strong>: how many items needs to be sorted?", 
+      prompt: "<strong>Student Example 4</strong>: how many items needs to be sorted?", 
       options: ['5-item', '8-item'], 
       required: true,
       horizontal: true
     }, 
     {
-      prompt: "<strong>Example 4</strong>: how out-of-order is the initial state?", 
+      prompt: "<strong>Student Example 4</strong>: how out-of-order is the initial state?", 
+      options: ['least', 'somehow', 'fairly','most'], 
+      required: true,
+      horizontal: true
+    },
+    {
+      prompt: "<strong>Student Example 5</strong>: how many items needs to be sorted?", 
+      options: ['5-item', '8-item'], 
+      required: true,
+      horizontal: true
+    }, 
+    {
+      prompt: "<strong>Student Example 5</strong>: how out-of-order is the initial state?", 
+      options: ['least', 'somehow', 'fairly','most'], 
+      required: true,
+      horizontal: true
+    },
+    {
+      prompt: "<strong>Student Example 6</strong>: how many items needs to be sorted?", 
+      options: ['5-item', '8-item'], 
+      required: true,
+      horizontal: true
+    }, 
+    {
+      prompt: "<strong>Student Example 6</strong>: how out-of-order is the initial state?", 
       options: ['least', 'somehow', 'fairly','most'], 
       required: true,
       horizontal: true
@@ -1125,10 +1227,12 @@ const demo_examples = {
       var answer_demo = [lastTrial.Q0, lastTrial.Q1, 
                       lastTrial.Q2, lastTrial.Q3, 
                       lastTrial.Q4, lastTrial.Q5, 
-                      lastTrial.Q6, lastTrial.Q7];
+                      lastTrial.Q6, lastTrial.Q7,
+                      lastTrial.Q8, lastTrial.Q9,
+                      lastTrial.Q10, lastTrial.Q11];
       var demo_all = [];
       // Your sequence processing code
-      for (var j=0; j<8; j+=2) {
+      for (var j=0; j<12; j+=2) {
         var a=answer_demo[j];
         var b=answer_demo[j+1];
         // console.log(a)
@@ -1177,7 +1281,7 @@ timeline.push(demo_examples)
 
 
 
-for(var kk=0; kk<4; kk++){
+for(var kk=0; kk<6; kk++){
   const jj=kk;
 
 
@@ -1268,7 +1372,7 @@ for(var kk=0; kk<4; kk++){
       return displayOrder_demo;
     },
     button_html: '<button class="jspsych-btn">%choice%</button>',
-    prompt: "<p>Select any two images to compare, or click finish if you are done sorting.<br><br> <b>Your student will learn by imitating your comparisons.</b></p>",
+    prompt: "<p><b>Your student will learn by imitating your comparisons.</b> <br><br>Select any two blocks to compare. To undo a selection, select the block again. If they are in the wrong order, they will swap positions. <br><br>Click finish if you are done sorting.</p>",
   };
 
 
@@ -1354,9 +1458,10 @@ for(var kk=0; kk<4; kk++){
       for (var range_len=[],i=1;i<=global_n_img_disp_Q1;++i) range_len.push(i);
 
       if (JSON.stringify(TrueOrder_o) === JSON.stringify(range_len)){
-        finalDisplay.push("You sorted correctly with "+ String(times_switched) + " comparisons in total. <br><br> "+ displayOrder_demo.join("")+ "<br><br> Your final order is " + TrueOrder_o + "<br><br><br>Press Enter to continue.")
+        // finalDisplay.push("You sorted correctly with "+ String(times_switched) + " comparisons in total. <br><br> "+ displayOrder_demo.join("")+ "<br><br> Your final order is " + TrueOrder_o + "<br><br><br>Press Enter to continue.")
+        finalDisplay.push("You have finished demonstration for student example "+(jj+1)+ ". Press Enter to continue.")
       } else {
-        finalDisplay.push("You sorted incorrectly with "+ String(times_switched) + " comparisons in total. <br><br> "+ displayOrder_demo.join("")+ "<br><br> Your final order is " + TrueOrder_o + "<br><br><br>Press Enter  to continue.")
+        finalDisplay.push("You have finished demonstration for student example "+(jj+1)+ ". Press Enter to continue.")
       }
       return finalDisplay;
     },
