@@ -49,7 +49,7 @@ let img10 = "<img src='assets/G_10.jpg' height='90'>";
 
 const Consent = {
   type: jsPsychInstructions,
-  pages: ['<h3>CONSENT TO PARTICIPATE IN RESEARCH</h3>'+'<h4>Gold Block Experiment</h4>'+'<p><b>Introduction/Purpose</b></p>'+'<p>My name is William Thompson. I am a faculty member at the University of California, Berkeley, working with my research colleague Qi Guo in the Department of Psychology. We are planning to conduct a research study, which I invite you to take part in. The purpose of this study is to better understand how people learn and teach a sorting method.</p>'+'<p><b>Procedures</b></p>'+'<p>If you agree to participate in my research, I/we will ask you to complete the attached online survey/ questionnaire. In this experiment you will see gold blocks. Your will be asked to sort them by weight. You will learn an efficient sorting method and teach that method to future participants. The task should take about 15 minutes to complete.</p>'+'<p><b>Benefits</b></p>'+'<p>There is no direct benefit to you anticipated from participating in this study. However, it is hoped that the information gained from the study will benefit society at large. By furthering our understanding of human learning and teaching, this research will benefit society by helping with the development of automated systems that can better communicate with humans, learn from humans, and teach humans.</p>'+'<p><b>Risks/Discomforts/Confidentiality</b></p>'+'<p>Your study data will be handled as confidentially as possible. If results of this study are published or presented, individual names and other personally identifiable information will not be used. Your data will not be associated with your name directly in any way. However, while the study is running it will be associated with your Prolific ID which someone could potentially use to personally identify you. Once the study is complete, we will replace your Prolific ID with a random string. These records may be shared with other researchers, but will not contain your Prolific ID or any other personal information. Responses you make within the study may be shown to other participants, but these responpses will not be linked to your personally identifiable information in any way.</p>'+'<p>While we will handle your responses as confidentially as possible, we cannot guarantee the confidentiality of information transmitted over the Internet. As with all research, there is a chance that confidentiality could be compromised; however, we are taking precautions to minimize this risk. We will be keeping data collected as part of this experiment indefinitely. Identifiers might be removed from the identifiable private information. After such removal, the information could be used for future research studies or distributed to other investigators for future research studies without additional informed consent from the subject or the legally authorized representative.</p>'+'<p><b>Compensation</b></p>'+'<p>In return for your time and effort, you will be paid $2.50 for taking part in this study. This money will be credited to your account within a week of submitting the study. There will be an opportunity to earn additional bonus compensation dependent upon completion of and performance within the task.</p>'+'<p><b>Rights</b></p>'+'<p><b><i>Participation in research is completely voluntary.</i></b>  You have the right to decline to participate or to withdraw at any point in this study without penalty or loss of benefits to which you are otherwise entitled.</p>'+'<p><b>Questions</b></p>'+'<p>If you have any questions or concerns about this study, you may contact William Thompson at <a href="mailto:wdt@berkeley.edu">wdt@berkeley.edu</a>.</p>'+'<p>If you have any questions or concerns about your rights and treatment as a research subject, you may contact the office of UC Berkeley\'s Committee for the Protection of Human Subjects, at 510-642-7461 or <a href="mailto:subjects@berkeley.edu">subjects@berkeley.edu</a>.</p>'+'<p>*********************************************</p>'+'<p>By consenting to participate, you acknowledge that you are 18 years or older, have read this consent form, agree to its contents, and agree to take part in this research. If you do not wish to consent, close this page and return the assignment to the recruitment platform.</p>'+'<div><button type="button" class="btn btn-primary btn-info" onClick="window.print();return false;" style="float: right;">Print this page</button></div>'],
+  pages: ['<h3>CONSENT TO PARTICIPATE IN RESEARCH</h3>'+'<h4>Gold Block Experiment</h4>'+'<p><b>Introduction/Purpose</b></p>'+'<p>My name is William Thompson. I am a faculty member at the University of California, Berkeley, working with my research colleague Qi Guo in the Department of Psychology. We are planning to conduct a research study, which I invite you to take part in. The purpose of this study is to better understand how people learn and teach a sorting method.</p>'+'<p><b>Procedures</b></p>'+'<p>If you agree to participate in my research, I/we will ask you to complete the attached online survey/ questionnaire. In this experiment you will see gold blocks. Your will be asked to sort them by weight. You will learn an efficient sorting method and teach that method to future participants. The task should take about 15 minutes to complete.</p>'+'<p><b>Benefits</b></p>'+'<p>There is no direct benefit to you anticipated from participating in this study. However, it is hoped that the information gained from the study will benefit society at large. By furthering our understanding of human learning and teaching, this research will benefit society by helping with the development of automated systems that can better communicate with humans, learn from humans, and teach humans.</p>'+'<p><b>Risks/Discomforts/Confidentiality</b></p>'+'<p>Your study data will be handled as confidentially as possible. If results of this study are published or presented, individual names and other personally identifiable information will not be used. Your data will not be associated with your name directly in any way. However, while the study is running it will be associated with your Prolific ID which someone could potentially use to personally identify you. Once the study is complete, we will replace your Prolific ID with a random string. These records may be shared with other researchers, but will not contain your Prolific ID or any other personal information. Responses you make within the study may be shown to other participants, but these responpses will not be linked to your personally identifiable information in any way.</p>'+'<p>While we will handle your responses as confidentially as possible, we cannot guarantee the confidentiality of information transmitted over the Internet. As with all research, there is a chance that confidentiality could be compromised; however, we are taking precautions to minimize this risk. We will be keeping data collected as part of this experiment indefinitely. Identifiers might be removed from the identifiable private information. After such removal, the information could be used for future research studies or distributed to other investigators for future research studies without additional informed consent from the subject or the legally authorized representative.</p>'+'<p><b>Compensation</b></p>'+'<p>In return for your time and effort, you will be paid $3.00 for taking part in this study. This money will be credited to your account within a week of submitting the study. There will be an opportunity to earn additional bonus compensation dependent upon completion of and performance within the task.</p>'+'<p><b>Rights</b></p>'+'<p><b><i>Participation in research is completely voluntary.</i></b>  You have the right to decline to participate or to withdraw at any point in this study without penalty or loss of benefits to which you are otherwise entitled.</p>'+'<p><b>Questions</b></p>'+'<p>If you have any questions or concerns about this study, you may contact William Thompson at <a href="mailto:wdt@berkeley.edu">wdt@berkeley.edu</a>.</p>'+'<p>If you have any questions or concerns about your rights and treatment as a research subject, you may contact the office of UC Berkeley\'s Committee for the Protection of Human Subjects, at 510-642-7461 or <a href="mailto:subjects@berkeley.edu">subjects@berkeley.edu</a>.</p>'+'<p>*********************************************</p>'+'<p>By consenting to participate, you acknowledge that you are 18 years or older, have read this consent form, agree to its contents, and agree to take part in this research. If you do not wish to consent, close this page and return the assignment to the recruitment platform.</p>'+'<div><button type="button" class="btn btn-primary btn-info" onClick="window.print();return false;" style="float: right;">Print this page</button></div>'],
   show_clickable_nav: true,
   button_label_next: "I agree"
 }
@@ -66,7 +66,7 @@ const Intro = {
   img_intro +'<p>Imagine you have five gold blocks that vary in weights. How can you sort them by weight using a balance (comparing two at each time)? <br></p>' + balance+'<p><br>Press Enter to continue.</p>',
   '<p>There are many ways to do that. In this game, you will learn a great method called "Omgne Sort". <br><br>Don’t worry about coming up with new methods. Your task is to learn how to do Omgne Sort. </p>'+'<br>' + img_intro+'<p><br>Press Enter to continue.</p>',
   '<p> Your reward bonus will depend on how accurately and efficiently you use Omgne Sort in the test.</p>'+'<br>' + img_intro +'<p>Press Enter to continue.</p>',
-  '<p> Let’s try it first. This will not be counted as your performance. <br><br> Click any two blocks to compare them. If they are in the wrong order, they will swap places. The animals shown are just markers and do not indicate the ordering. </p>'+'<br>'+'<p><br>Press Enter to continue.</p>',
+  '<p> Let’s try it first. This trial will not be used to calculate your performance. <br><br> Click any two blocks to compare them. The animals shown are just markers and do not indicate the ordering. </p>'+'<br>'+'<p><br>Press Enter to continue.</p>',
   ],
   show_clickable_nav: false,
   key_forward:"Enter"
@@ -132,7 +132,7 @@ const display_img_intro = {
     return display_intro;
   },
   button_html: '<button class="jspsych-btn">%choice%</button>',
-  prompt: "<p>Select any two blocks to compare. To undo a selection, select the block again. If they are in the wrong order, they will swap positions. <br><br>Click finish if you are done sorting.</p>",
+  prompt: "<p>Select any two blocks to compare. If they are in the wrong order relative to each other, they will swap positions. For example, if you select the fish block and the duck block they will swap positions, because the fish block is actually heavier than the duck block. To undo a selection, select the block again.  <br><br>Click finish if you are done sorting.</p>",
 };
 
 
@@ -252,7 +252,7 @@ function shuffle_learning(array) {
 
 const welcome_learning = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: "<p>Welcome to the learning phase! <br><br> You will learn by six examples. <br><br> Press Enter to continue.<p/>",
+  stimulus: "<p>Welcome to the learning phase! <br><br> You will learn by six examples. The following learning trials will not be used to calculate your performance. <br><br> Press Enter to continue.<p/>",
 };
 timeline.push(welcome_learning)
 
@@ -261,7 +261,7 @@ timeline.push(welcome_learning)
 //   stimulus: "<p>Welcome to the learning phase! <br><br> You will learn by six examples. <br><br> Press Enter to continue.<p/>",
 // });
 
-//examples are 5-least, 5-somehow, 5-most, 8-least, 8-somehow, 8-fairly (5L,5S,5M,8L,8S,8F)
+//examples are 5-least, 5-somewhat, 5-most, 8-least, 8-somewhat, 8-very (5L,5S,5M,8L,8S,8F)
 p1=[2, 1, 3, 4, 5] ; // 5 comparison, 1 swaps
 p2=[3, 4, 1, 2, 5] ; // 8 comparison, 4 swaps
 p3=[5, 4, 3, 2, 1] ; // 10 comparison, 10 swaps
@@ -307,9 +307,9 @@ for(var j=0; j<6; j++){
     type: jsPsychInstructions,
     pages: [
     '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Given a certain number of gold blocks, the number of swaps varies based on their initial arrangement. <br><br>The "least out-of-order" condition, such as [2,1,3,4,5], needs <b>the least number of swaps with Omgne Sort</b> (1 swap in this case). <br><br>The "most out-of-order" condition, like [5,4,3,2,1], requires <b> the most swaps with Omgne Sort</b> (10 swaps in this case). </p>', 
-    '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px"><br><br>Between the <b>least</b> and <b>most</b> out-of-order there are two additional levels---<b>somehow</b> out-of-order and <b>fairly</b> out-of-order. </p>'+img_outoforder,
+    '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px"><br><br>Between the <b>least</b> and <b>most</b> out-of-order there are two additional levels---<b>somewhat</b> out-of-order and <b>very</b> out-of-order. </p>'+img_outoforder,
     '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">If an 5-item example requires 7 swaps to sort correctly with Omgne Sort, how out-of-order do you think it is?</p>'+img_outoforder+'<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Click "Next" to see the answer.</p>',
-    '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">If an 5-item example requires 7 swaps to sort correctly with Omgne Sort, how out-of-order do you think it is?</p>'+img_outoforder+'<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">The answer is <b>"Fairly out-of-order"</b>. <br><br>Click "Previous" to review instructions. Click "Next" to the learning phase.</p>'
+    '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">If an 5-item example requires 7 swaps to sort correctly with Omgne Sort, how out-of-order do you think it is?</p>'+img_outoforder+'<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">The answer is <b>"very out-of-order"</b>. <br><br>Click "Previous" to review instructions. Click "Next" to the learning phase.</p>'
     ],
     show_clickable_nav: true,
   }
@@ -319,7 +319,7 @@ for(var j=0; j<6; j++){
 
   const intro_example = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: ["Example " +(j+1)+"<br><br>You will see how Omgne Sort work. Try to find the pattern of the Omgne Sort. <br><br>Press Enter to continue."],
+    stimulus: ["Example " +(j+1)+"<br><br>You will watch Omnge Sort in action. Try to identify any patterns in the comparisons made by this method. <br><br>Press Enter to continue."],
   };
 
   timeline.push(intro_example)
@@ -352,7 +352,7 @@ for(var j=0; j<6; j++){
       margin_vertical:'30px',
       // button_html: '<button class="jspsych-btn" style="position: relative ;right:80%; ">%choice%</button>', //move button to the left, used this when we have the visualization in the end of the stimulus
       // button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p><strong>Try to find the pattern of the Omgne Sort.</strong></p>",
+      prompt: "<p>Try to identify any patterns in the comparisons made by Omgne Sort.</p>",
       trial_duration:500,
     }
 
@@ -367,7 +367,7 @@ for(var j=0; j<6; j++){
       choices: "NO_KEYS",
       margin_vertical:'30px',
       // button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p><strong>Try to find the pattern of the Omgne Sort.</strong></p>",
+      prompt: "<p>Try to identify any patterns in the comparisons made by Omgne Sort.</p>",
       trial_duration:500,
     }
 
@@ -396,28 +396,28 @@ for(var j=0; j<6; j++){
       choices: "NO_KEYS",
       margin_vertical:'30px',
       // button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p><strong>Try to find the pattern of the Omgne Sort.</strong></p>",
+      prompt: "<p>Try to identify any patterns in the comparisons made by Omgne Sort.</p>",
       trial_duration:500,
     }
 
     
 
-    const imi_comp2_demo_only = {
-      type: jsPsychHtmlKeyboardResponse,
-      stimulus: function(){
-        img_t_demo_only_join = img_t_demo_only.join(" ");
-        return img_t_demo_only_join;
-      },
-      // choices: function () {
-      //   console.log(img_s)
-      //   return img_s;
-      // },
-      choices: "NO_KEYS",
-      margin_vertical: '30px',
-      // button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to find the pattern of this sorting method.</strong></p>",
-      data: { phase: 'Learning example '+which_exam },
-    }
+    // const imi_comp2_demo_only = {
+    //   type: jsPsychHtmlKeyboardResponse,
+    //   stimulus: function(){
+    //     img_t_demo_only_join = img_t_demo_only.join(" ");
+    //     return img_t_demo_only_join;
+    //   },
+    //   // choices: function () {
+    //   //   console.log(img_s)
+    //   //   return img_s;
+    //   // },
+    //   choices: "NO_KEYS",
+    //   margin_vertical: '30px',
+    //   // button_html: '<button class="jspsych-btn">%choice%</button>',
+    //   prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to identify any patterns in the comparisons made by Omgne Sort.</strong></p>",
+    //   data: { phase: 'Learning example '+which_exam },
+    // }
 
 
     function removeSelection_learn(imglist) {
@@ -453,7 +453,7 @@ for(var j=0; j<6; j++){
       choices: "NO_KEYS",
       margin_vertical:'30px',
       // button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p><strong>Try to find the pattern of the Omgne Sort.</strong></p>",
+      prompt: "<p>Try to identify any patterns in the comparisons made by Omgne Sort.</p>",
       trial_duration:300,
       data: {
         save_trial: false  // Add this flag
@@ -470,7 +470,7 @@ for(var j=0; j<6; j++){
   //Imitation
   timeline.push({
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: ["Have you found some clues? <br><br>Press Enter to watch that example again and follow the steps of Omgne Sort."],
+    stimulus: ["Did you notice any patterns? <br><br>Press Enter to watch that example again and follow the steps of Omgne Sort."],
   });
 
   for(var i=0; i<list_comp_bool.length; i++){
@@ -491,7 +491,7 @@ for(var j=0; j<6; j++){
       choices: img_s,
       margin_vertical:'30px',
       button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to find the pattern of the Omgne Sort.</strong></p>",
+      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to identify any patterns in the comparisons made by Omgne Sort.</strong></p>",
       trial_duration:400,
     }
 
@@ -505,7 +505,7 @@ for(var j=0; j<6; j++){
       choices: img_s,
       margin_vertical:'30px',
       button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to find the pattern of the Omgne Sort.</strong></p>",
+      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to identify any patterns in the comparisons made by Omgne Sort.</strong></p>",
       trial_duration:300,
     }
 
@@ -533,7 +533,7 @@ for(var j=0; j<6; j++){
       choices: img_s,
       margin_vertical:'30px',
       button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to find the pattern of the Omgne Sort.</strong></p>",
+      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to identify any patterns in the comparisons made by Omgne Sort.</strong></p>",
       trial_duration:300,
     }
 
@@ -551,7 +551,7 @@ for(var j=0; j<6; j++){
       },
       margin_vertical: '30px',
       button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to find the pattern of the Omgne Sort.</strong></p>",
+      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to identify any patterns in the comparisons made by Omgne Sort.</strong></p>",
       data: { phase: 'Learning example '+which_exam },
     }
 
@@ -664,7 +664,7 @@ for(var j=0; j<6; j++){
       choices: img_s,
       margin_vertical:'30px',
       button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to find the pattern of the Omgne Sort.</strong></p>",
+      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to identify any patterns in the comparisons made by Omgne Sort.</strong></p>",
       trial_duration:200,
       data: {
         save_trial: false  // Add this flag
@@ -691,9 +691,9 @@ for(var j=0; j<6; j++){
         prompt: "<div style='font-size: 20px;'>Given five blocks, the least out-of-order sequence requires 1 swap and the most out-of-order sequence requires 10 swaps.<br><br>The one you just finished requires " + list_comp_bool.reduce((partialSum, a) => partialSum + a, 0) + " swaps, how out-of-order do you think it is?<br><br></div>", 
         labels: ['<div style="font-size: 20px;">least</div>',
           ' ',
-          '<div style="font-size: 20px;">somehow</div>',
+          '<div style="font-size: 20px;">somewhat</div>',
           ' ',
-          '<div style="font-size: 20px;">fairly</div>',
+          '<div style="font-size: 20px;">very</div>',
           ' ',
           '<div style="font-size: 20px;">most</div>'], 
         required: true,
@@ -707,9 +707,9 @@ for(var j=0; j<6; j++){
         prompt: "<div style='font-size: 20px;'>Given eight blocks, the least out-of-order sequence requires 1 swap and the most out-of-order sequence requires 28 swaps. <br><br>The one you just finished requires "+ list_comp_bool.reduce((partialSum, a) => partialSum + a, 0) +" swaps, how out-of-order do you think it is?<br><br></div>", 
         labels: ['<div style="font-size: 20px;">least</div>',
             ' ',
-            '<div style="font-size: 20px;">somehow</div>',
+            '<div style="font-size: 20px;">somewhat</div>',
             ' ',
-            '<div style="font-size: 20px;">fairly</div>',
+            '<div style="font-size: 20px;">very</div>',
             ' ',
             '<div style="font-size: 20px;">most</div>'], 
         required: true,
@@ -763,65 +763,6 @@ for(var i=0; i<10; i++){
   }
   
   // Functions
-
-  // Calculate minimum necessary number of comparisons
-  function n_nece_comp(aa){
-    var nn=0;
-    var ii_f=0;
-    let comp_seq=[];
-    while (nn<30){
-      // console.log(nn)
-      //correct ofer and keep going forward
-      if (aa[ii_f]<aa[ii_f+1]){
-        comp_seq.push([ii_f,ii_f+1]);
-        nn++;
-        ii_f++;
-      }else{
-        comp_seq.push([ii_f,ii_f+1]);
-        let aa_cache=aa[ii_f];
-        aa[ii_f]=aa[ii_f+1];
-        aa[ii_f+1]=aa_cache;
-        // aa[ii_f],aa[ii_f+1]=aa[ii_f+1],aa[ii_f];
-        nn++;
-        ii_b=JSON.parse(JSON.stringify(ii_f));
-        ii_f++;
-        while (nn<30){
-          if (ii_b==0){
-            break;
-          }
-          if (aa[ii_b-1]>aa[ii_b]){
-            comp_seq.push([ii_b-1,ii_b]);
-            let aa_cache=aa[ii_b-1];
-            aa[ii_b-1]=aa[ii_b];
-            aa[ii_b]=aa_cache;
-            // aa[ii_b-1],aa[ii_b]=aa[ii_b],aa[ii_b-1];
-            nn++;
-            ii_b--;
-          }
-          if (aa[ii_b-1]<aa[ii_b]){
-            if (ii_b==0){
-              break;
-            }else{
-              comp_seq.push([ii_b-1,ii_b]);
-              nn++;
-              break;
-            }
-          }
-        }
-      }
-      for (var range_len_test=[],i=1;i<=aa.length;++i) range_len_test.push(i);
-
-        if (JSON.stringify(aa) === JSON.stringify(range_len_test) && 
-        comp_seq.some(pair => 
-            JSON.stringify(pair) === JSON.stringify([aa.length-2,aa.length-1])
-        )) {
-        break;
-      }
-      
-    }
-    return nn;
-  }
-
 
   // assign random order to array of images, output is a 2d array, each row is "image source + order number"
   function ini_shuffle(array) {
@@ -964,7 +905,7 @@ for(var i=0; i<10; i++){
       return displayOrder;
     },
     button_html: '<button class="jspsych-btn">%choice%</button>',
-    prompt: "<p>Select any two blocks to compare. To undo a selection, select the block again. If they are in the wrong order, they will swap positions. <br><br>Click finish if you are done sorting.</p>",
+    prompt: "<p>Select any two blocks to compare. If they are in the wrong order, they will swap positions. To undo a selection, select the block again. <br><br>Click finish if you are done sorting.</p>",
     data: { phase: 'Test '+which_test },
   };
 
@@ -1057,49 +998,6 @@ for(var i=0; i<10; i++){
   timeline.push(loopNode);
   timeline.push(finish);
 
-  // let n_nece_comp_test=n_nece_comp(TT);
-  // console.log(n_nece_comp_test)
-
-//   const outoforder5 = {
-//     type: jsPsychSurveyLikert,
-//     questions: [
-//       {
-
-//         prompt: "<div style='font-size: 20px;'>Given five blocks, the least out-of-order sequence requires 4 comparisons and the most out-of-order sequence requires 10 comparisons.<br><br>The one you just finished requires " + n_nece_comp_test + " comparisons, how out-of-order do you think it is?<br><br></div>", 
-//         labels: ['<div style="font-size: 20px;">least</div>',
-//           ' ',
-//           '<div style="font-size: 20px;">somehow</div>',
-//           ' ',
-//           '<div style="font-size: 20px;">fairly</div>',
-//           ' ',
-//           '<div style="font-size: 20px;">most</div>'], 
-//         required: true,
-//       } ],
-//   };
-  
-// const outoforder8 = {
-//   type: jsPsychSurveyLikert,
-//   questions: [
-//     {
-//       prompt: "<div style='font-size: 20px;'>Given eight blocks, the least out-of-order sequence requires 7 comparisons and the most out-of-order sequence requires 28 comparisons. <br><br>The one you just finished requires "+n_nece_comp_test +" comparisons, how out-of-order do you think it is?<br><br></div>", 
-//       labels: ['<div style="font-size: 20px;">least</div>',
-//           ' ',
-//           '<div style="font-size: 20px;">somehow</div>',
-//           ' ',
-//           '<div style="font-size: 20px;">fairly</div>',
-//           ' ',
-//           '<div style="font-size: 20px;">most</div>'], 
-//       required: true,
-//     }, ],
-//   };
-
-//   if (i%2==0){
-//     timeline.push(outoforder5);
-//   }else{
-//     timeline.push(outoforder8);
-//   }
-
-
 
 }
 
@@ -1146,7 +1044,7 @@ const teaching_choice = {
     }, 
     {
       prompt: "<strong>Student Example 1</strong>: how out-of-order is the initial state?", 
-      options: ['least', 'somehow', 'fairly','most'], 
+      options: ['least', 'somewhat', 'very','most'], 
       required: true,
       horizontal: true
     },
@@ -1158,7 +1056,7 @@ const teaching_choice = {
     }, 
     {
       prompt: "<strong>Student Example 2</strong>: how out-of-order is the initial state?", 
-      options: ['least', 'somehow', 'fairly','most'], 
+      options: ['least', 'somewhat', 'very','most'], 
       required: true,
       horizontal: true
     },{
@@ -1169,7 +1067,7 @@ const teaching_choice = {
     }, 
     {
       prompt: "<strong>Student Example 3</strong>: how out-of-order is the initial state?", 
-      options: ['least', 'somehow', 'fairly','most'], 
+      options: ['least', 'somewhat', 'very','most'], 
       required: true,
       horizontal: true
     },{
@@ -1180,7 +1078,7 @@ const teaching_choice = {
     }, 
     {
       prompt: "<strong>Student Example 4</strong>: how out-of-order is the initial state?", 
-      options: ['least', 'somehow', 'fairly','most'], 
+      options: ['least', 'somewhat', 'very','most'], 
       required: true,
       horizontal: true
     },
@@ -1192,7 +1090,7 @@ const teaching_choice = {
     }, 
     {
       prompt: "<strong>Student Example 5</strong>: how out-of-order is the initial state?", 
-      options: ['least', 'somehow', 'fairly','most'], 
+      options: ['least', 'somewhat', 'very','most'], 
       required: true,
       horizontal: true
     },
@@ -1204,7 +1102,7 @@ const teaching_choice = {
     }, 
     {
       prompt: "<strong>Student Example 6</strong>: how out-of-order is the initial state?", 
-      options: ['least', 'somehow', 'fairly','most'], 
+      options: ['least', 'somewhat', 'very','most'], 
       required: true,
       horizontal: true
     },
@@ -1240,11 +1138,11 @@ const demo_examples = {
           demo_all.push(demo_5_1[0]);
           demo_5_1.shift()
         }
-        if (a=="5-item" && b=="somehow") {
+        if (a=="5-item" && b=="somewhat") {
           demo_all.push(demo_5_2[0]);
           demo_5_2.shift()
         }
-        if (a=="5-item" && b=="fairly") {
+        if (a=="5-item" && b=="very") {
           demo_all.push(demo_5_3[0]);
           demo_5_3.shift()
         }
@@ -1256,11 +1154,11 @@ const demo_examples = {
           demo_all.push(demo_8_1[0]);
           demo_8_1.shift()
         }
-        if (a=="8-item" && b=="somehow") {
+        if (a=="8-item" && b=="somewhat") {
           demo_all.push(demo_8_2[0]);
           demo_8_2.shift()
         }
-        if (a=="8-item" && b=="fairly") {
+        if (a=="8-item" && b=="very") {
           demo_all.push(demo_8_3[0]);
           demo_8_3.shift()
         }
@@ -1372,7 +1270,7 @@ for(var kk=0; kk<6; kk++){
       return displayOrder_demo;
     },
     button_html: '<button class="jspsych-btn">%choice%</button>',
-    prompt: "<p><b>Your student will learn by imitating your comparisons.</b> <br><br>Select any two blocks to compare. To undo a selection, select the block again. If they are in the wrong order, they will swap positions. <br><br>Click finish if you are done sorting.</p>",
+    prompt: "<p><b>Your student will learn by imitating your comparisons.</b> <br><br>Select any two blocks to compare. If they are in the wrong order, they will swap positions. To undo a selection, select the block again. <br><br>Click finish if you are done sorting.</p>",
   };
 
 
