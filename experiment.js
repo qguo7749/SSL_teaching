@@ -350,10 +350,11 @@ for(var j=0; j<6; j++){
       },
       choices: "NO_KEYS",
       margin_vertical:'30px',
-      // button_html: '<button class="jspsych-btn" style="position: relative ;right:80%; ">%choice%</button>', //move button to the left, used this when we have the visualization in the end of the stimulus
-      // button_html: '<button class="jspsych-btn">%choice%</button>',
       prompt: "<p>Try to identify any patterns in the comparisons made by Omgne Sort.</p>",
       trial_duration:500,
+      data: {
+        phase: 'Animation'+which_exam   // Add this flag
+      },
     }
 
     const imi_hl2_demo_only={
@@ -366,9 +367,11 @@ for(var j=0; j<6; j++){
       // choices: img_s,
       choices: "NO_KEYS",
       margin_vertical:'30px',
-      // button_html: '<button class="jspsych-btn">%choice%</button>',
       prompt: "<p>Try to identify any patterns in the comparisons made by Omgne Sort.</p>",
       trial_duration:500,
+      data: {
+        phase: 'Animation'+which_exam   // Add this flag
+      },
     }
 
 
@@ -395,9 +398,11 @@ for(var j=0; j<6; j++){
       // choices: img_s,
       choices: "NO_KEYS",
       margin_vertical:'30px',
-      // button_html: '<button class="jspsych-btn">%choice%</button>',
       prompt: "<p>Try to identify any patterns in the comparisons made by Omgne Sort.</p>",
       trial_duration:500,
+      data: {
+        phase: 'Animation'+which_exam   // Add this flag
+      },
     }
 
     
@@ -456,7 +461,7 @@ for(var j=0; j<6; j++){
       prompt: "<p>Try to identify any patterns in the comparisons made by Omgne Sort.</p>",
       trial_duration:300,
       data: {
-        save_trial: false  // Add this flag
+        phase: 'Animation'+which_exam   // Add this flag
       },
     }
 
@@ -493,6 +498,7 @@ for(var j=0; j<6; j++){
       button_html: '<button class="jspsych-btn">%choice%</button>',
       prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to identify any patterns in the comparisons made by Omgne Sort.</strong></p>",
       trial_duration:400,
+      data: { phase: 'Learning example '+which_exam },
     }
 
     const imi_hl2={
@@ -507,6 +513,7 @@ for(var j=0; j<6; j++){
       button_html: '<button class="jspsych-btn">%choice%</button>',
       prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to identify any patterns in the comparisons made by Omgne Sort.</strong></p>",
       trial_duration:300,
+      data: { phase: 'Learning example '+which_exam },
     }
 
 
@@ -535,6 +542,7 @@ for(var j=0; j<6; j++){
       button_html: '<button class="jspsych-btn">%choice%</button>',
       prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to identify any patterns in the comparisons made by Omgne Sort.</strong></p>",
       trial_duration:300,
+      data: { phase: 'Learning example '+which_exam },
     }
 
     
@@ -666,9 +674,7 @@ for(var j=0; j<6; j++){
       button_html: '<button class="jspsych-btn">%choice%</button>',
       prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to identify any patterns in the comparisons made by Omgne Sort.</strong></p>",
       trial_duration:200,
-      data: {
-        save_trial: false  // Add this flag
-      },
+      data: { phase: 'Learning example '+which_exam },
     }
 
 
@@ -980,11 +986,11 @@ for(var i=0; i<10; i++){
       
 
       if (jsPsych.pluginAPI.compareKeys(String(displayOrder), String(TrueOrder_io))){
-        let Order_final=TrueOrder_o.map(v=> v+1);
+        Order_final=TrueOrder_o.map(v=> v+1);
         // finalDisplay.push("You sorted correctly with "+ String(times_switched) + " comparisons in total. <br><br> "+ displayOrder.join("")+ "<br><br> Your final order is " + Order_final+"<br><br> Press Enter to continue.")
         finalDisplay.push("You sorted correctly. <br><br> "+ displayOrder.join("")+ "<br><br> Your final order is " + Order_final+"<br><br> Press Enter to continue.")
       } else {
-        let Order_final=TrueOrder_o.map(v=> v+1);
+        Order_final=TrueOrder_o.map(v=> v+1);
         finalDisplay.push("You sorted incorrectly. <br><br> "+ displayOrder.join("")+  "<br><br> Your final order is " + Order_final+"<br><br> Press Enter to continue.")
       }
       return finalDisplay;
