@@ -255,7 +255,7 @@ function shuffle_learning(array) {
 
 const welcome_learning = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: "<p>Welcome to the learning phase! <br><br> You will learn by four examples. The following learning trials will not be used to calculate your performance. <br><br> Press Enter to continue.<p/>",
+  stimulus: "<p>Welcome to the learning phase! <br><br> You will learn by six examples. The following learning trials will not be used to calculate your performance. <br><br> Press Enter to continue.<p/>",
 };
 timeline.push(welcome_learning)
 
@@ -280,27 +280,10 @@ p5_comp_bool= [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0];
 p6_comp=[[0, 1], [1, 2], [0, 1], [2, 3], [1, 2], [3, 4], [2, 3], [4, 5], [3, 4], [2, 3], [1, 2], [0, 1], [5, 6], [4, 5], [3, 4], [2, 3], [1, 2], [0, 1], [6, 7], [5, 6], [4, 5], [3, 4], [2, 3]] ;
 p6_comp_bool=[1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0];
 
-// // for six example version
-// const p_order_all=[p1,p5,p2,p3,p4,p6]; // the examples are ordered this way (5L,8S,5S,5M,8L,8F) so the last four examples cover all four levels, it is p5-l
-// const p_comp_all=[p1_comp,p5_comp,p2_comp,p3_comp,p4_comp,p6_comp]; // the examples are ordered this way (5L,8S,5S,5M,8L,8F) so the last four examples cover all four levels, it is p5-l
-// const p_comp_bool_all=[p1_comp_bool,p5_comp_bool,p2_comp_bool,p3_comp_bool,p4_comp_bool,p6_comp_bool]; // the examples are ordered this way (5L,8S,5S,5M,8L,8F) so the last four examples cover all four levels, it is p5-l
-
-
-// const img_5=[img1,img3,img5,img7,img9];
-// const img_8=[img1,img2,img3,img4,img5,img6,img7,img8];
-// const eg_5_L=shuffle_learning(img_5)
-// const eg_5_S=shuffle_learning(img_5)
-// const eg_5_M=shuffle_learning(img_5)
-// const eg_8_L=shuffle_learning(img_8)
-// const eg_8_S=shuffle_learning(img_8)
-// const eg_8_F=shuffle_learning(img_8)
-// let img_t_all=[eg_5_L,eg_8_S,eg_5_S,eg_5_M,eg_8_L,eg_8_F]; // the examples are ordered this way (5L,8S,5S,5M,8L,8F) so the last four examples cover all four levels, it is p5-l
-// let img_s_all = JSON.parse(JSON.stringify(img_t_all))
-
-// for four example version
-const p_order_all=[p1,p3,p5,p6]; //the last three examples ask for out of orderness
-const p_comp_all=[p1_comp,p3_comp,p5_comp,p6_comp];
-const p_comp_bool_all=[p1_comp_bool,p3_comp_bool,p5_comp_bool,p6_comp_bool];
+// for six example version
+const p_order_all=[p1,p5,p2,p3,p4,p6]; // the examples are ordered this way (5L,8S,5S,5M,8L,8F) so the last four examples cover all four levels, it is p5-l
+const p_comp_all=[p1_comp,p5_comp,p2_comp,p3_comp,p4_comp,p6_comp]; // the examples are ordered this way (5L,8S,5S,5M,8L,8F) so the last four examples cover all four levels, it is p5-l
+const p_comp_bool_all=[p1_comp_bool,p5_comp_bool,p2_comp_bool,p3_comp_bool,p4_comp_bool,p6_comp_bool]; // the examples are ordered this way (5L,8S,5S,5M,8L,8F) so the last four examples cover all four levels, it is p5-l
 
 
 const img_5=[img1,img3,img5,img7,img9];
@@ -310,15 +293,32 @@ const eg_5_S=shuffle_learning(img_5)
 const eg_5_M=shuffle_learning(img_5)
 const eg_8_L=shuffle_learning(img_8)
 const eg_8_S=shuffle_learning(img_8)
-const eg_8_V=shuffle_learning(img_8) //V IS VERY OUT OF ORDER
-let img_t_all=[eg_5_L,eg_5_M,eg_8_S,eg_8_V]; // the examples are ordered this way (5L,8S,5S,5M,8L,8F) so the last four examples cover all four levels, it is p5-l
+const eg_8_F=shuffle_learning(img_8)
+let img_t_all=[eg_5_L,eg_8_S,eg_5_S,eg_5_M,eg_8_L,eg_8_F]; // the examples are ordered this way (5L,8S,5S,5M,8L,8F) so the last four examples cover all four levels, it is p5-l
 let img_s_all = JSON.parse(JSON.stringify(img_t_all))
+
+// // for four example version
+// const p_order_all=[p1,p3,p5,p6]; //the last three examples ask for out of orderness
+// const p_comp_all=[p1_comp,p3_comp,p5_comp,p6_comp];
+// const p_comp_bool_all=[p1_comp_bool,p3_comp_bool,p5_comp_bool,p6_comp_bool];
+
+
+// const img_5=[img1,img3,img5,img7,img9];
+// const img_8=[img1,img2,img3,img4,img5,img6,img7,img8];
+// const eg_5_L=shuffle_learning(img_5)
+// const eg_5_S=shuffle_learning(img_5)
+// const eg_5_M=shuffle_learning(img_5)
+// const eg_8_L=shuffle_learning(img_8)
+// const eg_8_S=shuffle_learning(img_8)
+// const eg_8_V=shuffle_learning(img_8) //V IS VERY OUT OF ORDER
+// let img_t_all=[eg_5_L,eg_5_M,eg_8_S,eg_8_V]; // the examples are ordered this way (5L,8S,5S,5M,8L,8F) so the last four examples cover all four levels, it is p5-l
+// let img_s_all = JSON.parse(JSON.stringify(img_t_all))
 
 
 
 ///////////////////////////////Learning Trials//////////////////////
-for(var j=0; j<4; j++){
-  if (j==1){
+for(var j=0; j<6; j++){
+  if (j==2){
     const Out_of_order = {
     type: jsPsychInstructions,
     pages: [
@@ -737,8 +737,8 @@ for(var j=0; j<4; j++){
         required: true,
       }, ],
     };
-  if (j>0){
-    if (j<2){
+  if (j>1){
+    if (j<4){
       timeline.push({
         type: jsPsychHtmlKeyboardResponse,
         stimulus: ["Final order was 1,2,3,4,5. The initial order was " +p_order+".<br>It took "+list_comp_bool.reduce((partialSum, a) => partialSum + a, 0)+" swaps to sort it correctly with Omgne Sort. <br><br>Press Enter to continue."],
@@ -758,12 +758,12 @@ for(var j=0; j<4; j++){
         stimulus: ["Final order was 1,2,3,4,5. The initial order was " +p_order+".<br>It took "+list_comp_bool.reduce((partialSum, a) => partialSum + a, 0)+" swaps to sort it correctly with Omgne Sort. <br><br>Press Enter to continue."],
       });
     }
-    // else{
-    //   timeline.push({
-    //     type: jsPsychHtmlKeyboardResponse,
-    //     stimulus: ["Final order was 1,2,3,4,5,6,7,8. The initial order was " +p_order+".<br>It took "+list_comp_bool.reduce((partialSum, a) => partialSum + a, 0)+" swaps to sort it correctly with Omgne Sort. <br><br>Press Enter to continue."],
-    //   });
-    // }
+    else{
+      timeline.push({
+        type: jsPsychHtmlKeyboardResponse,
+        stimulus: ["Final order was 1,2,3,4,5,6,7,8. The initial order was " +p_order+".<br>It took "+list_comp_bool.reduce((partialSum, a) => partialSum + a, 0)+" swaps to sort it correctly with Omgne Sort. <br><br>Press Enter to continue."],
+      });
+    }
   }
 
 };
@@ -1034,10 +1034,10 @@ const Teaching_Intro = {
   type: jsPsychInstructions,
   pages: [
   '<p>Welcome to the teaching phase! <br><br> Press Enter to continue.</p>',
-  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">You will teach by assigning four examples for your student to imitate. Additionally, you need to write a memo to help them learn this method and use it in their tests.<br><br> Press Enter to continue.</p>',
-  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Your bonus is also calculated based on your students’ performance (how they accurately and efficiently use Omgne Sort). <br><br> Press Enter to continue.</p>',
-  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Your students will do 10 tests including five 5-item and five 8-item tests in their test phase. The test problems will be new and random.<br><br> Press Enter to continue.</p>',
-  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">For each example for your student, first select how many item to be sorted, then select how out-of-order the example should be.<br><br> Press Enter to continue.</p>',
+  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">You will select 6 example problems and write teaching notes to help students learn and apply Omgne Sort during their tests.<br><br> Press Enter to continue.</p>',
+  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Students will complete 10 tests: five with 5 items and five with 8 items. All test problems will be new and randomly generated.<br><br> Press Enter to continue.</p>',
+  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Your bonus is calculated based on your students’ performance (how they accurately and efficiently use Omgne Sort). <br><br> Press Enter to continue.</p>',
+  // '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">For each example for your student, first select how many item to be sorted, then select how out-of-order the example should be.<br><br> Press Enter to continue.</p>',
   ],
   show_clickable_nav: false,
   key_forward:"Enter"
@@ -1059,6 +1059,8 @@ const demo_8_4=[[8, 7, 6, 5, 4, 3, 2, 1], [8, 7, 6, 5, 4, 3, 2, 1], [8, 7, 6, 5,
 
 const teaching_choice = {
   type: jsPsychSurveyMultiChoice,
+  //5L,8S,5S,5M,8L,8F
+  preamble:["For each example for your student, first select how many item to be sorted, then select how out-of-order the example should be. <br><br>For your information, the six examples you learned from were selected from: 1) 5-item-least, 2) 8-item-somewhat, 3) 5-item-somewhat, 4) 5-item-most, 5) 8-item-least, 6) 8-item-very."],
   questions: [
     {
       prompt: "<strong>Student Example 1</strong>: how many items needs to be sorted?", 
@@ -1106,30 +1108,30 @@ const teaching_choice = {
       required: true,
       horizontal: true
     },
-    // {
-    //   prompt: "<strong>Student Example 5</strong>: how many items needs to be sorted?", 
-    //   options: ['5-item', '8-item'], 
-    //   required: true,
-    //   horizontal: true
-    // }, 
-    // {
-    //   prompt: "<strong>Student Example 5</strong>: how out-of-order is the initial state?", 
-    //   options: ['least', 'somewhat', 'very','most'], 
-    //   required: true,
-    //   horizontal: true
-    // },
-    // {
-    //   prompt: "<strong>Student Example 6</strong>: how many items needs to be sorted?", 
-    //   options: ['5-item', '8-item'], 
-    //   required: true,
-    //   horizontal: true
-    // }, 
-    // {
-    //   prompt: "<strong>Student Example 6</strong>: how out-of-order is the initial state?", 
-    //   options: ['least', 'somewhat', 'very','most'], 
-    //   required: true,
-    //   horizontal: true
-    // },
+    {
+      prompt: "<strong>Student Example 5</strong>: how many items needs to be sorted?", 
+      options: ['5-item', '8-item'], 
+      required: true,
+      horizontal: true
+    }, 
+    {
+      prompt: "<strong>Student Example 5</strong>: how out-of-order is the initial state?", 
+      options: ['least', 'somewhat', 'very','most'], 
+      required: true,
+      horizontal: true
+    },
+    {
+      prompt: "<strong>Student Example 6</strong>: how many items needs to be sorted?", 
+      options: ['5-item', '8-item'], 
+      required: true,
+      horizontal: true
+    }, 
+    {
+      prompt: "<strong>Student Example 6</strong>: how out-of-order is the initial state?", 
+      options: ['least', 'somewhat', 'very','most'], 
+      required: true,
+      horizontal: true
+    },
   ],
   
 };
@@ -1199,205 +1201,205 @@ const demo_examples = {
 
 
 timeline.push(teaching_choice)
-timeline.push(demo_examples)
+// timeline.push(demo_examples)
 
 
 
 
-for(var kk=0; kk<4; kk++){
-  const jj=kk;
+// for(var kk=0; kk<4; kk++){
+//   const jj=kk;
 
 
 
-  function removeSelection_demo(imglist) {
-    let result = imglist.map(x => x);
-    for (let i = 0; i < imglist.length; i++) {
-      if (imglist[i].includes(" id='selected'")) { //id=selected might be jspsych features
-        result[i] = result[i].replace(" id='selected'", "");
-      }
-    }
-    return result;
-  }
+//   function removeSelection_demo(imglist) {
+//     let result = imglist.map(x => x);
+//     for (let i = 0; i < imglist.length; i++) {
+//       if (imglist[i].includes(" id='selected'")) { //id=selected might be jspsych features
+//         result[i] = result[i].replace(" id='selected'", "");
+//       }
+//     }
+//     return result;
+//   }
   
-  function switchOrNot_demo(imga, imgb,trueOrder) {
-    const order_imga=trueOrder.get(imga);
-    const order_imgb=trueOrder.get(imgb);
-    if (!order_imga || !order_imgb) return false;
+//   function switchOrNot_demo(imga, imgb,trueOrder) {
+//     const order_imga=trueOrder.get(imga);
+//     const order_imgb=trueOrder.get(imgb);
+//     if (!order_imga || !order_imgb) return false;
   
-    if (order_imga > order_imgb ) {//get the value for dictionary
-      var bigger = imga;
-      var smaller = imgb;
-    } else {
-      var bigger = imgb;
-      var smaller = imga;
-    }
-    let clean = removeSelection_demo(displayOrder_demo);
-    return !(clean.indexOf(bigger) > clean.indexOf(smaller));
-  }
+//     if (order_imga > order_imgb ) {//get the value for dictionary
+//       var bigger = imga;
+//       var smaller = imgb;
+//     } else {
+//       var bigger = imgb;
+//       var smaller = imga;
+//     }
+//     let clean = removeSelection_demo(displayOrder_demo);
+//     return !(clean.indexOf(bigger) > clean.indexOf(smaller));
+//   }
 
-  //if select 5-item, change displayOrder from [img1,img2,img3,img4,img5,img6,img7,img8] to [img1,img2,img3,img4,img5]
-  function demo_length(array1,array2) { //array1 is displayOrder ([img1,img2,img3,img4,img5,img6,img7,img8]) array2 is the order selected (such as 5,2,3,4,1)
-    let newArray = [...array1]; // Create a copy to avoid modifying original
-    if (array2.length == 5) {
-      newArray = newArray.slice(0, 5);
-    }
-    newArray.push("finish");
-    return newArray;
-  }
+//   //if select 5-item, change displayOrder from [img1,img2,img3,img4,img5,img6,img7,img8] to [img1,img2,img3,img4,img5]
+//   function demo_length(array1,array2) { //array1 is displayOrder ([img1,img2,img3,img4,img5,img6,img7,img8]) array2 is the order selected (such as 5,2,3,4,1)
+//     let newArray = [...array1]; // Create a copy to avoid modifying original
+//     if (array2.length == 5) {
+//       newArray = newArray.slice(0, 5);
+//     }
+//     newArray.push("finish");
+//     return newArray;
+//   }
 
-  // var demo_img_order=[[img1,demo_all[0][0]],[img2,demo_all[0][1]],[img3,demo_all[0][2]],[img4,demo_all[0][3]],[img5,demo_all[0][4]]];
-  function trueOrderBuilder(array1,array2){ //array1 is displayOrder, array2 is selected order for the question
-    var array=[];
-    for (var ii=0;ii<array1.length;ii++) {
-      array.push([array1[ii],array2[ii]])
-    }
-    return array;
-  }
-
-
-
-  let times_clicked = -1;
-  let times_switched = 0;
-  let switch_attempted = false;
-
-
-  // displayOrder_demo=[img1,img2,img3,img4,img5,img6,img7,img8];
-
-
-  let globalTrueOrder_Q1 = null;
-  let global_order_demo_Q1=null;
-  let global_n_img_disp_Q1=null;
+//   // var demo_img_order=[[img1,demo_all[0][0]],[img2,demo_all[0][1]],[img3,demo_all[0][2]],[img4,demo_all[0][3]],[img5,demo_all[0][4]]];
+//   function trueOrderBuilder(array1,array2){ //array1 is displayOrder, array2 is selected order for the question
+//     var array=[];
+//     for (var ii=0;ii<array1.length;ii++) {
+//       array.push([array1[ii],array2[ii]])
+//     }
+//     return array;
+//   }
 
 
 
-  timeline.push({
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus: function () {
-      // global_order_demo_Q1=demo_all[0];
-      displayOrder_demo=[img1,img2,img3,img4,img5,img6,img7,img8];
-      console.log("aa",demo_all)
-      global_order_demo_Q1=demo_all[jj];
-      console.log("demo",global_order_demo_Q1)
-      global_n_img_disp_Q1=global_order_demo_Q1.length;
-      globalTrueOrder_Q1 = new Map(trueOrderBuilder(removeSelection_demo(displayOrder_demo), global_order_demo_Q1, jj));
-      // console.log("dd",globalTrueOrder_Q1)
-      displayOrder_demo=demo_length(displayOrder_demo,global_order_demo_Q1);
-      console.log("demo2",displayOrder_demo)
-      return "<p> + <p/>";
-    },
-    trial_duration: 500,
-  });
-
-  const display_img_demo = {
-    type: jsPsychHtmlButtonResponse,
-    stimulus: "",
-    choices: function () {
-      return displayOrder_demo;
-    },
-    button_html: '<button class="jspsych-btn">%choice%</button>',
-    prompt: "<p><b>Your student will learn by imitating your comparisons.</b> <br><br>Select any two blocks to compare. If they are in the wrong order, they will swap positions. To undo a selection, select the block again. <br><br>Click finish if you are done sorting.</p>",
-  };
+//   let times_clicked = -1;
+//   let times_switched = 0;
+//   let switch_attempted = false;
 
 
-  const refresh_demo = {
-    timeline: [display_img_demo],
-    conditional_function: function () {
-      times_clicked++;
-      let data1_tb = jsPsych.data.get().last(1).values()[0];//the second selection
-      let data2_tb = jsPsych.data.get().last(2).values()[0]; //the first selection
+//   // displayOrder_demo=[img1,img2,img3,img4,img5,img6,img7,img8];
 
-      if (data1_tb.response !== null && displayOrder_demo[data1_tb.response] !== undefined) {
-        if (displayOrder_demo[data1_tb.response].includes(" id='selected'")) {
-          displayOrder_demo[data1_tb.response] = displayOrder_demo[data1_tb.response].replace(" id='selected'", "");
-          console.log("Remove")
-          switch_attempted = false; //if click an image twice then selection is removed
-        } else {
-          displayOrder_demo[data1_tb.response] = displayOrder_demo[data1_tb.response].replace("<img", "<img id='selected'");
-          switch_attempted = true;
-        }
-        if (times_clicked % 2 === 0 && switch_attempted) {
-          times_switched++;
-        }
-      }
-      let clean = removeSelection_demo(displayOrder_demo);
+
+//   let globalTrueOrder_Q1 = null;
+//   let global_order_demo_Q1=null;
+//   let global_n_img_disp_Q1=null;
+
+
+
+//   timeline.push({
+//     type: jsPsychHtmlKeyboardResponse,
+//     stimulus: function () {
+//       // global_order_demo_Q1=demo_all[0];
+//       displayOrder_demo=[img1,img2,img3,img4,img5,img6,img7,img8];
+//       console.log("aa",demo_all)
+//       global_order_demo_Q1=demo_all[jj];
+//       console.log("demo",global_order_demo_Q1)
+//       global_n_img_disp_Q1=global_order_demo_Q1.length;
+//       globalTrueOrder_Q1 = new Map(trueOrderBuilder(removeSelection_demo(displayOrder_demo), global_order_demo_Q1, jj));
+//       // console.log("dd",globalTrueOrder_Q1)
+//       displayOrder_demo=demo_length(displayOrder_demo,global_order_demo_Q1);
+//       console.log("demo2",displayOrder_demo)
+//       return "<p> + <p/>";
+//     },
+//     trial_duration: 500,
+//   });
+
+//   const display_img_demo = {
+//     type: jsPsychHtmlButtonResponse,
+//     stimulus: "",
+//     choices: function () {
+//       return displayOrder_demo;
+//     },
+//     button_html: '<button class="jspsych-btn">%choice%</button>',
+//     prompt: "<p><b>Your student will learn by imitating your comparisons.</b> <br><br>Select any two blocks to compare. If they are in the wrong order, they will swap positions. To undo a selection, select the block again. <br><br>Click finish if you are done sorting.</p>",
+//   };
+
+
+//   const refresh_demo = {
+//     timeline: [display_img_demo],
+//     conditional_function: function () {
+//       times_clicked++;
+//       let data1_tb = jsPsych.data.get().last(1).values()[0];//the second selection
+//       let data2_tb = jsPsych.data.get().last(2).values()[0]; //the first selection
+
+//       if (data1_tb.response !== null && displayOrder_demo[data1_tb.response] !== undefined) {
+//         if (displayOrder_demo[data1_tb.response].includes(" id='selected'")) {
+//           displayOrder_demo[data1_tb.response] = displayOrder_demo[data1_tb.response].replace(" id='selected'", "");
+//           console.log("Remove")
+//           switch_attempted = false; //if click an image twice then selection is removed
+//         } else {
+//           displayOrder_demo[data1_tb.response] = displayOrder_demo[data1_tb.response].replace("<img", "<img id='selected'");
+//           switch_attempted = true;
+//         }
+//         if (times_clicked % 2 === 0 && switch_attempted) {
+//           times_switched++;
+//         }
+//       }
+//       let clean = removeSelection_demo(displayOrder_demo);
       
-      if (data2_tb.response !== null && times_clicked % 2 === 0 && switchOrNot_demo(clean[data1_tb.response], clean[data2_tb.response],globalTrueOrder_Q1)) {
-        console.log("switch")
-        let temp = displayOrder_demo[data1_tb.response];
-        displayOrder_demo[data1_tb.response] = displayOrder_demo[data2_tb.response];
-        displayOrder_demo[data2_tb.response] = temp;
-      }
-      if (times_clicked % 2 === 0 && times_clicked !== 0) {
-        displayOrder_demo = removeSelection_demo(displayOrder_demo);
-      }
-      if (jsPsych.pluginAPI.compareKeys(String(data1_tb.response), String(global_n_img_disp_Q1))) {//whether you clicked "finished" which is string(6)
-        return false;
-      }
-      return true;
-    },
-  };
+//       if (data2_tb.response !== null && times_clicked % 2 === 0 && switchOrNot_demo(clean[data1_tb.response], clean[data2_tb.response],globalTrueOrder_Q1)) {
+//         console.log("switch")
+//         let temp = displayOrder_demo[data1_tb.response];
+//         displayOrder_demo[data1_tb.response] = displayOrder_demo[data2_tb.response];
+//         displayOrder_demo[data2_tb.response] = temp;
+//       }
+//       if (times_clicked % 2 === 0 && times_clicked !== 0) {
+//         displayOrder_demo = removeSelection_demo(displayOrder_demo);
+//       }
+//       if (jsPsych.pluginAPI.compareKeys(String(data1_tb.response), String(global_n_img_disp_Q1))) {//whether you clicked "finished" which is string(6)
+//         return false;
+//       }
+//       return true;
+//     },
+//   };
 
 
 
 
 
-  const loopNode_demo = {
-    timeline: [refresh_demo],
-    loop_function: function (data) {
+//   const loopNode_demo = {
+//     timeline: [refresh_demo],
+//     loop_function: function (data) {
     
-      var data = jsPsych.data.get().last(1).values()[0];
-      if (jsPsych.pluginAPI.compareKeys(String(data.response), String(global_n_img_disp_Q1))) {
-        return false;
-      } else {
-        return true;
-      }
-    },
-  };
+//       var data = jsPsych.data.get().last(1).values()[0];
+//       if (jsPsych.pluginAPI.compareKeys(String(data.response), String(global_n_img_disp_Q1))) {
+//         return false;
+//       } else {
+//         return true;
+//       }
+//     },
+//   };
 
-  timeline.push(loopNode_demo);
+//   timeline.push(loopNode_demo);
 
-  // the final page shows true order as number overlapped on your order
-  const finish_demo = {
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus: function () {
-      // console.log("finish")
-      displayOrder_demo.pop();
-      displayOrder_demo=removeSelection_demo(displayOrder_demo);
-      let finalDisplay = [];
+//   // the final page shows true order as number overlapped on your order
+//   const finish_demo = {
+//     type: jsPsychHtmlKeyboardResponse,
+//     stimulus: function () {
+//       // console.log("finish")
+//       displayOrder_demo.pop();
+//       displayOrder_demo=removeSelection_demo(displayOrder_demo);
+//       let finalDisplay = [];
       
-      var TrueOrder_o=[];
+//       var TrueOrder_o=[];
 
-      if (!global_n_img_disp_Q1) {
-        console.error('length data not found');
-        return false;
-      }
-      // console.log("ff",globalTrueOrder_Q1)
-      // console.log("gg",displayOrder_demo)
-      for(var i=0; i<global_n_img_disp_Q1; i++){
-        // console.log("Ff",globalTrueOrder_Q1.get(displayOrder_demo[i]))
-        TrueOrder_o.push(globalTrueOrder_Q1.get(displayOrder_demo[i])) // order of final display (if it is 1,2,3,4,5 then the sorting is correct)
-      };
+//       if (!global_n_img_disp_Q1) {
+//         console.error('length data not found');
+//         return false;
+//       }
+//       // console.log("ff",globalTrueOrder_Q1)
+//       // console.log("gg",displayOrder_demo)
+//       for(var i=0; i<global_n_img_disp_Q1; i++){
+//         // console.log("Ff",globalTrueOrder_Q1.get(displayOrder_demo[i]))
+//         TrueOrder_o.push(globalTrueOrder_Q1.get(displayOrder_demo[i])) // order of final display (if it is 1,2,3,4,5 then the sorting is correct)
+//       };
 
-      for (var range_len=[],i=1;i<=global_n_img_disp_Q1;++i) range_len.push(i);
+//       for (var range_len=[],i=1;i<=global_n_img_disp_Q1;++i) range_len.push(i);
 
-      if (JSON.stringify(TrueOrder_o) === JSON.stringify(range_len)){
-        // finalDisplay.push("You sorted correctly with "+ String(times_switched) + " comparisons in total. <br><br> "+ displayOrder_demo.join("")+ "<br><br> Your final order is " + TrueOrder_o + "<br><br><br>Press Enter to continue.")
-        finalDisplay.push("You have finished demonstration for student example "+(jj+1)+ ". Press Enter to continue.")
-      } else {
-        finalDisplay.push("You have finished demonstration for student example "+(jj+1)+ ". Press Enter to continue.")
-      }
-      return finalDisplay;
-    },
-  };
+//       if (JSON.stringify(TrueOrder_o) === JSON.stringify(range_len)){
+//         // finalDisplay.push("You sorted correctly with "+ String(times_switched) + " comparisons in total. <br><br> "+ displayOrder_demo.join("")+ "<br><br> Your final order is " + TrueOrder_o + "<br><br><br>Press Enter to continue.")
+//         finalDisplay.push("You have finished demonstration for student example "+(jj+1)+ ". Press Enter to continue.")
+//       } else {
+//         finalDisplay.push("You have finished demonstration for student example "+(jj+1)+ ". Press Enter to continue.")
+//       }
+//       return finalDisplay;
+//     },
+//   };
 
-  timeline.push(finish_demo);
-}
+//   timeline.push(finish_demo);
+// }
 
 
 var Description = {
   type: jsPsychSurveyText,
   questions: [
-    {prompt: 'Please leave a note for your students. Your students will read your note when they learn the sorting method. A good note will help your students recognize the pattern quickly and accurately and increase their performance.',rows: 10}
+    {prompt: 'Create a note for your students to help them quickly identify Omgne Sort patterns and improve accuracy. Your teaching bonus depends on student performance.',rows: 10}
   ]
 }
 
@@ -1406,7 +1408,7 @@ timeline.push(Description);
 const Completion = {
   type: jsPsychInstructions,
   pages: [
-  '<p>Thank you for your participation! The completion code for this study is C7C8RT8U.</p>'
+  '<p>Thank you for your participation! The completion code for this study is C7C8RT8U. Press Enter to finish this study. </p>'
   ],
   show_clickable_nav: false,
   key_forward:"Enter"
@@ -1415,5 +1417,6 @@ const Completion = {
 timeline.push(Completion)
 
 //https://app.prolific.com/submissions/complete?cc=C7C8RT8U
+
 
 jsPsych.run(timeline);
