@@ -133,6 +133,9 @@ const display_img_intro = {
   },
   button_html: '<button class="jspsych-btn">%choice%</button>',
   prompt: "<p>Select any two blocks to compare. If they are in the wrong order relative to each other, they will swap positions. For example, if you select the fish block and the duck block they will swap positions, because the fish block is actually heavier than the duck block. To undo a selection, select the block again.  <br><br>Click finish if you are done sorting.</p>",
+  data: {
+    phase: 'Intro Trial'   // Add this flag
+  },
 };
 
 
@@ -252,14 +255,9 @@ function shuffle_learning(array) {
 
 const welcome_learning = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: "<p>Welcome to the learning phase! <br><br> You will learn by six examples. The following learning trials will not be used to calculate your performance. <br><br> Press Enter to continue.<p/>",
+  stimulus: "<p>Welcome to the learning phase! <br><br> You will learn by four examples. The following learning trials will not be used to calculate your performance. <br><br> Press Enter to continue.<p/>",
 };
 timeline.push(welcome_learning)
-
-//   timeline.push({
-//   type: jsPsychHtmlKeyboardResponse,
-//   stimulus: "<p>Welcome to the learning phase! <br><br> You will learn by six examples. <br><br> Press Enter to continue.<p/>",
-// });
 
 //examples are 5-least, 5-somewhat, 5-most, 8-least, 8-somewhat, 8-very (5L,5S,5M,8L,8S,8F)
 p1=[2, 1, 3, 4, 5] ; // 5 comparison, 1 swaps
@@ -282,9 +280,28 @@ p5_comp_bool= [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0];
 p6_comp=[[0, 1], [1, 2], [0, 1], [2, 3], [1, 2], [3, 4], [2, 3], [4, 5], [3, 4], [2, 3], [1, 2], [0, 1], [5, 6], [4, 5], [3, 4], [2, 3], [1, 2], [0, 1], [6, 7], [5, 6], [4, 5], [3, 4], [2, 3]] ;
 p6_comp_bool=[1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0];
 
-const p_order_all=[p1,p5,p2,p3,p4,p6];
-const p_comp_all=[p1_comp,p5_comp,p2_comp,p3_comp,p4_comp,p6_comp];
-const p_comp_bool_all=[p1_comp_bool,p5_comp_bool,p2_comp_bool,p3_comp_bool,p4_comp_bool,p6_comp_bool];
+// // for six example version
+// const p_order_all=[p1,p5,p2,p3,p4,p6]; // the examples are ordered this way (5L,8S,5S,5M,8L,8F) so the last four examples cover all four levels, it is p5-l
+// const p_comp_all=[p1_comp,p5_comp,p2_comp,p3_comp,p4_comp,p6_comp]; // the examples are ordered this way (5L,8S,5S,5M,8L,8F) so the last four examples cover all four levels, it is p5-l
+// const p_comp_bool_all=[p1_comp_bool,p5_comp_bool,p2_comp_bool,p3_comp_bool,p4_comp_bool,p6_comp_bool]; // the examples are ordered this way (5L,8S,5S,5M,8L,8F) so the last four examples cover all four levels, it is p5-l
+
+
+// const img_5=[img1,img3,img5,img7,img9];
+// const img_8=[img1,img2,img3,img4,img5,img6,img7,img8];
+// const eg_5_L=shuffle_learning(img_5)
+// const eg_5_S=shuffle_learning(img_5)
+// const eg_5_M=shuffle_learning(img_5)
+// const eg_8_L=shuffle_learning(img_8)
+// const eg_8_S=shuffle_learning(img_8)
+// const eg_8_F=shuffle_learning(img_8)
+// let img_t_all=[eg_5_L,eg_8_S,eg_5_S,eg_5_M,eg_8_L,eg_8_F]; // the examples are ordered this way (5L,8S,5S,5M,8L,8F) so the last four examples cover all four levels, it is p5-l
+// let img_s_all = JSON.parse(JSON.stringify(img_t_all))
+
+// for four example version
+const p_order_all=[p1,p3,p5,p6]; //the last three examples ask for out of orderness
+const p_comp_all=[p1_comp,p3_comp,p5_comp,p6_comp];
+const p_comp_bool_all=[p1_comp_bool,p3_comp_bool,p5_comp_bool,p6_comp_bool];
+
 
 const img_5=[img1,img3,img5,img7,img9];
 const img_8=[img1,img2,img3,img4,img5,img6,img7,img8];
@@ -293,16 +310,15 @@ const eg_5_S=shuffle_learning(img_5)
 const eg_5_M=shuffle_learning(img_5)
 const eg_8_L=shuffle_learning(img_8)
 const eg_8_S=shuffle_learning(img_8)
-const eg_8_F=shuffle_learning(img_8)
-let img_t_all=[eg_5_L,eg_8_S,eg_5_S,eg_5_M,eg_8_L,eg_8_F]; // the examples are ordered this way (5L,8S,5S,5M,8L,8F) so the last four examples cover all four levels, it is p5-l
+const eg_8_V=shuffle_learning(img_8) //V IS VERY OUT OF ORDER
+let img_t_all=[eg_5_L,eg_5_M,eg_8_S,eg_8_V]; // the examples are ordered this way (5L,8S,5S,5M,8L,8F) so the last four examples cover all four levels, it is p5-l
 let img_s_all = JSON.parse(JSON.stringify(img_t_all))
 
 
 
-
 ///////////////////////////////Learning Trials//////////////////////
-for(var j=0; j<6; j++){
-  if (j==2){
+for(var j=0; j<4; j++){
+  if (j==1){
     const Out_of_order = {
     type: jsPsychInstructions,
     pages: [
@@ -696,11 +712,11 @@ for(var j=0; j<6; j++){
 
         prompt: "<div style='font-size: 20px;'>Given five blocks, the least out-of-order sequence requires 1 swap and the most out-of-order sequence requires 10 swaps.<br><br>The one you just finished requires " + list_comp_bool.reduce((partialSum, a) => partialSum + a, 0) + " swaps, how out-of-order do you think it is?<br><br></div>", 
         labels: ['<div style="font-size: 20px;">least</div>',
-          ' ',
+          // ' ',
           '<div style="font-size: 20px;">somewhat</div>',
-          ' ',
+          // ' ',
           '<div style="font-size: 20px;">very</div>',
-          ' ',
+          // ' ',
           '<div style="font-size: 20px;">most</div>'], 
         required: true,
       } ],
@@ -712,17 +728,17 @@ for(var j=0; j<6; j++){
       {
         prompt: "<div style='font-size: 20px;'>Given eight blocks, the least out-of-order sequence requires 1 swap and the most out-of-order sequence requires 28 swaps. <br><br>The one you just finished requires "+ list_comp_bool.reduce((partialSum, a) => partialSum + a, 0) +" swaps, how out-of-order do you think it is?<br><br></div>", 
         labels: ['<div style="font-size: 20px;">least</div>',
-            ' ',
+            // ' ',
             '<div style="font-size: 20px;">somewhat</div>',
-            ' ',
+            // ' ',
             '<div style="font-size: 20px;">very</div>',
-            ' ',
+            // ' ',
             '<div style="font-size: 20px;">most</div>'], 
         required: true,
       }, ],
     };
-  if (j>1){
-    if (j<4){
+  if (j>0){
+    if (j<2){
       timeline.push({
         type: jsPsychHtmlKeyboardResponse,
         stimulus: ["Final order was 1,2,3,4,5. The initial order was " +p_order+".<br>It took "+list_comp_bool.reduce((partialSum, a) => partialSum + a, 0)+" swaps to sort it correctly with Omgne Sort. <br><br>Press Enter to continue."],
@@ -741,12 +757,13 @@ for(var j=0; j<6; j++){
         type: jsPsychHtmlKeyboardResponse,
         stimulus: ["Final order was 1,2,3,4,5. The initial order was " +p_order+".<br>It took "+list_comp_bool.reduce((partialSum, a) => partialSum + a, 0)+" swaps to sort it correctly with Omgne Sort. <br><br>Press Enter to continue."],
       });
-    }else{
-      timeline.push({
-        type: jsPsychHtmlKeyboardResponse,
-        stimulus: ["Final order was 1,2,3,4,5,6,7,8. The initial order was " +p_order+".<br>It took "+list_comp_bool.reduce((partialSum, a) => partialSum + a, 0)+" swaps to sort it correctly with Omgne Sort. <br><br>Press Enter to continue."],
-      });
     }
+    // else{
+    //   timeline.push({
+    //     type: jsPsychHtmlKeyboardResponse,
+    //     stimulus: ["Final order was 1,2,3,4,5,6,7,8. The initial order was " +p_order+".<br>It took "+list_comp_bool.reduce((partialSum, a) => partialSum + a, 0)+" swaps to sort it correctly with Omgne Sort. <br><br>Press Enter to continue."],
+    //   });
+    // }
   }
 
 };
@@ -1017,8 +1034,9 @@ const Teaching_Intro = {
   type: jsPsychInstructions,
   pages: [
   '<p>Welcome to the teaching phase! <br><br> Press Enter to continue.</p>',
-  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">You will teach by assigning six examples for your student to imitate. Additionally, you need to write a memo to help them learn this method and use it in their tests.<br><br> Press Enter to continue.</p>',
-  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px"> Note:<br><br>1) Your teaching bonus is calculated based on your students’ performance (<strong>how they accurately and efficiently use Omgne Sort</strong>). <br><br>2) In the test phase, your students will do 10 tests including four 5-item and five 8-item tests. <strong>The test problems will be new and random</strong>.<br><br> Press Enter to continue.</p>',
+  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">You will teach by assigning four examples for your student to imitate. Additionally, you need to write a memo to help them learn this method and use it in their tests.<br><br> Press Enter to continue.</p>',
+  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Your bonus is also calculated based on your students’ performance (how they accurately and efficiently use Omgne Sort). <br><br> Press Enter to continue.</p>',
+  '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Your students will do 10 tests including five 5-item and five 8-item tests in their test phase. The test problems will be new and random.<br><br> Press Enter to continue.</p>',
   '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">For each example for your student, first select how many item to be sorted, then select how out-of-order the example should be.<br><br> Press Enter to continue.</p>',
   ],
   show_clickable_nav: false,
@@ -1088,30 +1106,30 @@ const teaching_choice = {
       required: true,
       horizontal: true
     },
-    {
-      prompt: "<strong>Student Example 5</strong>: how many items needs to be sorted?", 
-      options: ['5-item', '8-item'], 
-      required: true,
-      horizontal: true
-    }, 
-    {
-      prompt: "<strong>Student Example 5</strong>: how out-of-order is the initial state?", 
-      options: ['least', 'somewhat', 'very','most'], 
-      required: true,
-      horizontal: true
-    },
-    {
-      prompt: "<strong>Student Example 6</strong>: how many items needs to be sorted?", 
-      options: ['5-item', '8-item'], 
-      required: true,
-      horizontal: true
-    }, 
-    {
-      prompt: "<strong>Student Example 6</strong>: how out-of-order is the initial state?", 
-      options: ['least', 'somewhat', 'very','most'], 
-      required: true,
-      horizontal: true
-    },
+    // {
+    //   prompt: "<strong>Student Example 5</strong>: how many items needs to be sorted?", 
+    //   options: ['5-item', '8-item'], 
+    //   required: true,
+    //   horizontal: true
+    // }, 
+    // {
+    //   prompt: "<strong>Student Example 5</strong>: how out-of-order is the initial state?", 
+    //   options: ['least', 'somewhat', 'very','most'], 
+    //   required: true,
+    //   horizontal: true
+    // },
+    // {
+    //   prompt: "<strong>Student Example 6</strong>: how many items needs to be sorted?", 
+    //   options: ['5-item', '8-item'], 
+    //   required: true,
+    //   horizontal: true
+    // }, 
+    // {
+    //   prompt: "<strong>Student Example 6</strong>: how out-of-order is the initial state?", 
+    //   options: ['least', 'somewhat', 'very','most'], 
+    //   required: true,
+    //   horizontal: true
+    // },
   ],
   
 };
@@ -1132,11 +1150,12 @@ const demo_examples = {
                       lastTrial.Q2, lastTrial.Q3, 
                       lastTrial.Q4, lastTrial.Q5, 
                       lastTrial.Q6, lastTrial.Q7,
-                      lastTrial.Q8, lastTrial.Q9,
-                      lastTrial.Q10, lastTrial.Q11];
+                      // lastTrial.Q8, lastTrial.Q9,
+                      // lastTrial.Q10, lastTrial.Q11
+                    ];
       var demo_all = [];
       // Your sequence processing code
-      for (var j=0; j<12; j+=2) {
+      for (var j=0; j<8; j+=2) {
         var a=answer_demo[j];
         var b=answer_demo[j+1];
         // console.log(a)
@@ -1174,7 +1193,7 @@ const demo_examples = {
         }
       }
       window.demo_all = demo_all;
-      console.log("bbbb",demo_all)
+      // console.log("bbbb",demo_all)
     }
 };
 
@@ -1185,7 +1204,7 @@ timeline.push(demo_examples)
 
 
 
-for(var kk=0; kk<6; kk++){
+for(var kk=0; kk<4; kk++){
   const jj=kk;
 
 
@@ -1378,10 +1397,23 @@ for(var kk=0; kk<6; kk++){
 var Description = {
   type: jsPsychSurveyText,
   questions: [
-    {prompt: 'Please leave a note for your student to use Omgne Sort accurately and efficiently. Your student will read your note when they learn the sorting method.',rows: 10}
+    {prompt: 'Please leave a note for your students. Your students will read your note when they learn the sorting method. A good note will help your students recognize the pattern quickly and accurately and increase their performance.',rows: 10}
   ]
 }
 
 timeline.push(Description);
+
+const Completion = {
+  type: jsPsychInstructions,
+  pages: [
+  '<p>Thank you for your participation! The completion code for this study is C7C8RT8U.</p>'
+  ],
+  show_clickable_nav: false,
+  key_forward:"Enter"
+}
+
+timeline.push(Completion)
+
+//https://app.prolific.com/submissions/complete?cc=C7C8RT8U
 
 jsPsych.run(timeline);
