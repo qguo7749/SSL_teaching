@@ -160,10 +160,6 @@ const refresh_intro = {
         switch_attempted = true;
       }
       if (times_clicked % 2 === 0 && switch_attempted) {
-        // if (display_intro[data1_ib].includes("id='selected'")) {
-        //   display_intro[data1_ib] = display_intro[data1_ib].replace(" id='selected'", " ");
-        // }
-        // display_intro[data1_ib] = display_intro[data1_ib].replace("<img ", "<img id='swapped'");
         times_switched++;
       }
     }
@@ -176,10 +172,6 @@ const refresh_intro = {
     }
     if (times_clicked % 2 === 0 && times_clicked !== 0) {
      display_intro = removeSelection_intro(display_intro);
-    //  if (times_clicked % 2 === 0 && switch_attempted) {
-    //   display_intro[data1_ib] = display_intro[data1_ib].replace("<img ", "<img id='swapped'");
-    //   display_intro[data2_ib] = display_intro[data2_ib].replace("<img ", "<img id='swapped'");
-    //  }
     }
     if (jsPsych.pluginAPI.compareKeys(String(data1_ib), String(n_img_disp))) {//whether you clicked "finished" which is string(6)
       return false;
@@ -318,20 +310,20 @@ let img_s_all = JSON.parse(JSON.stringify(img_t_all))
 
 ///////////////////////////////Learning Trials//////////////////////
 for(var j=0; j<6; j++){
-  if (j==2){
-    const Out_of_order = {
-    type: jsPsychInstructions,
-    pages: [
-    '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Given a certain number of gold blocks, the number of swaps varies based on their initial arrangement. <br><br>The "least out-of-order" condition, such as [2,1,3,4,5], needs <b>the least number of swaps with Omgne Sort</b> (1 swap in this case). <br><br>The "most out-of-order" condition, like [5,4,3,2,1], requires <b> the most swaps with Omgne Sort</b> (10 swaps in this case). </p>', 
-    '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px"><br><br>Between the <b>least</b> and <b>most</b> out-of-order there are two additional levels---<b>somewhat</b> out-of-order and <b>very</b> out-of-order. </p>'+img_outoforder,
-    '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">If an 5-item example requires 7 swaps to sort correctly with Omgne Sort, how out-of-order do you think it is?</p>'+img_outoforder+'<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Click "Next" to see the answer.</p>',
-    '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">If an 5-item example requires 7 swaps to sort correctly with Omgne Sort, how out-of-order do you think it is?</p>'+img_outoforder+'<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">The answer is <b>"very out-of-order"</b>. <br><br>Click "Previous" to review instructions. Click "Next" to the learning phase.</p>'
-    ],
-    show_clickable_nav: true,
-  }
+  // if (j==2){
+  //   const Out_of_order = {
+  //   type: jsPsychInstructions,
+  //   pages: [
+  //   '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Given a certain number of gold blocks, the number of swaps varies based on their initial arrangement. <br><br>The "least out-of-order" condition, such as [2,1,3,4,5], needs <b>the least number of swaps with Omgne Sort</b> (1 swap in this case). <br><br>The "most out-of-order" condition, like [5,4,3,2,1], requires <b> the most swaps with Omgne Sort</b> (10 swaps in this case). </p>', 
+  //   '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px"><br><br>Between the <b>least</b> and <b>most</b> out-of-order there are two additional levels---<b>somewhat</b> out-of-order and <b>very</b> out-of-order. </p>'+img_outoforder,
+  //   '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">If an 5-item example requires 7 swaps to sort correctly with Omgne Sort, how out-of-order do you think it is?</p>'+img_outoforder+'<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">Click "Next" to see the answer.</p>',
+  //   '<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">If an 5-item example requires 7 swaps to sort correctly with Omgne Sort, how out-of-order do you think it is?</p>'+img_outoforder+'<p style="font-size:24px; text-align:left; line-height: 1.2;margin-left: 150px;margin-right: 150px">The answer is <b>"very out-of-order"</b>. <br><br>Click "Previous" to review instructions. Click "Next" to the learning phase.</p>'
+  //   ],
+  //   show_clickable_nav: true,
+  // }
   
-  timeline.push(Out_of_order)
-  }
+  // timeline.push(Out_of_order)
+  // }
 
   const intro_example = {
     type: jsPsychHtmlKeyboardResponse,
@@ -421,25 +413,6 @@ for(var j=0; j<6; j++){
       },
     }
 
-    
-
-    // const imi_comp2_demo_only = {
-    //   type: jsPsychHtmlKeyboardResponse,
-    //   stimulus: function(){
-    //     img_t_demo_only_join = img_t_demo_only.join(" ");
-    //     return img_t_demo_only_join;
-    //   },
-    //   // choices: function () {
-    //   //   console.log(img_s)
-    //   //   return img_s;
-    //   // },
-    //   choices: "NO_KEYS",
-    //   margin_vertical: '30px',
-    //   // button_html: '<button class="jspsych-btn">%choice%</button>',
-    //   prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to identify any patterns in the comparisons made by Omgne Sort.</strong></p>",
-    //   data: { phase: 'Learning example '+which_exam },
-    // }
-
 
     function removeSelection_learn(imglist) {
       // let result = imglist.map(x => x);
@@ -491,7 +464,7 @@ for(var j=0; j<6; j++){
   //Imitation
   timeline.push({
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: ["Did you notice any patterns? <br><br>Press Enter to watch that example again and follow the steps of Omgne Sort."],
+    stimulus: ["Did you notice any patterns? Now it's your turn to try Omgne Sort! <br><br>Select any two blocks to compare. If your selection matches the steps of Omgne Sort, the blocks will show a highlighted border. If the blocks swap places, their border color will change. Press Enter to continue."],
   });
 
   for(var i=0; i<list_comp_bool.length; i++){
@@ -502,80 +475,20 @@ for(var j=0; j<6; j++){
     const which_exam=j;
 
 
-    const imi_hl1={
-      type: jsPsychHtmlButtonResponse,
-      stimulus: function() {
-        img_t[index_t_1]=img_t[index_t_1].replace("<img", "<img id='selected'");
-        let img_t_join=img_t.join(" ");
-        return img_t_join;
-      },
-      choices: img_s,
-      margin_vertical:'30px',
-      button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to identify any patterns in the comparisons made by Omgne Sort.</strong></p>",
-      trial_duration:400,
-      data: { phase: 'Learning example '+which_exam },
-    }
-
-    const imi_hl2={
-      type: jsPsychHtmlButtonResponse,
-      stimulus: function() {
-        img_t[index_t_2]=img_t[index_t_2].replace("<img", "<img id='selected'");
-        let img_t_join=img_t.join(" ");
-        return img_t_join;
-      },
-      choices: img_s,
-      margin_vertical:'30px',
-      button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to identify any patterns in the comparisons made by Omgne Sort.</strong></p>",
-      trial_duration:300,
-      data: { phase: 'Learning example '+which_exam },
-    }
-
-
-
-    const imi_comp1={
-      type: jsPsychHtmlButtonResponse,
-      stimulus: function(){
-        if (imit_swap==1){
-          img_t[index_t_1]=img_t[index_t_1].replace("<img id='selected'", "<img id='swapped'");
-          img_t[index_t_2]=img_t[index_t_2].replace("<img id='selected'", "<img id='swapped'");
-          let temp=img_t[index_t_1]
-          img_t[index_t_1]=img_t[index_t_2];
-          img_t[index_t_2]=temp;
-          img_t_join=img_t.join(" ");
-
-        }else{
-          img_t[index_t_1]=img_t[index_t_1];
-          img_t[index_t_2]=img_t[index_t_2];
-          img_t_join=img_t.join(" ");
-        }
-
-        return img_t_join;
-      },
-      choices: img_s,
-      margin_vertical:'30px',
-      button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to identify any patterns in the comparisons made by Omgne Sort.</strong></p>",
-      trial_duration:300,
-      data: { phase: 'Learning example '+which_exam },
-    }
-
-    
-
     const imi_comp2 = {
       type: jsPsychHtmlButtonResponse,
-      stimulus: function(){
-        img_t_join = img_t.join(" ");
-        return img_t_join;
-      },
+      stimulus:" ",
+      // stimulus: function(){
+      //   img_t_join = img_t.join(" ");
+      //   return img_t_join;
+      // },
       choices: function () {
         console.log(img_s)
         return img_s;
       },
       margin_vertical: '30px',
       button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to identify any patterns in the comparisons made by Omgne Sort.</strong></p>",
+      prompt: "<p>Select any two blocks to compare. If your selection matches the steps of Omgne Sort, the blocks will show a highlighted border. <strong>Try to identify any patterns in the comparisons made by Omgne Sort.</strong></p>",
       data: { phase: 'Learning example '+which_exam },
     }
 
@@ -625,78 +538,127 @@ for(var j=0; j<6; j++){
       }
     };
 
+
     const loopNode = {
       timeline: [refresh],
       loop_function: function (data) {
-        // Get last two trials using values() instead of trials()
+        // Get the last response
         const allTrials = jsPsych.data.get().values();
         const lastTrialIndex = allTrials.length - 1;
-        const secondLastTrialIndex = lastTrialIndex - 1;
         
-        if (lastTrialIndex < 1) return true;
+        if (lastTrialIndex < 0) return true;
         
         const lastResponse = allTrials[lastTrialIndex].response;
-        const secondLastResponse = allTrials[secondLastTrialIndex].response;
-
-        if (
-          (lastResponse == index_t_2 || lastResponse == index_t_1 )&&!img_s[lastResponse].includes("selected")
-        ) {
+    
+        // Highlight the current response if it's a target item
+        if ((lastResponse === index_t_1 || lastResponse === index_t_2) && 
+            !img_s[lastResponse].includes("selected")) {
           img_s[lastResponse] = img_s[lastResponse].replace("<img ", "<img id='selected'");
-          }
-
+        }
+    
+        // Check if both target items are currently highlighted
+        const item1Selected = img_s[index_t_1].includes("selected");
+        const item2Selected = img_s[index_t_2].includes("selected");
         
-        if ((lastResponse == index_t_2 && secondLastResponse == index_t_1) ||
-            (lastResponse == index_t_1 && secondLastResponse == index_t_2)) {
-
-          
+        // If both items are selected, proceed to the next step
+        if (item1Selected && item2Selected) {
           if (imit_swap === 1) {
-            let temp = img_s[lastResponse];
-            img_s[lastResponse] = img_s[secondLastResponse];
-            img_s[secondLastResponse] = temp;
-            setTimeout(() => {
-            for (let ii=0;ii<img_s.length;ii++){
-              img_s[ii] = img_s[ii].replace("id='selected'", " ");
-            }
-          }, 200); 
-          }else{
-            setTimeout(() => {
-              for (let ii=0;ii<img_s.length;ii++){
-                img_s[ii] = img_s[ii].replace("id='selected'", " ");
-              }
-            }, 200); 
+            img_s[index_t_1] = img_s[index_t_1].replace("id='selected'", "id='swapped'");
+            img_s[index_t_2] = img_s[index_t_2].replace("id='selected'", "id='swapped'");
+            // Swap the items in img_s
+            let temp = img_s[index_t_1];
+            img_s[index_t_1] = img_s[index_t_2];
+            img_s[index_t_2] = temp;
           }
-          return false;
+          
+          // Clear highlights
+          setTimeout(() => {
+            for (let ii = 0; ii < img_s.length; ii++) {
+              img_s[ii] = img_s[ii].replace("id='selected'", " ");
+              img_s[ii] = img_s[ii].replace("id='swapped'", " ");
+            }
+          }, 400);
+          
+          return false; // Exit the loop
         }
         
-        return true;
+        return true; // Continue the loop
       }
     };
+
+    // const loopNode = {
+    //   timeline: [refresh],
+    //   loop_function: function (data) {
+    //     // Get last two trials using values() instead of trials()
+    //     const allTrials = jsPsych.data.get().values();
+    //     const lastTrialIndex = allTrials.length - 1;
+    //     const secondLastTrialIndex = lastTrialIndex - 1;
+        
+    //     if (lastTrialIndex < 1) return true;
+        
+    //     const lastResponse = allTrials[lastTrialIndex].response;
+    //     const secondLastResponse = allTrials[secondLastTrialIndex].response;
+
+    //     if (
+    //       (lastResponse == index_t_2 || lastResponse == index_t_1 )&&!img_s[lastResponse].includes("selected")
+    //     ) {
+    //       img_s[lastResponse] = img_s[lastResponse].replace("<img ", "<img id='selected'");
+    //       }
+
+        
+    //     if ((lastResponse == index_t_2 && secondLastResponse == index_t_1) ||
+    //         (lastResponse == index_t_1 && secondLastResponse == index_t_2)) {
+
+          
+    //       if (imit_swap === 1) {
+    //         let temp = img_s[lastResponse];
+    //         img_s[lastResponse] = img_s[secondLastResponse];
+    //         img_s[secondLastResponse] = temp;
+    //         setTimeout(() => {
+    //         for (let ii=0;ii<img_s.length;ii++){
+    //           img_s[ii] = img_s[ii].replace("id='selected'", " ");
+    //         }
+    //       }, 200); 
+    //       }else{
+    //         setTimeout(() => {
+    //           for (let ii=0;ii<img_s.length;ii++){
+    //             img_s[ii] = img_s[ii].replace("id='selected'", " ");
+    //           }
+    //         }, 200); 
+    //       }
+    //       return false;
+    //     }
+        
+    //     return true;
+    //   }
+    // };
 
 
     const imi_hl0={
       type: jsPsychHtmlButtonResponse,
-      stimulus: function() {
-        // console.log(img_t) 
-        img_t[index_t_1]=img_t[index_t_1].replace("id='selected'", "");
-        img_t[index_t_2]=img_t[index_t_2].replace("id='selected'", "");
-        img_t[index_t_1]=img_t[index_t_1].replace("id='swapped'", "");
-        img_t[index_t_2]=img_t[index_t_2].replace("id='swapped'", "");
-        const img_t_join=img_t.join(" ");
+      stimulus:" ",
+      // stimulus: function() {
+      //   // console.log(img_t) 
+      //   img_t[index_t_1]=img_t[index_t_1].replace("id='selected'", "");
+      //   img_t[index_t_2]=img_t[index_t_2].replace("id='selected'", "");
+      //   img_t[index_t_1]=img_t[index_t_1].replace("id='swapped'", "");
+      //   img_t[index_t_2]=img_t[index_t_2].replace("id='swapped'", "");
+      //   const img_t_join=img_t.join(" ");
         
-        return img_t_join;
-      },
+      //   return img_t_join;
+      // },
       choices: img_s,
       margin_vertical:'30px',
       button_html: '<button class="jspsych-btn">%choice%</button>',
-      prompt: "<p>Please follow the pairs being compared at the top row. <strong>Try to identify any patterns in the comparisons made by Omgne Sort.</strong></p>",
-      trial_duration:200,
+      prompt: "<p>Select any two blocks to compare. If your selection matches the steps of Omgne Sort, the blocks will show a highlighted border. <strong>Try to identify any patterns in the comparisons made by Omgne Sort.</strong></p>",
+      trial_duration:400,
       data: { phase: 'Learning example '+which_exam },
     }
 
 
-    timeline.push(imi_hl1)
-    timeline.push(imi_hl2)
-    timeline.push(imi_comp1)
+    // timeline.push(imi_hl1)
+    // timeline.push(imi_hl2)
+    // timeline.push(imi_comp1)
     timeline.push(loopNode)
 
     timeline.push(imi_hl0)
@@ -743,13 +705,13 @@ for(var j=0; j<6; j++){
         type: jsPsychHtmlKeyboardResponse,
         stimulus: ["Final order was 1,2,3,4,5. The initial order was " +p_order+".<br>It took "+list_comp_bool.reduce((partialSum, a) => partialSum + a, 0)+" swaps to sort it correctly with Omgne Sort. <br><br>Press Enter to continue."],
       });
-      timeline.push(outoforder5);
+      // timeline.push(outoforder5);
     }else{
       timeline.push({
         type: jsPsychHtmlKeyboardResponse,
         stimulus: ["Final order was 1,2,3,4,5,6,7,8. The initial order was " +p_order+".<br>It took "+list_comp_bool.reduce((partialSum, a) => partialSum + a, 0)+" swaps to sort it correctly with Omgne Sort. <br><br>Press Enter to continue."],
       });
-      timeline.push(outoforder8);
+      // timeline.push(outoforder8);
     }
   }else{
     if (j==0){
